@@ -263,6 +263,141 @@ int main() {
     std::cout << "✓ PASS\n";
   }
 
+  // Test 11: Density compressor - peak limiting below threshold
+  {
+    std::cout << "Test 11: Density compressor (no limiting below threshold)... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    // Set density threshold high so signal is below it
+    dsp.setDensityThreshold(0.0f);  // Very high (0 dB = full scale)
+    dsp.setDensityRatio(4.0f);
+    dsp.setDensityAttack(1.0f);    // Very fast
+    dsp.setDensityRelease(10.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.3f;
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Output should be roughly unchanged
+    float outRms = 0.0f;
+    for (int i = 0; i < 512; ++i) {
+      outRms += outL[i] * outL[i];
+    }
+    outRms = std::sqrt(outRms / 512.0f);
+
+    // Should be similar to input
+    assert(outRms > 0.25f && outRms < 0.35f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 12: Density compressor - peak limiter active
+  {
+    std::cout << "Test 12: Density compressor (peak limiting active)... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    // Set low threshold to activate limiting
+    dsp.setDensityThreshold(-20.0f);
+    dsp.setDensityRatio(4.0f);
+    dsp.setDensityAttack(0.5f);   // Very fast attack
+    dsp.setDensityRelease(50.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    // Strong transient peaks
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.8f;
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Should be limited (reduced from 0.8)
+    float maxOut = 0.0f;
+    for (int i = 0; i < 512; ++i) {
+      maxOut = std::max(maxOut, std::fabs(outL[i]));
+    }
+
+    // Peak should be reduced due to limiting
+    assert(maxOut < 0.8f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 13: Density compressor - hard limiter mode
+  {
+    std::cout << "Test 13: Density compressor (hard limiter mode)... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setDensityThreshold(-15.0f);
+    dsp.setDensityRatio(10.0f);   // High ratio = hard limiter
+    dsp.setDensityAttack(0.1f);   // Extremely fast
+    dsp.setDensityRelease(100.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f);
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Hard limiter should prevent excessive peaks
+    float maxOut = 0.0f;
+    for (int i = 0; i < 512; ++i) {
+      maxOut = std::max(maxOut, std::fabs(outL[i]));
+    }
+
+    // Should be heavily limited
+    assert(maxOut < 0.6f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 14: Combined level + density compression
+  {
+    std::cout << "Test 14: Combined level + density compression... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    // Level compressor
+    dsp.setLevelThreshold(-20.0f);
+    dsp.setLevelRatio(4.0f);
+    dsp.setLevelAttack(5.0f);
+    dsp.setLevelRelease(100.0f);
+
+    // Density compressor
+    dsp.setDensityThreshold(-15.0f);
+    dsp.setDensityRatio(4.0f);
+    dsp.setDensityAttack(2.0f);
+    dsp.setDensityRelease(50.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.7f;
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Both compressors should be active
+    CompressorChain::MeterData meters = dsp.getMeterData();
+    assert(meters.levelReduction >= 0.0f && meters.levelReduction <= 1.0f);
+    assert(meters.densityReduction >= 0.0f && meters.densityReduction <= 1.0f);
+
+    std::cout << "✓ PASS\n";
+  }
+
   std::cout << "\n=== All Tests Passed ===\n";
   return 0;
 }

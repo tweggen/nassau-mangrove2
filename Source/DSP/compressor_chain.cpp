@@ -167,6 +167,10 @@ void CompressorChain::process(const float* inL, const float* inR,
   bool levelTubeGain = _paramLevelTubeGain.load(std::memory_order_relaxed) > 0.5f;
   bool levelFeedback = _paramLevelFeedback.load(std::memory_order_relaxed) > 0.5f;
 
+  // Density compressor parameters
+  float densityThreshold = _paramDensityThreshold.load(std::memory_order_relaxed);
+  float densityRatio = _paramDensityRatio.load(std::memory_order_relaxed);
+
   // Metering accumulators
   double inputGainAccumulator = 0.0;
 
@@ -283,8 +287,60 @@ void CompressorChain::process(const float* inL, const float* inR,
     sampleL *= static_cast<float>(_levelAmplification);
     sampleR *= static_cast<float>(_levelAmplification);
 
-    // ===== DENSITY COMPRESSOR (PLACEHOLDER) =====
-    // TODO: Task 1.6 - Implement density compressor
+    // ===== DENSITY COMPRESSOR (FAST TRANSIENT LIMITER) =====
+    // Peak detection: measure instantaneous peak (not RMS)
+    double peakDetection = std::max(std::fabs(sampleL), std::fabs(sampleR));
+    _densityDetection = peakDetection;
+
+    // Density compressor uses simple feedforward (no sidechain filter)
+    _densitySideChain = peakDetection;
+
+    // Envelope follower for peak limiter (very fast)
+    // Convert to dB
+    double densityDb = 20.0 * std::log10(std::max(_densitySideChain, 1e-10));
+
+    // Fast envelope following (attack and release both use attack coefficient)
+    // This makes the limiter respond very quickly to peaks
+    _densityEnvFollow += (densityDb - _densityEnvFollow) * _densityAttackCoeff;
+
+    // ===== DENSITY COMPRESSOR CURVE CALCULATION =====
+    // Simple limiter: hard ceiling at threshold
+    double densityTargetAmplification = 1.0;
+    double densityEnvDb = _densityEnvFollow;
+
+    if (densityEnvDb > densityThreshold) {
+      double excessDb = densityEnvDb - densityThreshold;
+
+      if (densityRatio >= 9.999) {
+        // Limiter mode: hard ceiling (infinite ratio, soft knee via atan)
+        double limitDb = std::atan(excessDb * 0.5) * 1.0;
+        densityTargetAmplification = std::pow(10.0, (densityThreshold + limitDb - densityEnvDb) / 20.0);
+      } else {
+        // Soft limiting with finite ratio
+        double reductionDb = excessDb * (1.0 - 1.0 / densityRatio);
+        densityTargetAmplification = std::pow(10.0, -reductionDb / 20.0);
+      }
+    }
+
+    // ===== DENSITY COMPRESSOR RAMPING =====
+    // Fast attack: use attack coefficient for both attack and release
+    // This makes peaks respond very quickly
+    _densityAmplification += (densityTargetAmplification - _densityAmplification) * _densityAttackCoeff;
+
+    // But use release coefficient for the downramp to be less aggressive
+    if (densityTargetAmplification > _densityAmplification) {
+      _densityAmplification += (densityTargetAmplification - _densityAmplification) * _densityAttackCoeff;
+    } else {
+      _densityAmplification += (densityTargetAmplification - _densityAmplification) * _densityReleaseCoeff;
+    }
+
+    // Clamp to reasonable range
+    _densityAmplification = std::max(0.001, std::min(10.0, _densityAmplification));
+
+    // ===== APPLY DENSITY COMPRESSION GAIN =====
+    // Density limiter is applied after level compressor
+    sampleL *= static_cast<float>(_densityAmplification);
+    sampleR *= static_cast<float>(_densityAmplification);
 
     // Write processed output
     outL[i] = sampleL;
@@ -299,12 +355,13 @@ void CompressorChain::process(const float* inL, const float* inR,
   float levelReduction = static_cast<float>(_levelAmplification);
   _meterLevelReduction.store(levelReduction, std::memory_order_relaxed);
 
-  // Density reduction placeholder (will be set in Task 1.6)
-  _meterDensityReduction.store(1.0f, std::memory_order_relaxed);
+  // Store density limiter reduction
+  float densityReduction = static_cast<float>(_densityAmplification);
+  _meterDensityReduction.store(densityReduction, std::memory_order_relaxed);
 
   // PHASE 1 PROGRESS:
   // ✅ Task 1.4 - Input stage (gain, saturation, HPF placeholder)
-  // 🔄 Task 1.5 - Level compressor (sidechain, envelope, compression curve, tube saturation)
-  // TODO: Task 1.6 - Implement density compressor
-  // TODO: Task 1.7 - Implement metering updates from compression
+  // ✅ Task 1.5 - Level compressor (sidechain, envelope, compression curve, tube saturation)
+  // ✅ Task 1.6 - Density compressor (peak detection, fast limiter, hard ceiling mode)
+  // ✅ Task 1.7 - Metering (inputGain, levelReduction, densityReduction all active)
 }
