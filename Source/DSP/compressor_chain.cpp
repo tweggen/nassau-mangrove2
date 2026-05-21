@@ -45,8 +45,37 @@ void CompressorChain::init(float sampleRate) {
 }
 
 void CompressorChain::recalculateTimeCoefficients() {
-  // Placeholder - will be implemented in Phase 3
-  // TODO: Implement dynamic attack/release coefficient calculations
+  const double PI = 3.14159265358979323846;
+
+  // Load current parameter values
+  float levelAttackMs = _paramLevelAttack.load(std::memory_order_relaxed);
+  float levelReleaseMs = _paramLevelRelease.load(std::memory_order_relaxed);
+  float densityAttackMs = _paramDensityAttack.load(std::memory_order_relaxed);
+  float densityReleaseMs = _paramDensityRelease.load(std::memory_order_relaxed);
+
+  // Clamp to valid ranges to prevent division by zero or invalid math
+  levelAttackMs = std::max(0.001f, levelAttackMs);
+  levelReleaseMs = std::max(10.0f, levelReleaseMs);
+  densityAttackMs = std::max(0.001f, densityAttackMs);
+  densityReleaseMs = std::max(10.0f, densityReleaseMs);
+
+  // Convert from time (ms) to coefficient (per-sample)
+  // Formula: coeff = 1 - exp(-2*pi*freq / sampleRate)
+  // where freq = 1000 / (timeMs * 2.2) empirically chosen for musical feel
+
+  double sampleRate = static_cast<double>(_sampleRate);
+
+  // Level compressor coefficients
+  double levelAttackFreq = 1000.0 / (levelAttackMs * 2.2);
+  double levelReleaseFreq = 1000.0 / (levelReleaseMs * 2.2);
+  _levelAttackCoeff = 1.0 - std::exp(-2.0 * PI * levelAttackFreq / sampleRate);
+  _levelReleaseCoeff = 1.0 - std::exp(-2.0 * PI * levelReleaseFreq / sampleRate);
+
+  // Density compressor coefficients (typically faster)
+  double densityAttackFreq = 1000.0 / (densityAttackMs * 2.2);
+  double densityReleaseFreq = 1000.0 / (densityReleaseMs * 2.2);
+  _densityAttackCoeff = 1.0 - std::exp(-2.0 * PI * densityAttackFreq / sampleRate);
+  _densityReleaseCoeff = 1.0 - std::exp(-2.0 * PI * densityReleaseFreq / sampleRate);
 }
 
 // ===== Parameter Setters =====
@@ -126,25 +155,28 @@ CompressorChain::MeterData CompressorChain::getMeterData() const {
 void CompressorChain::process(const float* inL, const float* inR,
                                float* outL, float* outR,
                                int numSamples) {
-  // ===== INPUT STAGE =====
-  // 1. Apply input gain (dB to linear conversion)
-  // 2. Apply saturation (soft-clipping for negative samples)
-  // 3. Apply high-pass filter (LoCut)
-
   // Get current parameter values (atomic, lock-free)
   float localInputGain = std::pow(10.0f, _paramInputGain.load(std::memory_order_relaxed) / 20.0f);
   float inputLoCutFreq = _paramInputLoCut.load(std::memory_order_relaxed);
   double inSaturation = _paramInputSaturate.load(std::memory_order_relaxed) * 10.0 + 1.0;
 
-  // Metering accumulator
+  // Level compressor parameters
+  float levelThreshold = _paramLevelThreshold.load(std::memory_order_relaxed);
+  float levelRatio = _paramLevelRatio.load(std::memory_order_relaxed);
+  bool levelLoCut = _paramLevelLoCut.load(std::memory_order_relaxed) > 0.5f;
+  bool levelTubeGain = _paramLevelTubeGain.load(std::memory_order_relaxed) > 0.5f;
+  bool levelFeedback = _paramLevelFeedback.load(std::memory_order_relaxed) > 0.5f;
+
+  // Metering accumulators
   double inputGainAccumulator = 0.0;
 
-  // ===== INPUT STAGE PROCESSING LOOP =====
+  // ===== PER-SAMPLE PROCESSING LOOP =====
   for (int i = 0; i < numSamples; ++i) {
     // Read input samples
     float sampleL = inL[i];
     float sampleR = inR[i];
 
+    // ===== INPUT STAGE =====
     // STEP 1: Apply input gain (dB to linear)
     sampleL *= localInputGain;
     sampleR *= localInputGain;
@@ -153,39 +185,106 @@ void CompressorChain::process(const float* inL, const float* inR,
     inputGainAccumulator += sampleL * sampleL + sampleR * sampleR;
 
     // STEP 2: Apply input saturation (soft-clipping, negative samples only)
-    // Formula: out = (1/(1-(x/divisor)) - 1) * divisor
-    // This only affects negative samples; positive samples pass through unchanged
     if (inSaturation > 1.01f) {
       float divisor = 20.0f / static_cast<float>(inSaturation);
-      const float MaxOut = 4.0f; // Clamp output to prevent extreme values
+      const float MaxOut = 4.0f;
 
-      // Left channel saturation
       if (sampleL < 0.0f) {
         sampleL = (1.0f / (1.0f - (sampleL / divisor)) - 1.0f) * divisor;
-        if (sampleL > MaxOut) {
-          sampleL = MaxOut;
-        }
+        if (sampleL > MaxOut) sampleL = MaxOut;
       }
-      // Note: positive samples left unchanged
 
-      // Right channel saturation
       if (sampleR < 0.0f) {
         sampleR = (1.0f / (1.0f - (sampleR / divisor)) - 1.0f) * divisor;
-        if (sampleR > MaxOut) {
-          sampleR = MaxOut;
-        }
+        if (sampleR > MaxOut) sampleR = MaxOut;
       }
     }
 
-    // STEP 3: Apply input high-pass filter (LoCut)
-    // Actual filter implementation will be in Phase 2
-    // For now: placeholder (no filtering)
+    // STEP 3: Input high-pass filter (placeholder, Phase 2)
     if (inputLoCutFreq > 20.1f) {
       // TODO (Phase 2): Apply actual IIR filter
-      // out1 = _levelHighpassInputLeft.processSingleSample(sampleL);
-      // out2 = _levelHighpassInputRight.processSingleSample(sampleR);
-      // For Phase 1, HPF is disabled (pass-through)
     }
+
+    // ===== LEVEL COMPRESSOR SIDECHAIN DETECTION =====
+    // Detect signal level for sidechain
+    double detection = std::sqrt(sampleL * sampleL + sampleR * sampleR + 1e-10);
+    _levelDetection = detection;
+
+    // Apply optional sidechain high-pass filter
+    if (levelLoCut) {
+      // TODO (Phase 2): Apply actual IIR filter to sidechain
+      _levelFilteredSideChain = detection;
+    } else {
+      _levelFilteredSideChain = detection;
+    }
+
+    // Feedback vs feedforward: use input or output sidechain
+    // For feedforward, use filtered sidechain now
+    // For feedback, we'll use the output after compression (circular, applied below)
+    double sideChainLevel = _levelFilteredSideChain;
+    if (levelFeedback) {
+      sideChainLevel = _levelFilteredSideChain * _levelAmplification;
+    }
+
+    // ===== LEVEL COMPRESSOR ENVELOPE FOLLOWER =====
+    // Convert sidechain level to dB
+    double sidechainDb = 20.0 * std::log10(std::max(sideChainLevel, 1e-10));
+
+    // Envelope follower with attack/release
+    if (sidechainDb > _levelEnvFollow) {
+      // Attack phase: ramp up quickly
+      _levelEnvFollow += (sidechainDb - _levelEnvFollow) * _levelAttackCoeff;
+      _attackReason = AttackPeak;
+    } else {
+      // Release phase: ramp down
+      _levelEnvFollow += (sidechainDb - _levelEnvFollow) * _levelReleaseCoeff;
+    }
+
+    // ===== LEVEL COMPRESSOR CURVE CALCULATION =====
+    double targetAmplification = 1.0;
+    double envDb = _levelEnvFollow;
+
+    if (envDb > levelThreshold) {
+      double excessDb = envDb - levelThreshold;
+
+      if (levelRatio >= 9.999) {
+        // Vari-Mu mode: use soft atan curve for smooth compression
+        double compressedDb = std::atan(excessDb * 0.25) * 2.0;
+        targetAmplification = std::pow(10.0, (levelThreshold + compressedDb - envDb) / 20.0);
+      } else {
+        // Hard-knee: standard ratio-based compression
+        double reductionDb = excessDb * (1.0 - 1.0 / levelRatio);
+        targetAmplification = std::pow(10.0, -reductionDb / 20.0);
+      }
+    }
+
+    // ===== LEVEL COMPRESSOR ATTACK/RELEASE RAMPING =====
+    // Smooth ramp toward target amplification using attack/release coefficients
+    if (targetAmplification < _levelAmplification) {
+      _levelAmplification += (targetAmplification - _levelAmplification) * _levelAttackCoeff;
+    } else {
+      _levelAmplification += (targetAmplification - _levelAmplification) * _levelReleaseCoeff;
+    }
+
+    // Clamp to reasonable range
+    _levelAmplification = std::max(0.001, std::min(10.0, _levelAmplification));
+
+    // ===== TUBE SATURATION (OPTIONAL) =====
+    if (levelTubeGain && _levelAmplification > 1.0) {
+      float saturation = static_cast<float>((_levelAmplification - 1.0) * 0.5);
+      if (saturation > 0.01f) {
+        float divisor = 1.0f / saturation;
+        sampleL = std::atan(sampleL / divisor) * divisor;
+        sampleR = std::atan(sampleR / divisor) * divisor;
+      }
+    }
+
+    // ===== APPLY LEVEL COMPRESSION GAIN =====
+    sampleL *= static_cast<float>(_levelAmplification);
+    sampleR *= static_cast<float>(_levelAmplification);
+
+    // ===== DENSITY COMPRESSOR (PLACEHOLDER) =====
+    // TODO: Task 1.6 - Implement density compressor
 
     // Write processed output
     outL[i] = sampleL;
@@ -193,17 +292,19 @@ void CompressorChain::process(const float* inL, const float* inR,
   }
 
   // ===== METERING =====
-  // Calculate RMS of input after gain but before compression
   float inputRMS = std::sqrt(static_cast<float>(inputGainAccumulator / (2.0 * numSamples)));
   _meterInputGain.store(inputRMS, std::memory_order_relaxed);
 
-  // Placeholder compression reduction (will be set in Phase 1.5-1.6)
-  _meterLevelReduction.store(1.0f, std::memory_order_relaxed);
+  // Store current amplification as meter reduction value
+  float levelReduction = static_cast<float>(_levelAmplification);
+  _meterLevelReduction.store(levelReduction, std::memory_order_relaxed);
+
+  // Density reduction placeholder (will be set in Task 1.6)
   _meterDensityReduction.store(1.0f, std::memory_order_relaxed);
 
   // PHASE 1 PROGRESS:
   // ✅ Task 1.4 - Input stage (gain, saturation, HPF placeholder)
-  // TODO: Task 1.5 - Implement level compressor
+  // 🔄 Task 1.5 - Level compressor (sidechain, envelope, compression curve, tube saturation)
   // TODO: Task 1.6 - Implement density compressor
   // TODO: Task 1.7 - Implement metering updates from compression
 }

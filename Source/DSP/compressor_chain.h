@@ -146,6 +146,8 @@ private:
   double _levelEnvFollow = 0.0;
   double _levelAmplification = 1.0;
   double _levelCurrentRelease = 0.0;
+  double _levelAttackCoeff = 0.0;
+  double _levelReleaseCoeff = 0.0;
 
   enum AttackReason {
     AttackNone,
@@ -159,6 +161,8 @@ private:
   double _densitySideChain = 0.0;
   double _densityEnvFollow = 0.0;
   double _densityAmplification = 1.0;
+  double _densityAttackCoeff = 0.0;
+  double _densityReleaseCoeff = 0.0;
 
   // ===== Parameters (Atomic for Lock-Free Access) =====
   std::atomic<float> _paramInputGain{0.0f};
