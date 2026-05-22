@@ -40,6 +40,9 @@ void CompressorChain::init(float sampleRate) {
   _levelHighpassInputRight.reset();
   _levelHighpassSidechain.reset();
 
+  // Initialize sidechain HPF: fixed 200 Hz, Q=1.0
+  _levelHighpassSidechain.setHighPass(_sampleRate, 200.0, 1.0);
+
   // Initialize time-based coefficients (attack/release)
   recalculateTimeCoefficients();
 }
@@ -204,9 +207,15 @@ void CompressorChain::process(const float* inL, const float* inR,
       }
     }
 
-    // STEP 3: Input high-pass filter (placeholder, Phase 2)
+    // STEP 3: Input high-pass filter
     if (inputLoCutFreq > 20.1f) {
-      // TODO (Phase 2): Apply actual IIR filter
+      if (inputLoCutFreq != _inputPreviousFreq) {
+        _levelHighpassInputLeft.setHighPass(_sampleRate, inputLoCutFreq, 0.8);
+        _levelHighpassInputRight.setHighPass(_sampleRate, inputLoCutFreq, 0.8);
+        _inputPreviousFreq = inputLoCutFreq;
+      }
+      sampleL = _levelHighpassInputLeft.processSingleSample(sampleL);
+      sampleR = _levelHighpassInputRight.processSingleSample(sampleR);
     }
 
     // ===== LEVEL COMPRESSOR SIDECHAIN DETECTION =====
@@ -216,8 +225,9 @@ void CompressorChain::process(const float* inL, const float* inR,
 
     // Apply optional sidechain high-pass filter
     if (levelLoCut) {
-      // TODO (Phase 2): Apply actual IIR filter to sidechain
-      _levelFilteredSideChain = detection;
+      float absSidechain = std::fabs(sampleL) + std::fabs(sampleR);
+      float filtered = _levelHighpassSidechain.processSingleSample(absSidechain);
+      _levelFilteredSideChain = std::fabs(filtered) + 1e-10;
     } else {
       _levelFilteredSideChain = detection;
     }

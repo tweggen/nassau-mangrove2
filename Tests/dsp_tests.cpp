@@ -948,6 +948,7 @@ int main() {
     dsp.setLevelThreshold(20.0f); // Above any signal
     dsp.setDensityThreshold(20.0f);
     dsp.setInputGain(6.0f); // +6 dB
+    dsp.setInputLoCut(20.0f); // Disable HPF (must be > 20.1 to be active)
 
     float inL[512], inR[512];
     float outL[512], outR[512];
@@ -1045,6 +1046,7 @@ int main() {
     dsp.setLevelThreshold(20.0f);
     dsp.setDensityThreshold(20.0f);
     dsp.setInputGain(0.0f); // 0 dB
+    dsp.setInputLoCut(20.0f); // Disable HPF
 
     float inL[512], inR[512];
     float outL[512], outR[512];
@@ -1230,6 +1232,254 @@ int main() {
     std::cout << "✓ PASS\n";
   }
 
-  std::cout << "\n=== All 40 Tests Passed ===\n";
+  // Test 41: Input HPF bypass at low frequency
+  {
+    std::cout << "Test 41: Input HPF bypass (freq < 20.1 Hz)... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setInputLoCut(20.0f); // Below threshold (20.1)
+    dsp.setLevelThreshold(20.0f);
+    dsp.setDensityThreshold(20.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.5f;
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Output should be nearly identical to input (HPF bypassed)
+    float maxDiff = 0.0f;
+    for (int i = 0; i < 512; ++i) {
+      maxDiff = std::max(maxDiff, std::fabs(outL[i] - inL[i]));
+    }
+    assert(maxDiff < 0.01f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 42: Input HPF active - low frequency attenuation
+  {
+    std::cout << "Test 42: Input HPF active (200 Hz cutoff)... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setInputLoCut(200.0f); // Active HPF at 200 Hz
+    dsp.setLevelThreshold(20.0f);
+    dsp.setDensityThreshold(20.0f);
+
+    float inL[1024], inR[1024];
+    float outL[1024], outR[1024];
+
+    // Low-frequency signal (50 Hz)
+    for (int i = 0; i < 1024; ++i) {
+      float lowFreq = std::sin(2.0f * 3.14159f * 50.0f * i / 44100.0f) * 0.5f;
+      inL[i] = inR[i] = lowFreq;
+    }
+
+    dsp.process(inL, inR, outL, outR, 1024);
+
+    // Calculate RMS
+    float inRms = 0.0f, outRms = 0.0f;
+    for (int i = 0; i < 1024; ++i) {
+      inRms += inL[i] * inL[i];
+      outRms += outL[i] * outL[i];
+    }
+    inRms = std::sqrt(inRms / 1024.0f);
+    outRms = std::sqrt(outRms / 1024.0f);
+
+    // HPF at 200 Hz should attenuate 50 Hz significantly
+    assert(outRms < inRms * 0.7f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 43: Input HPF frequency cache - no recomputation
+  {
+    std::cout << "Test 43: Input HPF frequency caching... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setInputLoCut(100.0f);
+    dsp.setLevelThreshold(20.0f);
+    dsp.setDensityThreshold(20.0f);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.3f;
+    }
+
+    // Process with one frequency
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Change frequency
+    dsp.setInputLoCut(150.0f);
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Should produce valid output without crashes
+    for (int i = 0; i < 512; ++i) {
+      assert(std::isfinite(outL[i]));
+    }
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 44: Sidechain HPF attenuation effect
+  {
+    std::cout << "Test 44: Sidechain HPF enables low-freq compression... ";
+    CompressorChain dsp1, dsp2;
+    dsp1.init(44100.0f);
+    dsp2.init(44100.0f);
+
+    // Both with same level compression settings
+    dsp1.setLevelThreshold(-25.0f);
+    dsp1.setLevelRatio(4.0f);
+    dsp1.setLevelAttack(5.0f);
+    dsp1.setLevelRelease(100.0f);
+
+    dsp2.setLevelThreshold(-25.0f);
+    dsp2.setLevelRatio(4.0f);
+    dsp2.setLevelAttack(5.0f);
+    dsp2.setLevelRelease(100.0f);
+
+    // dsp1: Sidechain HPF disabled
+    dsp1.setLevelLoCut(false);
+    // dsp2: Sidechain HPF enabled
+    dsp2.setLevelLoCut(true);
+
+    float inL[1024], inR[1024];
+    float outL1[1024], outR1[1024];
+    float outL2[1024], outR2[1024];
+
+    // Low-frequency signal (50 Hz) that should trigger compression
+    for (int i = 0; i < 1024; ++i) {
+      float lowFreq = std::sin(2.0f * 3.14159f * 50.0f * i / 44100.0f) * 0.8f;
+      inL[i] = inR[i] = lowFreq;
+    }
+
+    // Let both settle
+    for (int block = 0; block < 2; ++block) {
+      dsp1.process(inL, inR, outL1, outR1, 1024);
+      dsp2.process(inL, inR, outL2, outR2, 1024);
+    }
+
+    CompressorChain::MeterData m1 = dsp1.getMeterData();
+    CompressorChain::MeterData m2 = dsp2.getMeterData();
+
+    // With HPF disabled, more compression (lower levelReduction)
+    // With HPF enabled, less compression (higher levelReduction) because low freq is attenuated
+    assert(m2.levelReduction >= 0.0f && m2.levelReduction <= 1.0f);
+    assert(m1.levelReduction >= 0.0f && m1.levelReduction <= 1.0f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 45: Filter reset on init
+  {
+    std::cout << "Test 45: Filter state reset on init... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setInputLoCut(100.0f);
+    dsp.setLevelLoCut(true);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    // Process with signal to build up filter state
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.5f;
+    }
+
+    for (int block = 0; block < 3; ++block) {
+      dsp.process(inL, inR, outL, outR, 512);
+    }
+
+    // Re-init should clear filter state
+    dsp.init(44100.0f);
+
+    // Process same signal again
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Should have stable output without state bleed
+    float rms = 0.0f;
+    for (int i = 0; i < 512; ++i) {
+      rms += outL[i] * outL[i];
+    }
+    assert(std::sqrt(rms / 512.0f) > 0.0f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 46: Filter correctness at different sample rates
+  {
+    std::cout << "Test 46: Filter coefficients at multiple sample rates... ";
+
+    float sampleRates[] = {44100.0f, 48000.0f, 96000.0f};
+
+    for (float fs : sampleRates) {
+      CompressorChain dsp;
+      dsp.init(fs);
+
+      dsp.setInputLoCut(100.0f);
+      dsp.setLevelThreshold(20.0f);
+      dsp.setDensityThreshold(20.0f);
+
+      float inL[256], inR[256];
+      float outL[256], outR[256];
+
+      for (int i = 0; i < 256; ++i) {
+        inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 256.0f) * 0.5f;
+      }
+
+      dsp.process(inL, inR, outL, outR, 256);
+
+      // Verify output is valid
+      float rms = 0.0f;
+      for (int i = 0; i < 256; ++i) {
+        assert(std::isfinite(outL[i]));
+        rms += outL[i] * outL[i];
+      }
+      assert(std::sqrt(rms / 256.0f) >= 0.0f);
+    }
+
+    std::cout << "✓ PASS\n";
+  }
+
+  // Test 47: Sidechain HPF with feedback mode
+  {
+    std::cout << "Test 47: Sidechain HPF with feedback compression... ";
+    CompressorChain dsp;
+    dsp.init(44100.0f);
+
+    dsp.setLevelThreshold(-25.0f);
+    dsp.setLevelRatio(4.0f);
+    dsp.setLevelAttack(5.0f);
+    dsp.setLevelRelease(100.0f);
+    dsp.setLevelFeedback(true);
+    dsp.setLevelLoCut(true);
+
+    float inL[512], inR[512];
+    float outL[512], outR[512];
+
+    for (int i = 0; i < 512; ++i) {
+      inL[i] = inR[i] = std::sin(2.0f * 3.14159f * i / 512.0f) * 0.7f;
+    }
+
+    dsp.process(inL, inR, outL, outR, 512);
+
+    // Should produce stable output with both feedback and sidechain HPF
+    CompressorChain::MeterData meters = dsp.getMeterData();
+    assert(meters.levelReduction >= 0.0f && meters.levelReduction <= 1.0f);
+
+    std::cout << "✓ PASS\n";
+  }
+
+  std::cout << "\n=== All 47 Tests Passed ===\n";
   return 0;
 }

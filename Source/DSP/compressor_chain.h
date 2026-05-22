@@ -187,14 +187,40 @@ private:
   mutable std::atomic<float> _meterLevelReduction{1.0f};
   mutable std::atomic<float> _meterDensityReduction{1.0f};
 
-  // ===== IIR Filter State (Placeholder for Phase 2) =====
-  // Will be replaced in Phase 2 with custom IIRFilter class
-  // For now, pass-through (no filtering)
+  // ===== IIR Filter State (Biquad High-Pass) =====
   class IIRFilterState {
   public:
-    void reset() {}
-    void setCoefficients(float, float, float) {}
-    float processSingleSample(float x) { return x; }
+    void reset() {
+      _s1 = 0.0;
+      _s2 = 0.0;
+    }
+
+    void setHighPass(double sampleRate, double freqHz, double Q) {
+      const double PI = 3.14159265358979323846;
+      double w0 = 2.0 * PI * freqHz / sampleRate;
+      double cosw0 = std::cos(w0);
+      double sinw0 = std::sin(w0);
+      double alpha = sinw0 / (2.0 * Q);
+      double a0 = 1.0 + alpha;
+
+      _b0 = ((1.0 + cosw0) / 2.0) / a0;
+      _b1 = (-(1.0 + cosw0)) / a0;
+      _b2 = ((1.0 + cosw0) / 2.0) / a0;
+      _a1 = (-2.0 * cosw0) / a0;
+      _a2 = (1.0 - alpha) / a0;
+    }
+
+    float processSingleSample(float x) {
+      double y = _b0 * x + _s1;
+      _s1 = _b1 * x - _a1 * y + _s2;
+      _s2 = _b2 * x - _a2 * y;
+      return static_cast<float>(y);
+    }
+
+  private:
+    double _b0 = 1.0, _b1 = 0.0, _b2 = 0.0;
+    double _a1 = 0.0, _a2 = 0.0;
+    double _s1 = 0.0, _s2 = 0.0;
   };
 
   IIRFilterState _levelHighpassInputLeft;
