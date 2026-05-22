@@ -48,8 +48,6 @@ void CompressorChain::init(float sampleRate) {
 }
 
 void CompressorChain::recalculateTimeCoefficients() {
-  const double PI = 3.14159265358979323846;
-
   // Load current parameter values
   float levelAttackMs = _paramLevelAttack.load(std::memory_order_relaxed);
   float levelReleaseMs = _paramLevelRelease.load(std::memory_order_relaxed);
@@ -63,22 +61,29 @@ void CompressorChain::recalculateTimeCoefficients() {
   densityReleaseMs = std::max(10.0f, densityReleaseMs);
 
   // Convert from time (ms) to coefficient (per-sample)
-  // Formula: coeff = 1 - exp(-2*pi*freq / sampleRate)
-  // where freq = 1000 / (timeMs * 2.2) empirically chosen for musical feel
+  // Original JUCE formula: coeff_juce = pow(0.5, 1000 / (timeMs * adj * sampleRate))
+  // Adapted to += form: coeff_step = 1 - coeff_juce
+  // where adj = adjustment factor from original code:
+  //   - Level attack: 0.1 (10× musical slowing)
+  //   - Level release: 1.0 (no adjustment)
+  //   - Density attack: (result)/10 post-multiply for fast response
+  //   - Density release: 1.0 (no adjustment)
 
-  double sampleRate = static_cast<double>(_sampleRate);
+  double fs = static_cast<double>(_sampleRate);
 
-  // Level compressor coefficients
-  double levelAttackFreq = 1000.0 / (levelAttackMs * 2.2);
-  double levelReleaseFreq = 1000.0 / (levelReleaseMs * 2.2);
-  _levelAttackCoeff = 1.0 - std::exp(-2.0 * PI * levelAttackFreq / sampleRate);
-  _levelReleaseCoeff = 1.0 - std::exp(-2.0 * PI * levelReleaseFreq / sampleRate);
+  // Level compressor attack: attSoundGoodAdjustment = 0.1
+  _levelAttackCoeff = 1.0 - std::pow(0.5, 1000.0 / (levelAttackMs * 0.1 * fs));
 
-  // Density compressor coefficients (typically faster)
-  double densityAttackFreq = 1000.0 / (densityAttackMs * 2.2);
-  double densityReleaseFreq = 1000.0 / (densityReleaseMs * 2.2);
-  _densityAttackCoeff = 1.0 - std::exp(-2.0 * PI * densityAttackFreq / sampleRate);
-  _densityReleaseCoeff = 1.0 - std::exp(-2.0 * PI * densityReleaseFreq / sampleRate);
+  // Level compressor release: relSoundGoodAdjustment = 1.0
+  _levelReleaseCoeff = 1.0 - std::pow(0.5, 1000.0 / (levelReleaseMs * 1.0 * fs));
+
+  // Density compressor attack: coefficient divided by 10 for very fast transient response
+  // First compute the base coefficient, then divide by 10 to make it faster
+  double densityAttackBase = std::pow(0.5, 1000.0 / (densityAttackMs * fs));
+  _densityAttackCoeff = (1.0 - densityAttackBase) / 10.0;
+
+  // Density compressor release: no special adjustment
+  _densityReleaseCoeff = 1.0 - std::pow(0.5, 1000.0 / (densityReleaseMs * fs));
 }
 
 // ===== Parameter Setters =====

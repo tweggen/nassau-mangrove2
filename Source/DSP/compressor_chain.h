@@ -145,7 +145,6 @@ private:
   double _levelFilteredSideChain = 0.0;
   double _levelEnvFollow = 0.0;
   double _levelAmplification = 1.0;
-  double _levelCurrentRelease = 0.0;
   double _levelAttackCoeff = 0.0;
   double _levelReleaseCoeff = 0.0;
 
