@@ -4,3 +4,4 @@ add_library(compressor_chain
 )
 
 target_include_directories(compressor_chain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_options(compressor_chain PRIVATE -Wall -Wextra -Wpedantic)

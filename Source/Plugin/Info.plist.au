@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.nassau.mangrove.iplug.au</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>MangroveIPlug</string>
+    <key>CFBundlePackageType</key>
+    <string>BNDL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>5.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>5.0.0</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2025 Nassau. All rights reserved.</string>
+    <key>AudioComponents</key>
+    <array>
+        <dict>
+            <key>factoryFunction</key>
+            <string>IPlugAUEntry</string>
+            <key>description</key>
+            <string>Mangrove Compressor</string>
+            <key>manufacturer</key>
+            <string>Nss2</string>
+            <key>name</key>
+            <string>Nassau: Mangrove</string>
+            <key>subtype</key>
+            <string>Mng5</string>
+            <key>type</key>
+            <string>aufx</string>
+            <key>version</key>
+            <integer>327680</integer>
+        </dict>
+    </array>
+</dict>
+</plist>

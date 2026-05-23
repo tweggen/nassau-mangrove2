@@ -1,0 +1,6 @@
+[submodule "external/vst3sdk"]
+	path = external/vst3sdk
+	url = https://github.com/steinbergmedia/vst3sdk.git
+[submodule "external/iplug2"]
+	path = external/iplug2
+	url = https://github.com/iPlug2/iPlug2.git
