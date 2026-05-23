@@ -130,6 +130,10 @@ void CompressorChain::setLevelFeedback(bool feedbackMode) {
   _paramLevelFeedback.store(feedbackMode ? 1.0f : 0.0f, std::memory_order_relaxed);
 }
 
+void CompressorChain::setLevelFast(bool fastMode) {
+  _paramLevelFast.store(fastMode ? 1.0f : 0.0f, std::memory_order_relaxed);
+}
+
 void CompressorChain::setDensityThreshold(float dbThreshold) {
   _paramDensityThreshold.store(dbThreshold, std::memory_order_relaxed);
 }
@@ -174,6 +178,7 @@ void CompressorChain::process(const float* inL, const float* inR,
   bool levelLoCut = _paramLevelLoCut.load(std::memory_order_relaxed) > 0.5f;
   bool levelTubeGain = _paramLevelTubeGain.load(std::memory_order_relaxed) > 0.5f;
   bool levelFeedback = _paramLevelFeedback.load(std::memory_order_relaxed) > 0.5f;
+  bool levelFast     = _paramLevelFast.load(std::memory_order_relaxed) > 0.5f;
 
   // Density compressor parameters
   float densityThreshold = _paramDensityThreshold.load(std::memory_order_relaxed);
@@ -246,16 +251,24 @@ void CompressorChain::process(const float* inL, const float* inR,
     }
 
     // ===== LEVEL COMPRESSOR ENVELOPE FOLLOWER =====
-    // Convert sidechain level to dB
+    // Convert sidechain level to dB. In Fast mode, attack detection uses the
+    // feedforward (pre-gain) sidechain so the gain reduction can react on the
+    // exact sample that triggered it. Release stays on the configured topology.
     double sidechainDb = 20.0 * std::log10(std::max(sideChainLevel, 1e-10));
+    double sidechainDbFF = levelFast
+        ? 20.0 * std::log10(std::max(_levelFilteredSideChain, 1e-10))
+        : sidechainDb;
 
-    // Envelope follower with attack/release
-    if (sidechainDb > _levelEnvFollow) {
-      // Attack phase: ramp up quickly
+    if (levelFast && sidechainDbFF > _levelEnvFollow) {
+      // Fast attack: snap envelope to FF detection in one sample
+      _levelEnvFollow = sidechainDbFF;
+      _attackReason = AttackPeak;
+    } else if (sidechainDb > _levelEnvFollow) {
+      // Normal attack: ramp up via attack coefficient
       _levelEnvFollow += (sidechainDb - _levelEnvFollow) * _levelAttackCoeff;
       _attackReason = AttackPeak;
     } else {
-      // Release phase: ramp down
+      // Release phase: ramp down (always on configured FB/FF sidechain)
       _levelEnvFollow += (sidechainDb - _levelEnvFollow) * _levelReleaseCoeff;
     }
 
@@ -278,9 +291,15 @@ void CompressorChain::process(const float* inL, const float* inR,
     }
 
     // ===== LEVEL COMPRESSOR ATTACK/RELEASE RAMPING =====
-    // Smooth ramp toward target amplification using attack/release coefficients
+    // Smooth ramp toward target amplification using attack/release coefficients.
+    // Fast mode snaps the gain smoother on the attack side so the gain change
+    // takes effect on the same sample (0-sample reaction).
     if (targetAmplification < _levelAmplification) {
-      _levelAmplification += (targetAmplification - _levelAmplification) * _levelAttackCoeff;
+      if (levelFast) {
+        _levelAmplification = targetAmplification;
+      } else {
+        _levelAmplification += (targetAmplification - _levelAmplification) * _levelAttackCoeff;
+      }
     } else {
       _levelAmplification += (targetAmplification - _levelAmplification) * _levelReleaseCoeff;
     }

@@ -26,7 +26,7 @@
 #define PLUG_DOES_MPE          0
 #define PLUG_DOES_STATE_CHUNKS 0
 
-#define PLUG_N_PARAMS   14
+#define PLUG_N_PARAMS   15
 #define PLUG_N_PRESETS  1
 
 #define PLUG_HAS_UI     1

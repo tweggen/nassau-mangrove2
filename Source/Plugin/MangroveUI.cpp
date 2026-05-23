@@ -56,10 +56,11 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& plugin)
     ui.AttachControl(new IVKnobControl(IRECT(310, 200, 380, 280), kLevelRelease));
     ui.AttachControl(new ITextControl (IRECT(310, 285, 380, 300), "Release", knobLbl));
 
-    // Level toggles — 3 across the LEVEL column (x=230..390), labels drawn by control itself
-    ui.AttachControl(new IVToggleControl(IRECT(230, 315, 280, 380), kLevelLoCut,    "LoCut", toggleStyle));
-    ui.AttachControl(new IVToggleControl(IRECT(285, 315, 335, 380), kLevelTubeGain, "Tube",  toggleStyle));
-    ui.AttachControl(new IVToggleControl(IRECT(340, 315, 390, 380), kLevelFeedback, "FB",    toggleStyle));
+    // Level toggles — 4 across the LEVEL column (x=230..389), labels drawn by control itself
+    ui.AttachControl(new IVToggleControl(IRECT(230, 315, 266, 380), kLevelLoCut,    "LoCut", toggleStyle));
+    ui.AttachControl(new IVToggleControl(IRECT(271, 315, 307, 380), kLevelTubeGain, "Tube",  toggleStyle));
+    ui.AttachControl(new IVToggleControl(IRECT(312, 315, 348, 380), kLevelFeedback, "FB",    toggleStyle));
+    ui.AttachControl(new IVToggleControl(IRECT(353, 315, 389, 380), kLevelFast,     "Fast",  toggleStyle));
 
     // DENSITY section — x=440
     ui.AttachControl(new IVKnobControl(IRECT(440,  90, 510, 170), kDensityThreshold));

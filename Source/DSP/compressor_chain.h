@@ -93,6 +93,14 @@ public:
   /// Feedforward: compressor responds to input level.
   void setLevelFeedback(bool feedbackMode);
 
+  /// Enable/disable Fast attack mode. Default: false.
+  /// When enabled, attack snaps in 0 samples by routing detection to the
+  /// feedforward sidechain (input pre-gain) and bypassing the attack EMA.
+  /// Release behaviour and topology (FB/FF) are unchanged. Pairs well with
+  /// feedback mode to keep its release character while gaining instant
+  /// transient capture; input saturation catches any single-sample peak.
+  void setLevelFast(bool fastMode);
+
   // ===== Density Compressor Parameters =====
 
   /// Threshold in dB. Range: -36 to 0. Default: -10.
@@ -175,6 +183,7 @@ private:
   std::atomic<float> _paramLevelLoCut{0.0f};
   std::atomic<float> _paramLevelTubeGain{0.0f};
   std::atomic<float> _paramLevelFeedback{1.0f};
+  std::atomic<float> _paramLevelFast{0.0f};
 
   std::atomic<float> _paramDensityThreshold{-10.0f};
   std::atomic<float> _paramDensityRatio{1.0f};

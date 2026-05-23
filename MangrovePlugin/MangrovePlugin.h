@@ -6,7 +6,7 @@
 enum EParams {
     kInputGain = 0, kInputLoCut, kInputSaturate,
     kLevelThreshold, kLevelRatio, kLevelAttack, kLevelRelease,
-    kLevelLoCut, kLevelTubeGain, kLevelFeedback,
+    kLevelLoCut, kLevelTubeGain, kLevelFeedback, kLevelFast,
     kDensityThreshold, kDensityRatio, kDensityAttack, kDensityRelease,
     kNumParams
 };

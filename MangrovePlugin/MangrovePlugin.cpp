@@ -18,6 +18,7 @@ MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
     GetParam(kLevelLoCut)->InitBool("Level Lo Cut", false);
     GetParam(kLevelTubeGain)->InitBool("Level Tube Gain", false);
     GetParam(kLevelFeedback)->InitBool("Level Feedback", true);
+    GetParam(kLevelFast)->InitBool("Level Fast", false);
     GetParam(kDensityThreshold)->InitDouble("Density Threshold", -10., -36., 0., 0.1, "dB");
     GetParam(kDensityRatio)->InitDouble("Density Ratio", 1., 1., 10., 0.01, "");
     GetParam(kDensityAttack)->InitDouble("Density Attack", 10., 0.001, 100., 0.001, "ms");
@@ -55,6 +56,7 @@ void MangrovePlugin::OnParamChange(int p)
         case kLevelLoCut:       mChain.setLevelLoCut(v >= 0.5);                    break;
         case kLevelTubeGain:    mChain.setLevelTubeGain(v >= 0.5);                break;
         case kLevelFeedback:    mChain.setLevelFeedback(v >= 0.5);                break;
+        case kLevelFast:        mChain.setLevelFast(v >= 0.5);                    break;
         case kDensityThreshold: mChain.setDensityThreshold(static_cast<float>(v)); break;
         case kDensityRatio:     mChain.setDensityRatio(static_cast<float>(v));     break;
         case kDensityAttack:    mChain.setDensityAttack(static_cast<float>(v));    break;
