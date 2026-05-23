@@ -327,6 +327,8 @@
     <ClInclude Include="..\..\external\iplug2\IPlug\VST3\IPlugVST3_ProcessorBase.h" />
     <ClInclude Include="..\..\external\iplug2\IPlug\VST3\IPlugVST3_View.h" />
     <ClInclude Include="..\MangrovePlugin.h" />
+    <ClInclude Include="..\..\Source\DSP\compressor_chain.h" />
+    <ClInclude Include="..\..\Source\Plugin\MangroveUI.h" />
     <ClInclude Include="..\resources\resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +391,8 @@
     <ClCompile Include="..\..\external\iplug2\IPlug\VST3\IPlugVST3.cpp" />
     <ClCompile Include="..\..\external\iplug2\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
     <ClCompile Include="..\MangrovePlugin.cpp" />
+    <ClCompile Include="..\..\Source\DSP\compressor_chain.cpp" />
+    <ClCompile Include="..\..\Source\Plugin\MangroveUI.cpp" />
     <ClCompile Include="..\..\external\iplug2\WDL\win32_utf8.c" />
   </ItemGroup>
   <ItemGroup>

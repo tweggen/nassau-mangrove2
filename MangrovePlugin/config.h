@@ -5,6 +5,12 @@
 #define PLUG_VERSION_HEX  0x00050000
 #define PLUG_VERSION_STR  "5.0.0"
 
+#define PLUG_CLASS_NAME   MangrovePlugin
+
+#define BUNDLE_NAME       "Mangrove"
+#define BUNDLE_MFR        "Nassau"
+#define BUNDLE_DOMAIN     "com"
+
 // 4-char codes — unique, required by AU and some VST3 hosts
 #define PLUG_UNIQUE_ID    'Mng5'
 #define PLUG_MFR_ID       'Nss2'
@@ -29,7 +35,12 @@
 #define PLUG_FPS        60
 
 #define PLUG_SHARED_RESOURCES_SUBPATH "Mangrove"
+#define PLUG_SHARED_RESOURCES 0
 #define PLUG_HOST_RESIZE 0
+
+#define VST3_SUBCATEGORY "Fx"
+
+#define ROBOTO_FN "Roboto-Regular.ttf"
 
 // AUv2 AudioComponents registration
 #define PLUG_TYPE       0           // 0 = aufx (effect)

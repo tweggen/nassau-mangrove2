@@ -1,7 +1,9 @@
 #include "MangrovePlugin.h"
+#include "IPlug_include_in_plug_src.h"
 #include "MangroveUI.h"
 #include <algorithm>
 using namespace iplug;
+using namespace iplug::igraphics;
 
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
     : Plugin(info, MakeConfig(kNumParams, 1))
@@ -66,12 +68,12 @@ void MangrovePlugin::ProcessBlock(sample** inputs, sample** outputs, int nFrames
     const int n = std::min(nFrames, kMaxBlockSize);
     for (int i = 0; i < n; ++i) {
         mInL[i] = static_cast<float>(inputs[0][i]);
-        mInR[i] = static_cast<float>((GetNInChannels() > 1 ? inputs[1] : inputs[0])[i]);
+        mInR[i] = static_cast<float>((NChannelsConnected(kInput) > 1 ? inputs[1] : inputs[0])[i]);
     }
     mChain.process(mInL, mInR, mOutL, mOutR, n);
     for (int i = 0; i < n; ++i) {
         outputs[0][i] = static_cast<sample>(mOutL[i]);
-        if (GetNOutChannels() > 1) outputs[1][i] = static_cast<sample>(mOutR[i]);
+        if (NChannelsConnected(kOutput) > 1) outputs[1][i] = static_cast<sample>(mOutR[i]);
     }
 }
 
@@ -79,5 +81,3 @@ void MangrovePlugin::OnIdle()
 {
     // Push meter data to UI controls if needed
 }
-
-#include "IPlug_include_in_plug_src.h"
