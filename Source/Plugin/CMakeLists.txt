@@ -22,7 +22,6 @@ target_compile_options(iplug2_lib PRIVATE -w)
 target_compile_definitions(iplug2_lib PUBLIC
     NO_IGRAPHICS=1
     IGRAPHICS_NONE=1
-    IPLUG_DSP=1
 )
 target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_IPLUG}
@@ -39,7 +38,7 @@ target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_DEPS}/IGraphics/glad/include
 )
 
-# ── VST3 plugin bundle (DSP-only, no GUI) ────────────────────────────────────
+# ── VST3 plugin bundle (with GUI) ───────────────────────────────────────────
 add_library(MangroveIPlug_VST3 MODULE
     MangrovePlugin.cpp
     ${IPLUG2_IPLUG}/VST3/IPlugVST3.cpp
@@ -57,7 +56,17 @@ target_include_directories(MangroveIPlug_VST3 PRIVATE
     ${CMAKE_SOURCE_DIR}/Source/DSP
     ${IPLUG2_IPLUG}
     ${IPLUG2_IPLUG}/VST3
+    ${IPLUG2_IPLUG}/Extras
     ${IPLUG2_IGRAPHICS}
+    ${IPLUG2_IGRAPHICS}/Controls
+    ${IPLUG2_IGRAPHICS}/Platforms
+    ${IPLUG2_IGRAPHICS}/Drawing
+    ${IPLUG2_ROOT}/WDL
+    ${NANOVG_DIR}
+    ${NANOSVG_DIR}
+    ${METALNVG_DIR}
+    ${STB_DIR}
+    ${IPLUG2_DEPS}/IGraphics/glad/include
     ${CMAKE_SOURCE_DIR}/external/vst3sdk
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/pluginterfaces
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk
@@ -70,6 +79,8 @@ target_link_libraries(MangroveIPlug_VST3 PRIVATE
     "-framework Metal" "-framework MetalKit" "-framework QuartzCore"
     "-framework CoreAudio" "-framework AudioToolbox" "-framework CoreMIDI"
     "-framework Accelerate"
+    "-framework OpenGL"
+    "-framework AppKit"
 )
 set_target_properties(MangroveIPlug_VST3 PROPERTIES
     BUNDLE TRUE

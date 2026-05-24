@@ -898,6 +898,7 @@ Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugAPIBase
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdbool.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugAPIBase.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugConstants.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugDelegate_select.h \
@@ -3168,6 +3169,7 @@ Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPluginB
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugConstants.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugDelegate_select.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugEditorDelegate.h \
@@ -5477,6 +5479,8 @@ Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugTimer.c
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_allocator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/signal.h:
+
+/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/integral_constant.h:
 
