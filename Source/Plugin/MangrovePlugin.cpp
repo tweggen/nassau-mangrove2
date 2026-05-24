@@ -1,6 +1,7 @@
 #include "MangrovePlugin.h"
 #include "IPlug_include_in_plug_src.h"
 #include <algorithm>
+
 using namespace iplug;
 
 Config MangrovePlugin::MakePluginConfig()
