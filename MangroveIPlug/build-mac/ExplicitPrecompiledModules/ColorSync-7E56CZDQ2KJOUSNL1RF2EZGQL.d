@@ -1,0 +1,31 @@
+moduledependenciestarget: \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/ColorSync.framework/Modules/module.modulemap \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSync.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncBase.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Modules/module.modulemap \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/DarwinFoundation1.modulemap \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_AvailabilityInternal-8QHLTQH14544K2I7LRV1P9UA4.pcm \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include/module.modulemap \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/ptrcheck-6TUKBF1U6QHUIGNG8UWRE03DP.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_DarwinFoundation1-9B9CU995UN11QA1ARMEHDO00F.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_stddef-7Z1CK1V98DWSGQXII2HTEGYI7.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_stdarg-5MZLN6POOLQKKKQUG8T98EK57.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_DarwinFoundation2-CM8F5JPFLHM0C1YCARIIQJGX2.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_float-192PW0I4A6FVQXVKQ7FBKTLJN.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_limits-4PECC36X2I0247G25DPXHCUP3.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_stdint-46DLDRQXNG9D9H6VP4J68JC12.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_DarwinFoundation3-4WWHFWTE81QXV1BJ7PMZPKY4P.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_inttypes-CJFOUIVBW1I8HUZ9VOKDRCQTF.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/_Builtin_stdbool-A33GNSI92IBAULKDHEIV3ZVLV.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/Darwin-BAWJADN7TUBH6LZHLWTQTZ0OI.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/ptrauth-2EZH82WDUBE5ZNAAKIN4I3OFT.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/MachO-B8P4D3I9S390A8Q6K5X95TXFK.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/ObjectiveC-84G98QOO9LFPVQVAR444UPTTF.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/os_object-8LEH7I0TBZKVE4W9AD1AMQ45O.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/os_workgroup-A5GNA5BN1GYUHAVZDXHHV73QF.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/Dispatch-7FTR9TSW858WEEL0WOL3S5W0T.pcm \
+  /Users/tweggen/coding/github/nassau-mangrove2/MangroveIPlug/build-mac/ExplicitPrecompiledModules/CoreFoundation-2VUHJRBOIYN272E46320R1LLK.pcm \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncProfile.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncTransform.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncCMM.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncDevice.h

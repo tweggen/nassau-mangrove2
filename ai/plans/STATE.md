@@ -106,34 +106,60 @@ The Mangrove compressor plugin refactoring is progressing ahead of schedule. All
 
 ## In-Progress Phase
 
-### Phase 5: GUI Implementation 🔄 (In Progress, ~60%)
+### Phase 5: GUI Implementation 🔄 (In Progress, ~70%)
 **Started:** ~May 22, 2026  
-**ETA Completion:** May 30, 2026
+**ETA Completion:** May 31, 2026
 
 **Deliverables (Planned):**
 - IGraphics-based parameter UI (sliders, toggles)
 - Real-time meter display (input RMS, compression reduction)
 - Visual layout matching original design
 
+**Major Milestones Completed:**
+- ✅ VST3 Factory Registration Fix (`4dac6f1`, `8f8f6c2`)
+  - Root cause: Missing pluginfactory.cpp and macmain.cpp from VST3 SDK
+  - Fix: Added both files to CMake build configuration
+  - Result: Plugin now discoverable in Studio One
+- ✅ Audio I/O Verification (May 24)
+  - Plugin loads in Studio One
+  - Audio processes correctly through DSP chain
+  - All 15 parameters functional (including FAST toggle)
+- ✅ Xcode Project Created (May 24)
+  - Created from IPlugControls template using iPlug2 duplicate.py
+  - Location: `MangroveIPlug/projects/MangroveIPlug-macOS.xcodeproj`
+  - Full graphics support ready (NanoVG/IGraphics)
+  - Stereo effect configuration (2-2 I/O)
+
+**Current Build Status:**
+- **CMake DSP-only build:** ✅ Stable, working in Studio One
+- **Xcode GUI project:** 🔄 Setup complete, build issue found
+  - Issue: prepare_resources-mac.py script fails (missing parse_config module)
+  - Workaround: Disable the build phase, enable later after main build works
+  - Next: Integrate CompressorChain DSP files and create UI controls
+
 **Recent Work:**
-- `e0f94c8`: Initial IPlug2 GUI wrapper setup
+- `d795da7` (May 24): Xcode project created from template
+- `fb52bf1` (May 24): DSP-only build finalized
+- `4dac6f1`, `8f8f6c2` (May 24): Factory registration fixed
 - `9645a2f` (May 24): Added "Fast" toggle for 0-sample attack reaction
 
 **Current Focus:**
-- Parameter binding to audio engine
-- Meter display accuracy
-- UI responsiveness under real-time constraints
+- Integrate CompressorChain DSP into Xcode project
+- Create UI controls for 15 parameters using IControls library
+- Wire parameter sliders to DSP parameter setters
+- Test meter display updates in real-time
 
 **Known Issues:**
-- Metering may need calibration
-- Visual styling refinement needed
+- Xcode build phase script needs Python path fix (deferred)
+- Graphics compilation requires NanoVG/IGraphics dependencies in Xcode config
 
 **Next Steps:**
-1. Complete all parameter-to-slider bindings
-2. Verify meter updates in real-time
-3. Test UI responsiveness (CPU load)
-4. Cross-platform visual testing (Windows/macOS)
-5. DAW testing (Reaper, Studio One)
+1. Add CompressorChain.h/cpp to Xcode project
+2. Update MangroveIPlug.h parameter enums (match 15 DSP params)
+3. Update MangroveIPlug.cpp constructor to build UI controls
+4. Test Xcode build (disable prepare_resources phase first)
+5. Verify parameter binding to audio engine
+6. Test in Studio One with full GUI
 
 ---
 
@@ -266,16 +292,16 @@ ctest --verbose
 
 ### Recent Commit History
 ```
+d795da7 Add Xcode project for Phase 5 GUI development
+fb52bf1 Revert to DSP-only IPlug2 build with proper factory registration
+b5d45ac Fix IPlug2 VST3 build with proper NO_IGRAPHICS configuration
+8f8f6c2 docs: Document VST3 factory registration fix and testing instructions
+4dac6f1 Add missing VST3 factory files to fix plugin class registration
 9645a2f Add Level "Fast" toggle for 0-sample attack reaction
 5e87ae6 Phase 5 fixes: make IPlug2 VST3 build compile and run
 8d08b86 cleanup: Remove IPlug2 template artifacts from Source/VST3/
 adea69a docs: Add comprehensive Windows 11 VST3 build guide
 e0f94c8 Phase 5: IPlug2 GUI wrapper for VST3 + AUv2
-3590fa2 Add Phase 3 completion documentation
-95b2678 Phase 3: Match original JUCE tuning factors and add multi-sample-rate tests
-32e7b45 Phase 2: Implement custom IIR high-pass filters
-95d955c Phase 1, Task 1.9: Finalize documentation and complete code review
-1c28e78 Phase 1, Task 1.8: Expand test suite to 40 comprehensive tests
 ```
 
 ### Branching Strategy
@@ -329,21 +355,26 @@ e0f94c8 Phase 5: IPlug2 GUI wrapper for VST3 + AUv2
 
 ## Action Items for Next Phase
 
-### Immediate (Next 1 week)
-- [ ] Complete GUI parameter binding
-- [ ] Verify meter updates in real-time
-- [ ] Test UI under CPU load
-- [ ] Document Phase 5 completion
+### Immediate (Next Session)
+- [ ] Disable prepare_resources-mac.py build phase in Xcode
+- [ ] Copy CompressorChain.h/cpp to MangroveIPlug folder
+- [ ] Add files to Xcode project via "Add Files" dialog
+- [ ] Try build again after adding DSP files
+- [ ] Fix any compilation errors in MangroveIPlug.cpp integration
 
-### Short-term (1–2 weeks)
-- [ ] DAW testing (Reaper, Studio One)
+### Short-term (Next 1–2 days)
+- [ ] Update MangroveIPlug.h with 15 parameter enums matching DSP API
+- [ ] Create parameter enum: kInputGain, kInputLoCut, kInputSaturate, kLevelThreshold, kLevelRatio, kLevelAttack, kLevelRelease, kLevelLoCut, kLevelTubeGain, kLevelFeedback, kLevelFast, kDensityThreshold, kDensityRatio, kDensityAttack, kDensityRelease
+- [ ] Update MangroveIPlug.cpp constructor to instantiate CompressorChain
+- [ ] Create UI controls for each parameter using IControls library
+- [ ] Bind parameter changes to DSP setters
+
+### Medium-term (Next 1 week)
+- [ ] Verify meter display updates via ISender pattern
+- [ ] Test UI under CPU load
+- [ ] Test in Studio One with full GUI
 - [ ] Visual polish & styling
 - [ ] Finalize Phase 5, begin Phase 6 (Serialization)
-
-### Medium-term (2–4 weeks)
-- [ ] Preset save/load system
-- [ ] AudioUnit v3 wrapper testing
-- [ ] Comprehensive regression tests
 
 ---
 
@@ -370,9 +401,10 @@ e0f94c8 Phase 5: IPlug2 GUI wrapper for VST3 + AUv2
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1 | May 24, 2026 (evening) | Xcode project setup, factory registration fix verified, audio I/O confirmed working |
 | 1.0 | May 24, 2026 | Initial state snapshot created |
 
 ---
 
 **Project Health:** 🟢 Green (on track, no blockers)  
-**Recommended Next Action:** Continue Phase 5 GUI implementation, target May 30 completion
+**Recommended Next Action:** Integrate CompressorChain DSP into Xcode project, then create UI controls. Factory registration is working—focus now on Xcode build completion and parameter UI wiring.

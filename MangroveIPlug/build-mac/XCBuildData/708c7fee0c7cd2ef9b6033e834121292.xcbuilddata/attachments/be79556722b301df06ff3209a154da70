@@ -1,0 +1,4 @@
+#!/bin/sh
+python3 ../scripts/prepare_resources-mac.py
+./../../external/iplug2/WDL/swell/swell_resgen.sh ../resources/main.rc
+
