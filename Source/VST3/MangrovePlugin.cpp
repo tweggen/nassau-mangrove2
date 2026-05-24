@@ -5,8 +5,17 @@
 
 using namespace iplug;
 
-// Forward declarations
-extern Config MakeConfig(int nParams, int nPresets);
+// Create plugin configuration
+Config MakeConfig(int nParams, int nPresets)
+{
+    return Config(nParams, nPresets, PLUG_CHANNEL_IO,
+                  PLUG_NAME, PLUG_NAME, "Nassau",
+                  PLUG_VERSION_HEX, PLUG_UNIQUE_ID, PLUG_MFR_ID,
+                  PLUG_LATENCY, PLUG_DOES_MIDI_IN, PLUG_DOES_MIDI_OUT,
+                  PLUG_DOES_MPE, PLUG_DOES_STATE_CHUNKS, kEffect, PLUG_HAS_UI,
+                  PLUG_WIDTH, PLUG_HEIGHT, false, 600, 600, 400, 400,
+                  "com.nassau.mangrove", "");
+}
 
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
     : Plugin(info, MakeConfig(PLUG_N_PARAMS, PLUG_N_PRESETS))

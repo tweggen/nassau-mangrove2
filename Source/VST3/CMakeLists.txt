@@ -1,7 +1,7 @@
 # Mangrove VST3 Plugin CMakeLists.txt
 # Builds IPlug2 + VST3 SDK as static libraries, then the plugin bundle
 
-set(IPLUG_ROOT "${CMAKE_SOURCE_DIR}/external/iPlug2")
+set(IPLUG_ROOT "${CMAKE_SOURCE_DIR}/external/iplug2")
 set(VST3_SDK_ROOT "${IPLUG_ROOT}/Dependencies/IPlug/VST3_SDK")
 set(WDL_ROOT "${IPLUG_ROOT}/WDL")
 
@@ -13,6 +13,7 @@ add_library(iplug2_vst3 STATIC
     ${IPLUG_ROOT}/IPlug/IPlugAPIBase.cpp
     ${IPLUG_ROOT}/IPlug/IPlugParameter.cpp
     ${IPLUG_ROOT}/IPlug/IPlugPluginBase.cpp
+    ${IPLUG_ROOT}/IPlug/IPlugProcessor.cpp
     ${IPLUG_ROOT}/IPlug/IPlugTimer.cpp
     ${IPLUG_ROOT}/IPlug/VST3/IPlugVST3.cpp
     ${IPLUG_ROOT}/IPlug/VST3/IPlugVST3_Controller.cpp
@@ -48,40 +49,11 @@ target_compile_definitions(iplug2_vst3 PUBLIC
     VST3_API=1
 )
 
-# ── 2. VST3 SDK base library (required by IPlug2 VST3 adapter) ────────────────
-# The VST3 SDK ships its own CMakeLists.txt but it often conflicts.
-# Safer: compile the handful of required files directly.
+# ── 2. Link against main VST3 SDK targets (configured in root CMakeLists) ────
+# The root CMakeLists.txt already configures and builds the VST3 SDK
+# We reuse those targets (sdk, pluginterfaces) instead of rebuilding
 
-add_library(vst3_sdk_base STATIC
-    ${VST3_SDK_ROOT}/base/source/baseiids.cpp
-    ${VST3_SDK_ROOT}/base/source/fbuffer.cpp
-    ${VST3_SDK_ROOT}/base/source/fobject.cpp
-    ${VST3_SDK_ROOT}/base/source/fstring.cpp
-    ${VST3_SDK_ROOT}/base/source/fstreamer.cpp
-    ${VST3_SDK_ROOT}/base/source/updatehandler.cpp
-    ${VST3_SDK_ROOT}/pluginterfaces/base/coreiids.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/common/commoniids.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/common/pluginview.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstaudioeffect.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstbus.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstcomponent.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstcomponentbase.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vsteditcontroller.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstinitiids.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstparameters.cpp
-    ${VST3_SDK_ROOT}/public.sdk/source/vst/vstsinglecomponenteffect.cpp
-)
-
-target_compile_options(vst3_sdk_base PRIVATE -w)
-
-target_include_directories(vst3_sdk_base PUBLIC
-    ${VST3_SDK_ROOT}
-    ${VST3_SDK_ROOT}/pluginterfaces
-    ${VST3_SDK_ROOT}/base
-    ${VST3_SDK_ROOT}/public.sdk/source/vst
-)
-
-target_link_libraries(iplug2_vst3 PUBLIC vst3_sdk_base)
+target_link_libraries(iplug2_vst3 PUBLIC sdk pluginterfaces)
 
 # ── 3. Plugin source files ────────────────────────────────────────────────────
 add_library(MangroveVST3 MODULE
@@ -104,6 +76,8 @@ target_include_directories(MangroveVST3 PRIVATE
 
 target_link_libraries(MangroveVST3 PRIVATE
     iplug2_vst3
+    sdk
+    pluginterfaces
     compressor_chain
     "-framework CoreFoundation"
     "-framework AudioUnit"
