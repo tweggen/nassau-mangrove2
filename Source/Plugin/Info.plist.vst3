@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
-    <string>$(EXECUTABLE_NAME)</string>
+    <string>MangroveIPlug</string>
     <key>CFBundleIdentifier</key>
     <string>com.nassau.mangrove.iplug</string>
     <key>CFBundleInfoDictionaryVersion</key>

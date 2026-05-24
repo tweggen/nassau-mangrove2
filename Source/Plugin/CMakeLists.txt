@@ -20,8 +20,6 @@ add_library(iplug2_lib STATIC
 )
 target_compile_options(iplug2_lib PRIVATE -w)
 target_compile_definitions(iplug2_lib PUBLIC
-    PLUG_HAS_UI=0
-    NO_IGRAPHICS=1
 )
 target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_IPLUG}
