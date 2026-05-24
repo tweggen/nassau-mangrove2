@@ -219,27 +219,43 @@ ctest --verbose
 ```
 
 ### Test Results
-- **DSP Tests:** 40/40 passing ✅
+- **DSP Tests:** 51/51 passing ✅ (updated after Phase 1-3 verification)
 - **Compiler Warnings:** 0 ✅
-- **VST 3 Build:** Compiles cleanly ✅
-- **VST 3 Runtime:** Recognized by hosts, audio functional ✅
-- **GUI:** Partial (in progress) 🔄
+- **VST 3 DSP Build:** Compiles cleanly ✅
+- **VST 3 Plugin Build:** Linking needs tuning (SDK target refs)
+- **GUI:** In progress, see Phase 5 note below
+
+---
+
+## Phase 5 Build Path Recommendation
+
+**Decision:** Use `Source/Plugin/CMakeLists.txt` (IPlug2-based) instead of custom `Source/VST3/` wrapper.
+
+**Rationale:**
+- ✅ Cleaner integration with IPlug2 framework
+- ✅ Automatic AUv3 support (bonus for Phase 7)
+- ✅ Better-maintained build configuration
+- ✅ Cross-platform (Windows/macOS/Linux)
+- ⚠️ Custom VST3 wrapper linking needs platform-specific tuning
+
+**Phase 5 Focus:** Implement GUI using `Source/Plugin/` IPlug2 architecture.
 
 ---
 
 ## Known Issues & Limitations
 
 ### Current (Phase 5)
-1. **GUI Responsiveness:** May need CPU optimization
-2. **Meter Calibration:** Input meter may need fine-tuning
-3. **Visual Polish:** UI styling refinement needed
+1. **VST3 Custom Wrapper:** Linker config needs tuning for macOS/Linux
+2. **GUI Development:** In progress using IPlug2 IGraphics framework
+3. **Meter Display:** Needs ISender pattern for thread-safe updates
 4. **Linux Support:** VST 3 not yet tested on Linux
 
 ### Design Decisions
-- Using IPlug2 for all plugin wrapper formats (consistent build)
-- VST 3 as primary format (highest DAW adoption)
-- AU v3 wrapper ready, LADSPA pending
+- **Phase 1-4:** Custom VST3 wrapper (Phase 4) proved VST3 format works
+- **Phase 5+:** Leverage IPlug2 Plugin framework for production GUI
+- IPlug2 provides VST3 + AUv3 (Phase 7 bonus) in one build
 - Lock-free parameter updates to avoid audio thread blocking
+- Use `ISender` pattern for meter data thread-safety
 
 ---
 
