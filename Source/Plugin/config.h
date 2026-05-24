@@ -29,7 +29,7 @@
 #define PLUG_N_PARAMS   15
 #define PLUG_N_PRESETS  1
 
-#define PLUG_HAS_UI     1
+#define PLUG_HAS_UI     0
 #define PLUG_WIDTH      640
 #define PLUG_HEIGHT     400
 #define PLUG_FPS        60

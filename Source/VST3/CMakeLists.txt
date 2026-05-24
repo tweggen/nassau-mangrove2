@@ -59,6 +59,8 @@ target_link_libraries(iplug2_vst3 PUBLIC sdk pluginterfaces)
 add_library(MangroveVST3 MODULE
     MangrovePlugin.cpp
     "${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp"
+    "${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/main/pluginfactory.cpp"
+    "${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/main/macmain.cpp"
 )
 
 set_target_properties(MangroveVST3 PROPERTIES
