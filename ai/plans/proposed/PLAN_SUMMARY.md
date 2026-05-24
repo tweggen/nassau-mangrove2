@@ -3,13 +3,14 @@
 **Project:** Mangrove Plugin Refactoring (JUCE → Native Formats)  
 **Created:** May 2026  
 **Total Duration:** 20–30 weeks  
-**Status:** 📋 Planning Phase
+**Status:** 🔄 Active Execution — Phase 5 in progress  
+**Elapsed:** ~4 weeks | **On Track:** Yes
 
 ---
 
 ## Documents Created
 
-### 1. **IMPLEMENTATION_PLAN.md** (Main Document)
+### 1. **IMPLEMENTATION_PLAN.md** (Main Document — in `proposed/`)
 The master plan document covering:
 - Project overview and phase dependencies
 - Directory structure (post-implementation)
@@ -200,19 +201,19 @@ The master plan document covering:
 ## Quick Facts
 
 ### Core Phases (Required for MVP)
-| Phase | Duration | Status |
-|-------|----------|--------|
-| 1. DSP Extraction | 2–3 weeks | 📋 Planned |
-| 2. IIR Filter | 1–2 weeks | 📋 Planned |
-| 3. Sample Rate Fix | 1–2 weeks | 📋 Planned |
-| 4. VST 3 Wrapper | 3–4 weeks | 📋 Planned |
-| 5. GUI | 2–3 weeks | 📋 Planned |
-| 6. Serialization | 1–2 weeks | 📋 Planned |
-| 7. AudioUnit | 4–6 weeks | 📋 Planned |
-| 8. LADSPA | 1–2 weeks | 📋 Planned |
-| 9. Testing | 3–4 weeks | 📋 Planned |
-| 10. Packaging | 2–3 weeks | 📋 Planned |
-| **TOTAL** | **20–30 weeks** | |
+| Phase | Duration | Status | Completed |
+|-------|----------|--------|-----------|
+| 1. DSP Extraction | 2–3 weeks | ✅ Complete | May 6 |
+| 2. IIR Filter | 1–2 weeks | ✅ Complete | May 13 |
+| 3. Sample Rate Fix | 1–2 weeks | ✅ Complete | May 18 |
+| 4. VST 3 Wrapper | 3–4 weeks | ✅ Complete | May 21 |
+| 5. GUI | 2–3 weeks | 🔄 In Progress | ETA May 30 |
+| 6. Serialization | 1–2 weeks | 📋 Planned | — |
+| 7. AudioUnit | 4–6 weeks | 📋 Planned | — |
+| 8. LADSPA | 1–2 weeks | 📋 Planned | — |
+| 9. Testing | 3–4 weeks | 📋 Planned | — |
+| 10. Packaging | 2–3 weeks | 📋 Planned | — |
+| **TOTAL** | **20–30 weeks** | **~4 weeks elapsed** | **On track** |
 
 ### Critical Path (Minimum to Release)
 ```
@@ -365,26 +366,28 @@ brew install freetype fontconfig
 
 ## Document Locations
 
-All documents are in the project root:
+Documents are organized by phase status under `ai/plans/`:
 
 ```
-mangrove-refactored/
-├── PLAN_SUMMARY.md              ← You are here
-├── IMPLEMENTATION_PLAN.md       ← Overall strategy & phases
-├── PHASE_1_DSP_EXTRACTION.md    ← DSP core library
-├── PHASE_2_IIR_REPLACEMENT.md   ← Custom filter implementation
-├── PHASE_3_SAMPLE_RATE_FIX.md   ← (Not yet created)
-├── PHASE_4_VST3_WRAPPER.md      ← (Not yet created)
-├── PHASE_5_GUI_IMPLEMENTATION.md ← (Not yet created)
-├── PHASE_6_SERIALIZATION.md     ← (Not yet created)
-├── PHASE_7_AUDIOUNIT.md         ← (Not yet created)
-├── PHASE_8_LADSPA.md            ← (Not yet created)
-├── PHASE_9_TESTING.md           ← (Not yet created)
-├── PHASE_10_PACKAGING.md        ← (Not yet created)
-├── OPTIONAL_PLATFORMS.md         ← VST 2, Standalone, CLAP, iOS, Web
-├── REFACTORING_ANALYSIS.md      ← Original analysis document
-└── Source/
-    └── PluginProcessor.cpp      ← Original JUCE code (reference)
+ai/plans/
+├── STATE.md                     ← Current execution state (read this first!)
+├── proposed/                    ← Strategy docs + in-progress phases
+│   ├── PLAN_SUMMARY.md          ← You are here
+│   ├── IMPLEMENTATION_PLAN.md   ← Overall strategy & dependencies
+│   ├── PHASE_5_GUI_IMPLEMENTATION.md ← In progress (GUI)
+│   ├── OPTIONAL_PLATFORMS.md    ← VST 2, Standalone, CLAP, iOS, Web
+│   └── REFACTORING_ANALYSIS.md  ← Original analysis document
+├── done/                        ← Completed phases
+│   ├── PHASE_1_DSP_EXTRACTION.md    ✅
+│   ├── PHASE_2_IIR_REPLACEMENT.md   ✅
+│   ├── PHASE_3_SAMPLE_RATE_FIX.md   ✅
+│   └── PHASE_4_VST3_WRAPPER.md      ✅
+└── todo/                        ← Planned but not started
+    ├── PHASE_6_SERIALIZATION.md
+    ├── PHASE_7_AUDIOUNIT.md
+    ├── PHASE_8_LADSPA.md
+    ├── PHASE_9_TESTING.md
+    └── PHASE_10_PACKAGING.md
 ```
 
 ---

@@ -2,7 +2,8 @@
 
 **Project Duration:** 20–30 weeks  
 **Target:** Multi-platform native plugins (VST 3, AudioUnit, LADSPA)  
-**Status:** Planning phase
+**Status:** 🔄 Active Execution — Phase 5 (GUI Implementation) in progress  
+**Started:** May 2026 | **Current:** May 24, 2026 | **Elapsed:** ~4 weeks
 
 ---
 
@@ -12,18 +13,18 @@ This document defines a phased approach to refactor the Mangrove compression plu
 
 ### Core Phases
 
-| Phase | Deliverable | Duration | Status |
-|-------|-------------|----------|--------|
-| **[1. DSP Extraction](./PHASE_1_DSP_EXTRACTION.md)** | `CompressorChain` library (platform-independent) | 2–3 weeks | 📋 Planned |
-| **[2. IIR Filter Replacement](./PHASE_2_IIR_REPLACEMENT.md)** | Custom Butterworth filter implementation | 1–2 weeks | 📋 Planned |
-| **[3. Sample Rate Handling](./PHASE_3_SAMPLE_RATE_FIX.md)** | Dynamic sample-rate coefficient recalculation | 1–2 weeks | 📋 Planned |
-| **[4. VST 3 Wrapper (IPlug2)](./PHASE_4_VST3_WRAPPER.md)** | Cross-platform VST 3 plugin (Windows/macOS/Linux) | 3–4 weeks | 📋 Planned |
-| **[5. GUI Implementation](./PHASE_5_GUI_IMPLEMENTATION.md)** | IGraphics-based parameter UI + metering | 2–3 weeks | 📋 Planned |
-| **[6. Serialization](./PHASE_6_SERIALIZATION.md)** | Binary + JSON preset system | 1–2 weeks | 📋 Planned |
-| **[7. AudioUnit (AUv3)](./PHASE_7_AUDIOUNIT.md)** | Native macOS AU plugin | 4–6 weeks | 📋 Planned |
-| **[8. LADSPA (Bonus)](./PHASE_8_LADSPA.md)** | Linux LADSPA plugin wrapper | 1–2 weeks | 📋 Planned |
-| **[9. Testing & Validation](./PHASE_9_TESTING.md)** | Regression tests, DSP verification, cross-DAW testing | 3–4 weeks | 📋 Planned |
-| **[10. Packaging & Release](./PHASE_10_PACKAGING.md)** | Builds, codesigning, distribution setup | 2–3 weeks | 📋 Planned |
+| Phase | Deliverable | Duration | Status | Completed |
+|-------|-------------|----------|--------|-----------|
+| **[1. DSP Extraction](./done/PHASE_1_DSP_EXTRACTION.md)** | `CompressorChain` library (platform-independent) | 2–3 weeks | ✅ Complete | ~May 6 |
+| **[2. IIR Filter Replacement](./done/PHASE_2_IIR_REPLACEMENT.md)** | Custom Butterworth filter implementation | 1–2 weeks | ✅ Complete | ~May 13 |
+| **[3. Sample Rate Handling](./done/PHASE_3_SAMPLE_RATE_FIX.md)** | Dynamic sample-rate coefficient recalculation | 1–2 weeks | ✅ Complete | ~May 18 |
+| **[4. VST 3 Wrapper (IPlug2)](./done/PHASE_4_VST3_WRAPPER.md)** | Cross-platform VST 3 plugin (Windows/macOS/Linux) | 3–4 weeks | ✅ Complete | ~May 21 |
+| **[5. GUI Implementation](./PHASE_5_GUI_IMPLEMENTATION.md)** | IGraphics-based parameter UI + metering | 2–3 weeks | 🔄 In Progress | ETA May 30 |
+| **[6. Serialization](./todo/PHASE_6_SERIALIZATION.md)** | Binary + JSON preset system | 1–2 weeks | 📋 Planned | — |
+| **[7. AudioUnit (AUv3)](./todo/PHASE_7_AUDIOUNIT.md)** | Native macOS AU plugin | 4–6 weeks | 📋 Planned | — |
+| **[8. LADSPA (Bonus)](./todo/PHASE_8_LADSPA.md)** | Linux LADSPA plugin wrapper | 1–2 weeks | 📋 Planned | — |
+| **[9. Testing & Validation](./todo/PHASE_9_TESTING.md)** | Regression tests, DSP verification, cross-DAW testing | 3–4 weeks | 📋 Planned | — |
+| **[10. Packaging & Release](./todo/PHASE_10_PACKAGING.md)** | Builds, codesigning, distribution setup | 2–3 weeks | 📋 Planned | — |
 
 ---
 
