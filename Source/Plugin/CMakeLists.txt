@@ -73,6 +73,7 @@ set_target_properties(MangroveIPlug_VST3 PROPERTIES
     BUNDLE_EXTENSION "vst3"
     OUTPUT_NAME "MangroveIPlug"
     MACOSX_BUNDLE_GUI_IDENTIFIER "com.nassau.mangrove.iplug"
+    MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.vst3"
 )
 
 # ── AUv2 plugin bundle (DSP-only, no GUI) ───────────────────────────────────
