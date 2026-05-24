@@ -20,6 +20,9 @@ add_library(iplug2_lib STATIC
 )
 target_compile_options(iplug2_lib PRIVATE -w)
 target_compile_definitions(iplug2_lib PUBLIC
+    NO_IGRAPHICS=1
+    IGRAPHICS_NONE=1
+    IPLUG_DSP=1
 )
 target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_IPLUG}
@@ -77,7 +80,8 @@ set_target_properties(MangroveIPlug_VST3 PROPERTIES
 )
 
 # ── AUv2 plugin bundle (DSP-only, no GUI) ───────────────────────────────────
-if(APPLE)
+# Temporarily disabled - VST3 is the priority for Phase 5
+if(FALSE)
     add_library(MangroveIPlug_AU MODULE
         MangrovePlugin.cpp
         ${IPLUG2_IPLUG}/AUv2/IPlugAU.cpp

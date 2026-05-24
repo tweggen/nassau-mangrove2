@@ -1,0 +1,2 @@
+/usr/bin/ar qc libiplug2_lib.a CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugAPIBase.cpp.o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugParameter.cpp.o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPaths.cpp.o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPluginBase.cpp.o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugProcessor.cpp.o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugTimer.cpp.o
+/usr/bin/ranlib libiplug2_lib.a

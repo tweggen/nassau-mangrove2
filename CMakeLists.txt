@@ -21,12 +21,11 @@ else()
 endif()
 
 # IPlug2 GUI Plugin (optional, depends on IPlug2)
-# Temporarily disabled while fixing factory registration issue
-# if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/external/iplug2/IPlug/IPlugAPIBase.h")
-#     add_subdirectory(Source/Plugin)
-# else()
-#     message(STATUS "IPlug2 not found — skipping IPlug2 GUI plugin target")
-# endif()
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/external/iplug2/IPlug/IPlugAPIBase.h")
+    add_subdirectory(Source/Plugin)
+else()
+    message(STATUS "IPlug2 not found — skipping IPlug2 GUI plugin target")
+endif()
 
 # Tests
 enable_testing()

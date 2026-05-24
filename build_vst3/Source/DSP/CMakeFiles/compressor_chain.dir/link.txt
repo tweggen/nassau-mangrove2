@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcompressor_chain.a CMakeFiles/compressor_chain.dir/compressor_chain.cpp.o
+/usr/bin/ranlib libcompressor_chain.a
