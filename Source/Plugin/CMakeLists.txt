@@ -75,16 +75,15 @@ set_target_properties(MangroveIPlug_VST3 PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER "com.nassau.mangrove.iplug"
 )
 
-# ── AUv2 plugin bundle (macOS only) ─────────────────────────────────────────
+# ── AUv2 plugin bundle (DSP-only, no GUI) ───────────────────────────────────
 if(APPLE)
     add_library(MangroveIPlug_AU MODULE
         MangrovePlugin.cpp
-        MangroveUI.cpp
         ${IPLUG2_IPLUG}/AUv2/IPlugAU.cpp
         ${IPLUG2_IPLUG}/AUv2/IPlugAU_view_factory.mm
     )
     target_compile_options(MangroveIPlug_AU PRIVATE -Wall -Wextra -w)
-    target_compile_definitions(MangroveIPlug_AU PRIVATE AU_API=1 IPLUG_EDITOR=1)
+    target_compile_definitions(MangroveIPlug_AU PRIVATE AU_API=1 IPLUG_EDITOR=0)
     target_include_directories(MangroveIPlug_AU PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_SOURCE_DIR}/Source/DSP

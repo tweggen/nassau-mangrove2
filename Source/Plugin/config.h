@@ -47,3 +47,10 @@
 #define PLUG_SUBTYPE_STR "Mng5"    // 4-char OSType matching PLUG_UNIQUE_ID
 #define PLUG_MFR_STR     "Nss2"    // 4-char manufacturer
 #define PLUG_BUNDLE_ID   "com.nassau.mangrove.iplug"
+
+// AUv2 Entry points (required for AudioUnit plugin)
+#define AUV2_ENTRY MangrovePluginAU
+#define AUV2_ENTRY_STR "MangrovePluginAU"
+#define AUV2_FACTORY MangrovePluginAUFactory
+#define AUV2_VIEW_CLASS AUPlugInCocoaViewMangrovePlugin
+#define AUV2_VIEW_CLASS_STR "AUPlugInCocoaViewMangrovePlugin"
