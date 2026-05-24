@@ -22,6 +22,8 @@ public:
     void OnIdle() override;
 
 private:
+    static iplug::Config MakePluginConfig();
+
     CompressorChain mChain;
     static constexpr int kMaxBlockSize = 8192;
     float mInL[kMaxBlockSize], mInR[kMaxBlockSize];

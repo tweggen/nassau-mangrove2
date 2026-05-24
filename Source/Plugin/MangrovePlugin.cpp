@@ -1,10 +1,38 @@
 #include "MangrovePlugin.h"
-#include "MangroveUI.h"
+#include "IPlug_include_in_plug_src.h"
 #include <algorithm>
 using namespace iplug;
 
+Config MangrovePlugin::MakePluginConfig()
+{
+    return Config(
+        PLUG_N_PARAMS,
+        PLUG_N_PRESETS,
+        PLUG_CHANNEL_IO,
+        PLUG_NAME,
+        PLUG_NAME,
+        PLUG_MFR,
+        PLUG_VERSION_HEX,
+        PLUG_UNIQUE_ID,
+        PLUG_MFR_ID,
+        PLUG_LATENCY,
+        PLUG_DOES_MIDI_IN,
+        PLUG_DOES_MIDI_OUT,
+        PLUG_DOES_MPE,
+        PLUG_DOES_STATE_CHUNKS,
+        kEffect,
+        PLUG_HAS_UI,
+        PLUG_WIDTH,
+        PLUG_HEIGHT,
+        false,
+        0, 0, 0, 0,
+        PLUG_BUNDLE_ID,
+        ""
+    );
+}
+
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
-    : Plugin(info, MakeConfig(kNumParams, 1))
+    : Plugin(info, MakePluginConfig())
 {
     GetParam(kInputGain)->InitDouble("Input Gain", 0., -24., 24., 0.01, "dB");
     GetParam(kInputLoCut)->InitDouble("Input Lo Cut", 80., 20., 300., 0.1, "Hz");
@@ -16,17 +44,11 @@ MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
     GetParam(kLevelLoCut)->InitBool("Level Lo Cut", false);
     GetParam(kLevelTubeGain)->InitBool("Level Tube Gain", false);
     GetParam(kLevelFeedback)->InitBool("Level Feedback", true);
+    GetParam(kLevelFast)->InitBool("Level Fast", false);
     GetParam(kDensityThreshold)->InitDouble("Density Threshold", -10., -36., 0., 0.1, "dB");
     GetParam(kDensityRatio)->InitDouble("Density Ratio", 1., 1., 10., 0.01, "");
     GetParam(kDensityAttack)->InitDouble("Density Attack", 10., 0.001, 100., 0.001, "ms");
     GetParam(kDensityRelease)->InitDouble("Density Release", 300., 10., 2000., 1., "ms");
-
-    mMakeGraphicsFunc = [&]() {
-        return MakeGraphics(*this, PLUG_WIDTH, PLUG_HEIGHT, PLUG_FPS);
-    };
-    mLayoutFunc = [&](IGraphics* ui) {
-        MangroveUI::Layout(*ui, *this);
-    };
 }
 
 void MangrovePlugin::OnReset()
@@ -53,6 +75,7 @@ void MangrovePlugin::OnParamChange(int p)
         case kLevelLoCut:       mChain.setLevelLoCut(v >= 0.5);                    break;
         case kLevelTubeGain:    mChain.setLevelTubeGain(v >= 0.5);                break;
         case kLevelFeedback:    mChain.setLevelFeedback(v >= 0.5);                break;
+        case kLevelFast:        mChain.setLevelFast(v >= 0.5);                     break;
         case kDensityThreshold: mChain.setDensityThreshold(static_cast<float>(v)); break;
         case kDensityRatio:     mChain.setDensityRatio(static_cast<float>(v));     break;
         case kDensityAttack:    mChain.setDensityAttack(static_cast<float>(v));    break;
@@ -66,12 +89,12 @@ void MangrovePlugin::ProcessBlock(sample** inputs, sample** outputs, int nFrames
     const int n = std::min(nFrames, kMaxBlockSize);
     for (int i = 0; i < n; ++i) {
         mInL[i] = static_cast<float>(inputs[0][i]);
-        mInR[i] = static_cast<float>((GetNInChannels() > 1 ? inputs[1] : inputs[0])[i]);
+        mInR[i] = static_cast<float>(inputs[1][i]);
     }
     mChain.process(mInL, mInR, mOutL, mOutR, n);
     for (int i = 0; i < n; ++i) {
         outputs[0][i] = static_cast<sample>(mOutL[i]);
-        if (GetNOutChannels() > 1) outputs[1][i] = static_cast<sample>(mOutR[i]);
+        outputs[1][i] = static_cast<sample>(mOutR[i]);
     }
 }
 
@@ -79,5 +102,3 @@ void MangrovePlugin::OnIdle()
 {
     // Push meter data to UI controls if needed
 }
-
-#include "IPlug_include_in_plug_src.h"

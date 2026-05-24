@@ -7,8 +7,9 @@ set(IPLUG2_DEPS     "${IPLUG2_ROOT}/Dependencies")
 set(NANOVG_DIR      "${IPLUG2_DEPS}/IGraphics/NanoVG/src")
 set(NANOSVG_DIR     "${IPLUG2_DEPS}/IGraphics/NanoSVG/src")
 set(METALNVG_DIR    "${IPLUG2_DEPS}/IGraphics/MetalNanoVG/src")
+set(STB_DIR         "${IPLUG2_DEPS}/IGraphics/STB")
 
-# ── IPlug2 common static library ────────────────────────────────────────────
+# ── IPlug2 common static library (DSP-only, no graphics) ────────────────────
 add_library(iplug2_lib STATIC
     ${IPLUG2_IPLUG}/IPlugAPIBase.cpp
     ${IPLUG2_IPLUG}/IPlugParameter.cpp
@@ -16,28 +17,24 @@ add_library(iplug2_lib STATIC
     ${IPLUG2_IPLUG}/IPlugPluginBase.cpp
     ${IPLUG2_IPLUG}/IPlugProcessor.cpp
     ${IPLUG2_IPLUG}/IPlugTimer.cpp
-    ${IPLUG2_IGRAPHICS}/IControl.cpp
-    ${IPLUG2_IGRAPHICS}/Drawing/IGraphicsNanoVG.cpp
-    ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac.mm
-    ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac_view.mm
-    ${NANOVG_DIR}/nanovg.c
 )
 target_compile_options(iplug2_lib PRIVATE -w)
 target_compile_definitions(iplug2_lib PUBLIC
-    IGRAPHICS_NANOVG=1
-    IGRAPHICS_METAL=1
-    PLUG_HAS_UI=1
+    PLUG_HAS_UI=0
+    NO_IGRAPHICS=1
 )
 target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_IPLUG}
     ${IPLUG2_IPLUG}/Extras
     ${IPLUG2_IGRAPHICS}
+    ${IPLUG2_IGRAPHICS}/Controls
     ${IPLUG2_IGRAPHICS}/Platforms
     ${IPLUG2_IGRAPHICS}/Drawing
     ${IPLUG2_ROOT}/WDL
     ${NANOVG_DIR}
     ${NANOSVG_DIR}
     ${METALNVG_DIR}
+    ${STB_DIR}
     ${IPLUG2_DEPS}/IGraphics/glad/include
 )
 
