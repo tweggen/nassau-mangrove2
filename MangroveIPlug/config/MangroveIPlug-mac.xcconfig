@@ -24,7 +24,7 @@ EXTRA_LNK_FLAGS = -framework Metal -framework MetalKit -framework OpenGL -framew
 
 //------------------------------
 // PREPROCESSOR MACROS
-EXTRA_ALL_DEFS = OBJC_PREFIX=vMangroveIPlug SWELL_APP_PREFIX=Swell_vMangroveIPlug IGRAPHICS_NANOVG IGRAPHICS_METAL
+EXTRA_ALL_DEFS = OBJC_PREFIX=vMangroveIPlug SWELL_APP_PREFIX=Swell_vMangroveIPlug NO_IGRAPHICS
 //EXTRA_DEBUG_DEFS =
 //EXTRA_RELEASE_DEFS =
 //EXTRA_TRACER_DEFS =

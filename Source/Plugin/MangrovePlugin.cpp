@@ -1,5 +1,7 @@
 #include "MangrovePlugin.h"
+#if IPLUG_EDITOR
 #include "MangroveUI.h"
+#endif
 #include "IPlug_include_in_plug_src.h"
 #include <algorithm>
 
@@ -116,5 +118,3 @@ void MangrovePlugin::OnIdle()
     // Push meter data to UI controls if needed
 }
 
-// Include MangroveUI implementation
-#include "MangroveUI.cpp"
