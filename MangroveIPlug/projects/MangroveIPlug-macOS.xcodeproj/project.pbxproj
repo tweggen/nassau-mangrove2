@@ -46,10 +46,6 @@
 		4F35DEAF207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F35DEAB207E5C5A00867D8F /* IPlugPluginBase.cpp */; };
 		4F35DEB0207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F35DEAB207E5C5A00867D8F /* IPlugPluginBase.cpp */; };
 		4F35DEB1207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F35DEAB207E5C5A00867D8F /* IPlugPluginBase.cpp */; };
-		4F3862EF2014BBEC0009F402 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
-		4F3862F12014BBEC0009F402 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
-		4F3862F22014BBEC0009F402 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
-		4F3862F32014BBEC0009F402 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
 		4F3EE1BF231438D000004786 /* MangroveIPlug.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4FD290A8137C34D700CEBE7E /* MangroveIPlug.icns */; };
 		4F3EE1C0231438D000004786 /* MangroveIPlug-macOS-MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1B4AE32014D33600BC64D4 /* MangroveIPlug-macOS-MainMenu.xib */; };
 		4F3EE1C2231438D000004786 /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
@@ -78,7 +74,6 @@
 		4F3EE1DB231438D000004786 /* IPlugAPP_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F690C9A203A345100A4A13E /* IPlugAPP_main.cpp */; };
 		4F3EE1DC231438D000004786 /* IControls.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F63695920A463090022C370 /* IControls.cpp */; };
 		4F3EE1DD231438D000004786 /* IGraphicsMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1F58120E4AFEE004157C8 /* IGraphicsMac.mm */; };
-		4F3EE1DE231438D000004786 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
 		4F3EE1DF231438D000004786 /* IPopupMenuControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A82F5213DE80300BE63A4 /* IPopupMenuControl.cpp */; };
 		4F3EE1E0231438D000004786 /* IPlugAPIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F78D8ED13B63BA40032E0F3 /* IPlugAPIBase.cpp */; };
 		4F3EE1E1231438D000004786 /* IPlugPluginBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F35DEAB207E5C5A00867D8F /* IPlugPluginBase.cpp */; };
@@ -120,8 +115,6 @@
 		4F6FD2B522675B6300FC59E6 /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FD2AF22675B6300FC59E6 /* IGraphicsCoreText.mm */; };
 		4F722020225C1EB100FF0E7C /* commoniids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F72201E225C1EB100FF0E7C /* commoniids.cpp */; };
 		4F78BE1222E73DD900AD537E /* AUv3Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F78BE1022E73DD900AD537E /* AUv3Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F78BE1422E7406D00AD537E /* MangroveIPlug.h in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862EE2014BBEC0009F402 /* MangroveIPlug.h */; };
-		4F78BE1522E7406D00AD537E /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
 		4F78BE1622E7406D00AD537E /* IGraphicsMac_view.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1F58620E4AFEF004157C8 /* IGraphicsMac_view.mm */; };
 		4F78BE1722E7406D00AD537E /* IGraphicsMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1F58120E4AFEE004157C8 /* IGraphicsMac.mm */; };
 		4F78BE1822E7406D00AD537E /* IGraphicsCoreText.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F6FD2AF22675B6300FC59E6 /* IGraphicsCoreText.mm */; };
@@ -184,7 +177,6 @@
 		4F8C10E220BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C10DE20BA2796006320CD /* IGraphicsEditorDelegate.cpp */; };
 		4F8C10E320BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C10DE20BA2796006320CD /* IGraphicsEditorDelegate.cpp */; };
 		4F8C10E420BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C10DE20BA2796006320CD /* IGraphicsEditorDelegate.cpp */; };
-		4F8D9707209EF5AC006E2A11 /* MangroveIPlug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3862ED2014BBEC0009F402 /* MangroveIPlug.cpp */; };
 		4F9828B8140A9EB700F3FCC1 /* IPlugAPIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F78D8ED13B63BA40032E0F3 /* IPlugAPIBase.cpp */; };
 		4F9828C1140A9EB700F3FCC1 /* IPlugParameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F78D90413B63BA50032E0F3 /* IPlugParameter.cpp */; };
 		4F993F7223055C96000313AF /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
@@ -235,6 +227,9 @@
 		4FF0A83221BE708700B2C9D1 /* swell-gdi.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FD16D0B13B634BF001D0217 /* swell-gdi.mm */; settings = {COMPILER_FLAGS = "-Wno-unreachable-code"; }; };
 		B885CBC52304AE7300D73128 /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8E22A0C220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */; };
+		E96C8CCC2FC477010035DED1 /* IPlugVST3_Processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96C8CCA2FC477010035DED1 /* IPlugVST3_Processor.cpp */; };
+		E96C8CCD2FC477010035DED1 /* IPlugVST3_Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96C8CCB2FC477010035DED1 /* IPlugVST3_Controller.cpp */; };
+		E96C8CCF2FC4790E0035DED1 /* MangrovePlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E96C8CCE2FC4790E0035DED1 /* MangrovePlugin.cpp */; };
 		E9F2344F2FC35D6700683477 /* compressor_chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F2344E2FC35D6700683477 /* compressor_chain.cpp */; };
 		E9F234502FC35D6700683477 /* compressor_chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F2344E2FC35D6700683477 /* compressor_chain.cpp */; };
 		E9F234512FC35D6700683477 /* compressor_chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9F2344E2FC35D6700683477 /* compressor_chain.cpp */; };
@@ -687,6 +682,11 @@
 		B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		B8E22A0B220268C4007CBF4C /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; tabWidth = 2; };
 		B8EA6B932203868500D23A86 /* IPlugVST3_Common.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Common.h; path = ../../external/iplug2/IPlug/VST3/IPlugVST3_Common.h; sourceTree = "<group>"; tabWidth = 2; };
+		E96C8CC62FC468240035DED1 /* macmain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = macmain.cpp; path = ../../external/vst3sdk/public.sdk/source/main/macmain.cpp; sourceTree = "<group>"; };
+		E96C8CC72FC468240035DED1 /* pluginfactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pluginfactory.cpp; path = ../../external/vst3sdk/public.sdk/source/main/pluginfactory.cpp; sourceTree = "<group>"; };
+		E96C8CCA2FC477010035DED1 /* IPlugVST3_Processor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_Processor.cpp; path = ../../external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp; sourceTree = "<group>"; };
+		E96C8CCB2FC477010035DED1 /* IPlugVST3_Controller.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_Controller.cpp; path = ../../external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp; sourceTree = "<group>"; };
+		E96C8CCE2FC4790E0035DED1 /* MangrovePlugin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MangrovePlugin.cpp; path = ../../Source/Plugin/MangrovePlugin.cpp; sourceTree = "<group>"; };
 		E9F2344D2FC35D6700683477 /* compressor_chain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = compressor_chain.h; sourceTree = "<group>"; };
 		E9F2344E2FC35D6700683477 /* compressor_chain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = compressor_chain.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -750,6 +750,11 @@
 		089C166AFE841209C02AAC07 /* IPlugExample */ = {
 			isa = PBXGroup;
 			children = (
+				E96C8CCE2FC4790E0035DED1 /* MangrovePlugin.cpp */,
+				E96C8CCB2FC477010035DED1 /* IPlugVST3_Controller.cpp */,
+				E96C8CCA2FC477010035DED1 /* IPlugVST3_Processor.cpp */,
+				E96C8CC62FC468240035DED1 /* macmain.cpp */,
+				E96C8CC72FC468240035DED1 /* pluginfactory.cpp */,
 				E9F2344D2FC35D6700683477 /* compressor_chain.h */,
 				E9F2344E2FC35D6700683477 /* compressor_chain.cpp */,
 				52FBBED30D0CF143001C8B8A /* config.h */,
@@ -2014,7 +2019,6 @@
 				4F1A527B205D910000CF2908 /* IPlugVST2.cpp in Sources */,
 				4F8C10E120BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
 				4F6369DE20A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */,
-				4F8D9707209EF5AC006E2A11 /* MangroveIPlug.cpp in Sources */,
 				4F78D9BB13B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
 				4FB1F59020E4B010004157C8 /* IGraphicsMac_view.mm in Sources */,
 				E9F234502FC35D6700683477 /* compressor_chain.cpp in Sources */,
@@ -2057,7 +2061,6 @@
 				E9F234562FC35D6700683477 /* compressor_chain.cpp in Sources */,
 				4F78D95C13B63BA50032E0F3 /* IPlugParameter.cpp in Sources */,
 				4FB1F58C20E4B006004157C8 /* IGraphicsMac.mm in Sources */,
-				4F3862F22014BBEC0009F402 /* MangroveIPlug.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2091,7 +2094,6 @@
 				4F3EE1DB231438D000004786 /* IPlugAPP_main.cpp in Sources */,
 				4F3EE1DC231438D000004786 /* IControls.cpp in Sources */,
 				4F3EE1DD231438D000004786 /* IGraphicsMac.mm in Sources */,
-				4F3EE1DE231438D000004786 /* MangroveIPlug.cpp in Sources */,
 				4F3EE1DF231438D000004786 /* IPopupMenuControl.cpp in Sources */,
 				4F3EE1E0231438D000004786 /* IPlugAPIBase.cpp in Sources */,
 				4F3EE1E1231438D000004786 /* IPlugPluginBase.cpp in Sources */,
@@ -2107,9 +2109,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F78BE1422E7406D00AD537E /* MangroveIPlug.h in Sources */,
 				4F0D965C23099F6900BFDED0 /* IPlugProcessor.cpp in Sources */,
-				4F78BE1522E7406D00AD537E /* MangroveIPlug.cpp in Sources */,
 				4F78BE1622E7406D00AD537E /* IGraphicsMac_view.mm in Sources */,
 				4F78BE1722E7406D00AD537E /* IGraphicsMac.mm in Sources */,
 				4F78BE1822E7406D00AD537E /* IGraphicsCoreText.mm in Sources */,
@@ -2136,10 +2136,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96C8CCF2FC4790E0035DED1 /* MangrovePlugin.cpp in Sources */,
+				E96C8CCC2FC477010035DED1 /* IPlugVST3_Processor.cpp in Sources */,
+				E96C8CCD2FC477010035DED1 /* IPlugVST3_Controller.cpp in Sources */,
 				4F81597C205D50EB00393585 /* baseiids.cpp in Sources */,
 				4FDAC0EC207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				B8E22A0C220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp in Sources */,
-				4F3862F12014BBEC0009F402 /* MangroveIPlug.cpp in Sources */,
 				4F81591F205D50EB00393585 /* pluginfactory.cpp in Sources */,
 				4F63696F20A463090022C370 /* IControls.cpp in Sources */,
 				4F6FD2B322675B6300FC59E6 /* IGraphicsCoreText.mm in Sources */,
@@ -2207,7 +2209,6 @@
 				4F1A5285205D914A00CF2908 /* IPlugAAX.cpp in Sources */,
 				4F0848292015129A00F9E881 /* IPlugAAX_Parameters.cpp in Sources */,
 				4FB1F59420E4B014004157C8 /* IGraphicsMac_view.mm in Sources */,
-				4F3862F32014BBEC0009F402 /* MangroveIPlug.cpp in Sources */,
 				4FCE29DB21D6ED70004BCBA1 /* ITextEntryControl.cpp in Sources */,
 				4FB600231567CB0A0020189A /* IPlugParameter.cpp in Sources */,
 				4FB600261567CB0A0020189A /* AAX_Exports.cpp in Sources */,
@@ -2248,7 +2249,6 @@
 				4F690C9B203A345100A4A13E /* IPlugAPP_main.cpp in Sources */,
 				4F63696D20A463090022C370 /* IControls.cpp in Sources */,
 				4FB1F58920E4B004004157C8 /* IGraphicsMac.mm in Sources */,
-				4F3862EF2014BBEC0009F402 /* MangroveIPlug.cpp in Sources */,
 				4F9A82F7213DE80400BE63A4 /* IPopupMenuControl.cpp in Sources */,
 				4F78D90B13B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
 				4F35DEAD207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
@@ -3031,12 +3031,27 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
 					"$(EXTRA_VST3_DEFS)",
+					"$(inherited)",
+					"VST3_API=1",
+					"IPLUG_EDITOR=1",
+					"IPLUG_DSP=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(EXTRA_PLUGIN_DEFS)",
+					"$(EXTRA_VST3_DEFS)",
 					"$(VST3_DEFS)",
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(VST3_SDK)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"../../build_phase5/lib/Release",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = "../resources/MangroveIPlug-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nassau.vst3.${BINARY_NAME}";
@@ -3053,12 +3068,21 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
 					"$(EXTRA_VST3_DEFS)",
-					"$(VST3_DEFS)",
 					"$(inherited)",
+					"VST3_API=1",
+					"IPLUG_EDITOR=1",
+					"IPLUG_DSP=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(VST3_SDK)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"../../build_phase5/lib/Release",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = "../resources/MangroveIPlug-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nassau.vst3.${BINARY_NAME}";
@@ -3075,12 +3099,21 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(EXTRA_PLUGIN_DEFS)",
 					"$(EXTRA_VST3_DEFS)",
-					"$(VST3_DEFS)",
 					"$(inherited)",
+					"VST3_API=1",
+					"IPLUG_EDITOR=1",
+					"IPLUG_DSP=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(VST3_SDK)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"../../build_phase5/lib/Release",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = "../resources/MangroveIPlug-VST3-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Nassau.vst3.${BINARY_NAME}";

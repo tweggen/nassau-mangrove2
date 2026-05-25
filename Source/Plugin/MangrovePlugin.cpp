@@ -1,8 +1,10 @@
 #include "MangrovePlugin.h"
+#include "MangroveUI.h"
 #include "IPlug_include_in_plug_src.h"
 #include <algorithm>
 
 using namespace iplug;
+using namespace iplug::igraphics;
 
 Config MangrovePlugin::MakePluginConfig()
 {
@@ -50,6 +52,16 @@ MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
     GetParam(kDensityRatio)->InitDouble("Density Ratio", 1., 1., 10., 0.01, "");
     GetParam(kDensityAttack)->InitDouble("Density Attack", 10., 0.001, 100., 0.001, "ms");
     GetParam(kDensityRelease)->InitDouble("Density Release", 300., 10., 2000., 1., "ms");
+
+#if IPLUG_EDITOR
+    mMakeGraphicsFunc = [&]() {
+        return MakeGraphics(*this, PLUG_WIDTH, PLUG_HEIGHT, PLUG_FPS, GetScaleForScreen(PLUG_WIDTH, PLUG_HEIGHT));
+    };
+
+    mLayoutFunc = [&](IGraphics* pGraphics) {
+        MangroveUI::Layout(*pGraphics, *this);
+    };
+#endif
 }
 
 void MangrovePlugin::OnReset()
@@ -103,3 +115,6 @@ void MangrovePlugin::OnIdle()
 {
     // Push meter data to UI controls if needed
 }
+
+// Include MangroveUI implementation
+#include "MangroveUI.cpp"
