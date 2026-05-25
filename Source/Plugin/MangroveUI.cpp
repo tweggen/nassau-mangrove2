@@ -11,7 +11,7 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 
     const IColor bg(255, 40, 40, 40);
     const IColor text(255, 255, 255, 255);
-    const IColor toggleLblColor(255, 0, 0, 0);
+    const IColor toggleLblColor(255, 255, 255, 255);  // White for good contrast on dark bg
     const IColor knobColor(255, 100, 150, 200);
 
     const IText header(18, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
