@@ -2,57 +2,57 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/tweggen/Library/Audio/Plug-Ins/VST3/MangroveIPlug.vst3/Contents/MacOS/MangroveIPlug'
 relocations:
-  - { offset: 0xEA654, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA935, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA952, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA96F, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA98D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA9AB, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA9C9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEA9E7, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA05, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA23, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA41, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA5F, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA7D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAA9B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAAB9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAAD7, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAAF5, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAB13, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEABC0, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEABDD, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEABFA, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAC17, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAC34, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAC51, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAC6E, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAC8B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAEC1, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAFCE, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEAFEC, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEB00A, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEB359, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEB376, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEB393, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xEB3B0, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0B2D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0B4B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0B69, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0B87, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0BA5, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0BC3, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0BE1, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0BFF, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0C1D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0C3B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
-  - { offset: 0xF0C59, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA654, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA935, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA952, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA96F, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA98D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA9AB, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA9C9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEA9E7, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA05, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA23, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA41, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA5F, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA7D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAA9B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAAB9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAAD7, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAAF5, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAB13, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEABC0, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEABDD, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEABFA, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAC17, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAC34, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAC51, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAC6E, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAC8B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAEC1, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAFCE, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEAFEC, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEB00A, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEB359, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEB376, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEB393, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xEB3B0, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0B2D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0B4B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0B69, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0B87, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0BA5, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0BC3, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0BE1, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0BFF, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0C1D, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0C3B, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF0C59, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
   - { offset: 0xF1BE7, size: 0x8, addend: 0x0, symName: __ZN5iplug9igraphics12MakeGraphicsERNS0_16IGEditorDelegateEiiif, symObjAddr: 0x664, symBinAddr: 0x18FC, symSize: 0xD4 }
   - { offset: 0xF1DCD, size: 0x8, addend: 0x0, symName: __ZN5iplug8MakePlugERKNS_12InstanceInfoE, symObjAddr: 0x560, symBinAddr: 0x17F8, symSize: 0xA8 }
-  - { offset: 0xF1DF9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0xF1DF9, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
   - { offset: 0x11832E, size: 0x8, addend: 0x0, symName: _GetPluginFactory, symObjAddr: 0x10, symBinAddr: 0x12A8, symSize: 0x52C }
   - { offset: 0x118354, size: 0x8, addend: 0x0, symName: __ZZ16GetPluginFactoryE11factoryInfo, symObjAddr: 0x5B24, symBinAddr: 0xFB138, symSize: 0x0 }
-  - { offset: 0x11836A, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BA0, symBinAddr: 0xFEC80, symSize: 0x0 }
+  - { offset: 0x11836A, size: 0x8, addend: 0x0, symName: __MergedGlobals, symObjAddr: 0x118BB0, symBinAddr: 0xFEC80, symSize: 0x0 }
   - { offset: 0x11E19A, size: 0x8, addend: 0x0, symName: __ZTV14MangrovePlugin, symObjAddr: 0x5F30, symBinAddr: 0xE41E0, symSize: 0x0 }
   - { offset: 0x1273F9, size: 0x8, addend: 0x0, symName: '__ZTVNSt3__110__function6__funcIZN14MangrovePluginC1ERKN5iplug12InstanceInfoEE3$_0FPNS3_9igraphics9IGraphicsEvEEE', symObjAddr: 0x68E8, symBinAddr: 0xE4B98, symSize: 0x0 }
   - { offset: 0x127407, size: 0x8, addend: 0x0, symName: __ZN14MangrovePluginC1ERKN5iplug12InstanceInfoE, symObjAddr: 0x630, symBinAddr: 0x18C8, symSize: 0x4 }

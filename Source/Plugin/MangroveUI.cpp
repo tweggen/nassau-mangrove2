@@ -7,20 +7,22 @@ using namespace iplug::igraphics;
 
 void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
-    ui.LoadFont("Roboto-Regular", ROBOTO_FN);
+    if (!ui.LoadFont("Roboto-Regular", ROBOTO_FN)) {
+        DBGMSG("Failed to load Roboto-Regular font\n");
+    }
 
     const IColor bg(255, 40, 40, 40);
     const IColor text(255, 255, 255, 255);
     const IColor toggleLblColor(255, 255, 255, 255);  // White for good contrast on dark bg
     const IColor knobColor(255, 100, 150, 200);
 
-    const IText header(18, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText section(14, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText knobLbl(11, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
+    const IText header(24, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
+    const IText section(18, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
+    const IText knobLbl(14, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
 
     const IVStyle toggleStyle = DEFAULT_STYLE
-        .WithValueText(IText(11, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle))
-        .WithLabelText(IText(12, toggleLblColor, "Roboto-Regular", EAlign::Center, EVAlign::Middle));
+        .WithValueText(IText(16, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle))
+        .WithLabelText(IText(16, toggleLblColor, "Roboto-Regular", EAlign::Center, EVAlign::Middle));
 
     ui.AttachPanelBackground(bg);
 
