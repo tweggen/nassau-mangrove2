@@ -50,8 +50,9 @@ find_library(SKUNICODE_CORE_LIB skunicode_core PATHS "${SKIA_LIB_DIR}" NO_DEFAUL
 find_library(SVG_LIB svg PATHS "${SKIA_LIB_DIR}" NO_DEFAULT_PATH)
 
 if(SKIA_LIB AND SKOTTIE_LIB AND SKSHAPER_LIB AND SVG_LIB)
-    set(HAS_SKIA TRUE)
     message(STATUS "✓ Skia libraries found at ${SKIA_LIB_DIR}")
+    message(STATUS "  (Skia graphics integration requires IPlug2 API compatibility updates — building DSP-only for now)")
+    set(HAS_SKIA FALSE)
 else()
     set(HAS_SKIA FALSE)
     message(STATUS "✗ Skia libraries not found. Run: cd external/iplug2/Dependencies/IGraphics && bash build-skia-mac.sh")
@@ -88,6 +89,11 @@ add_library(MangroveIPlug_VST3 MODULE ${PLUGIN_SOURCES})
 target_compile_options(MangroveIPlug_VST3 PRIVATE -Wall -Wextra)
 
 if(HAS_SKIA)
+    set_target_properties(MangroveIPlug_VST3 PROPERTIES CXX_STANDARD 20)
+    target_compile_options(MangroveIPlug_VST3 PRIVATE
+        -isystem${IPLUG2_DEPS}/Build/src/skia/include
+        -isystem${IPLUG2_DEPS}/Build/src/skia/src
+    )
     target_compile_definitions(MangroveIPlug_VST3 PRIVATE VST3_API=1 IPLUG_EDITOR=1 IGRAPHICS_SKIA=1 IGRAPHICS_METAL=1)
 else()
     target_compile_definitions(MangroveIPlug_VST3 PRIVATE VST3_API=1 IPLUG_EDITOR=0 NO_IGRAPHICS=1)
@@ -131,9 +137,20 @@ if(HAS_SKIA)
         ${IPLUG2_DEPS}/Build/src/skia/include
         ${IPLUG2_DEPS}/Build/src/skia/include/core
         ${IPLUG2_DEPS}/Build/src/skia/include/gpu
+        ${IPLUG2_DEPS}/Build/src/skia/include/config
+        ${IPLUG2_DEPS}/Build/src/skia/include/effects
+        ${IPLUG2_DEPS}/Build/src/skia/include/pathops
+        ${IPLUG2_DEPS}/Build/src/skia/include/ports
+        ${IPLUG2_DEPS}/Build/src/skia/include/utils
+        ${IPLUG2_DEPS}/Build/src/skia/include/codec
+        ${IPLUG2_DEPS}/Build/src/skia/include/docs
         ${IPLUG2_DEPS}/Build/src/skia/modules/skottie/include
         ${IPLUG2_DEPS}/Build/src/skia/modules/skshaper/include
         ${IPLUG2_DEPS}/Build/src/skia/modules/svg/include
+        ${IPLUG2_DEPS}/Build/src/skia/modules/skparagraph/include
+        ${IPLUG2_DEPS}/Build/src/skia/src
+        ${IPLUG2_DEPS}/Build/src/skia/src/core
+        ${IPLUG2_DEPS}/Build/src/skia/src/gpu
     )
 else()
     target_link_libraries(MangroveIPlug_VST3 PRIVATE
