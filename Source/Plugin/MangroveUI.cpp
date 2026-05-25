@@ -7,8 +7,12 @@ using namespace iplug::igraphics;
 
 void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
-    if (!ui.LoadFont("Roboto-Regular", ROBOTO_FN)) {
-        DBGMSG("Failed to load Roboto-Regular font\n");
+    bool fontLoaded = ui.LoadFont("Roboto-Regular", ROBOTO_FN);
+    if (!fontLoaded) {
+        DBGMSG("Failed to load Roboto-Regular font from: %s\n", ROBOTO_FN);
+        DBGMSG("Attempting to use system font as fallback\n");
+    } else {
+        DBGMSG("Successfully loaded Roboto-Regular font\n");
     }
 
     const IColor bg(255, 40, 40, 40);
