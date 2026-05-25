@@ -50,9 +50,8 @@ find_library(SKUNICODE_CORE_LIB skunicode_core PATHS "${SKIA_LIB_DIR}" NO_DEFAUL
 find_library(SVG_LIB svg PATHS "${SKIA_LIB_DIR}" NO_DEFAULT_PATH)
 
 if(SKIA_LIB AND SKOTTIE_LIB AND SKSHAPER_LIB AND SVG_LIB)
+    set(HAS_SKIA TRUE)
     message(STATUS "✓ Skia libraries found at ${SKIA_LIB_DIR}")
-    message(STATUS "  (Skia graphics integration requires IPlug2 API compatibility updates — building DSP-only for now)")
-    set(HAS_SKIA FALSE)
 else()
     set(HAS_SKIA FALSE)
     message(STATUS "✗ Skia libraries not found. Run: cd external/iplug2/Dependencies/IGraphics && bash build-skia-mac.sh")
@@ -64,7 +63,7 @@ set(PLUGIN_SOURCES
     MangrovePlugin.cpp
     ${IPLUG2_IPLUG}/IPlugAPIBase.cpp
     ${IPLUG2_IPLUG}/IPlugParameter.cpp
-    ${IPLUG2_IPLUG}/IPlugPaths.cpp
+    ${IPLUG2_IPLUG}/IPlugPaths.mm
     ${IPLUG2_IPLUG}/IPlugPluginBase.cpp
     ${IPLUG2_IPLUG}/IPlugProcessor.cpp
     ${IPLUG2_IPLUG}/IPlugTimer.cpp
@@ -80,8 +79,16 @@ set(PLUGIN_SOURCES
 # Graphics sources (only if Skia available)
 if(HAS_SKIA)
     list(APPEND PLUGIN_SOURCES
+        MangroveUI.cpp
         ${IPLUG2_IGRAPHICS}/IGraphics.cpp
+        ${IPLUG2_IGRAPHICS}/IControl.cpp
+        ${IPLUG2_IGRAPHICS}/IGraphicsEditorDelegate.cpp
+        ${IPLUG2_IGRAPHICS}/Controls/IControls.cpp
+        ${IPLUG2_IGRAPHICS}/Controls/IPopupMenuControl.cpp
+        ${IPLUG2_IGRAPHICS}/Controls/ITextEntryControl.cpp
         ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac.mm
+        ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac_view.mm
+        ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsCoreText.mm
     )
 endif()
 

@@ -3,6 +3,10 @@
 #include "IPlug_include_in_plug_hdr.h"
 #include "compressor_chain.h"
 
+#if IPLUG_EDITOR
+#include "MangroveUI.h"
+#endif
+
 enum EParams {
     kInputGain = 0, kInputLoCut, kInputSaturate,
     kLevelThreshold, kLevelRatio, kLevelAttack, kLevelRelease,
