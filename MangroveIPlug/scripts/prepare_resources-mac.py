@@ -14,11 +14,31 @@ import plistlib, os, datetime, fileinput, glob, sys, string, shutil
 scriptpath = os.path.dirname(os.path.realpath(__file__))
 projectpath = os.path.abspath(os.path.join(scriptpath, os.pardir))
 
-IPLUG2_ROOT = "../../.."
+IPLUG2_ROOT = "../../external/iplug2"
 
 sys.path.insert(0, os.path.join(os.getcwd(), IPLUG2_ROOT + '/Scripts'))
+#scriptpath = os.path.dirname(os.path.realpath(__file__))
+#iplug2_scripts = os.path.abspath(os.path.join(scriptpath, '../../external/iplug2/Scripts'))
+#sys.path.insert(0, iplug2_scripts)
 
 from parse_config import parse_config, parse_xcconfig
+
+def find_plist_file(projectpath, suffix, bundle_name):
+  """Find plist file with fallback to project directory name if needed."""
+  # Try with BUNDLE_NAME first
+  plistpath = projectpath + "/resources/" + bundle_name + suffix
+  if os.path.exists(plistpath):
+    return plistpath
+
+  # Fallback: try with project directory name (MangroveIPlug)
+  project_name = os.path.basename(projectpath)
+  plistpath_alt = projectpath + "/resources/" + project_name + suffix
+  if os.path.exists(plistpath_alt):
+    print("Note: Using " + project_name + suffix + " instead of " + bundle_name + suffix)
+    return plistpath_alt
+
+  # If neither exists, raise error with both attempted paths
+  raise FileNotFoundError(f"Could not find {bundle_name}{suffix} or {project_name}{suffix} in {projectpath}/resources/")
 
 def copy_resources_to_destination(projectpath, dst, label=""):
   """Copy image and font resources from project to destination folder."""
@@ -73,12 +93,12 @@ def main():
 
 # VST3
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-VST3-Info.plist"
+  plistpath = find_plist_file(projectpath, "-VST3-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     vst3 = plistlib.load(fp)
-  vst3['CFBundleExecutable'] = config['BUNDLE_NAME']
+  vst3['CFBundleExecutable'] = 'MangroveIPlug'  # Use actual binary name, not BUNDLE_NAME
   vst3['CFBundleGetInfoString'] = CFBundleGetInfoString
-  vst3['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".vst3." + config['BUNDLE_NAME'] + ""
+  vst3['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".vst3.MangroveIPlug"
   vst3['CFBundleName'] = config['BUNDLE_NAME']
   vst3['CFBundleVersion'] = CFBundleVersion
   vst3['CFBundleShortVersionString'] = CFBundleVersion
@@ -91,12 +111,12 @@ def main():
     plistlib.dump(vst3, fp)
 # VST2
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-VST2-Info.plist"
+  plistpath = find_plist_file(projectpath, "-VST2-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     vst2 = plistlib.load(fp)
   vst2['CFBundleExecutable'] = config['BUNDLE_NAME']
   vst2['CFBundleGetInfoString'] = CFBundleGetInfoString
-  vst2['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".vst." + config['BUNDLE_NAME'] + ""
+  vst2['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".vst.MangroveIPlug"
   vst2['CFBundleName'] = config['BUNDLE_NAME']
   vst2['CFBundleVersion'] = CFBundleVersion
   vst2['CFBundleShortVersionString'] = CFBundleVersion
@@ -109,12 +129,12 @@ def main():
     plistlib.dump(vst2, fp)
 # AUDIOUNIT v2
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-AU-Info.plist"
+  plistpath = find_plist_file(projectpath, "-AU-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     auv2 = plistlib.load(fp)
   auv2['CFBundleExecutable'] = config['BUNDLE_NAME']
   auv2['CFBundleGetInfoString'] = CFBundleGetInfoString
-  auv2['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".audiounit." + config['BUNDLE_NAME'] + ""
+  auv2['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".audiounit.MangroveIPlug"
   auv2['CFBundleName'] = config['BUNDLE_NAME']
   auv2['CFBundleVersion'] = CFBundleVersion
   auv2['CFBundleShortVersionString'] = CFBundleVersion
@@ -153,12 +173,12 @@ def main():
   else:
     NSEXTENSIONPOINTIDENTIFIER  = "com.apple.AudioUnit"
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-macOS-AUv3-Info.plist"
+  plistpath = find_plist_file(projectpath, "-macOS-AUv3-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     auv3 = plistlib.load(fp)
   auv3['CFBundleExecutable'] = config['BUNDLE_NAME']
   auv3['CFBundleGetInfoString'] = CFBundleGetInfoString
-  auv3['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".app." + config['BUNDLE_NAME'] + ".AUv3"
+  auv3['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".app.MangroveIPlug.AUv3"
   auv3['CFBundleName'] = config['BUNDLE_NAME']
   auv3['CFBundleVersion'] = CFBundleVersion
   auv3['CFBundleShortVersionString'] = CFBundleVersion
@@ -166,7 +186,7 @@ def main():
   auv3['CFBundlePackageType'] = "XPC!"
   auv3['NSExtension'] = dict(
   NSExtensionAttributes = dict(
-                               AudioComponentBundle = "com.AcmeInc.app." + config['BUNDLE_NAME'] + ".AUv3Framework",
+                               AudioComponentBundle = "com.Nassau.app.MangroveIPlug.AUv3Framework",
                                AudioComponents = [{}]),
 #                               NSExtensionServiceRoleType = "NSExtensionServiceRoleTypeEditor",
   NSExtensionPointIdentifier = NSEXTENSIONPOINTIDENTIFIER,
@@ -191,12 +211,12 @@ def main():
     plistlib.dump(auv3, fp)
 # AAX
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-AAX-Info.plist"
+  plistpath = find_plist_file(projectpath, "-AAX-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     aax = plistlib.load(fp)
   aax['CFBundleExecutable'] = config['BUNDLE_NAME']
   aax['CFBundleGetInfoString'] = CFBundleGetInfoString
-  aax['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".aax." + config['BUNDLE_NAME'] + ""
+  aax['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".aax.MangroveIPlug"
   aax['CFBundleName'] = config['BUNDLE_NAME']
   aax['CFBundleVersion'] = CFBundleVersion
   aax['CFBundleShortVersionString'] = CFBundleVersion
@@ -207,12 +227,12 @@ def main():
     plistlib.dump(aax, fp)
 # APP
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-macOS-Info.plist"
+  plistpath = find_plist_file(projectpath, "-macOS-Info.plist", config['BUNDLE_NAME'])
   with open(plistpath, 'rb') as fp:
     macOSapp = plistlib.load(fp)
   macOSapp['CFBundleExecutable'] = config['BUNDLE_NAME']
   macOSapp['CFBundleGetInfoString'] = CFBundleGetInfoString
-  macOSapp['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".app." + config['BUNDLE_NAME'] + ""
+  macOSapp['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".app.MangroveIPlug"
   macOSapp['CFBundleName'] = config['BUNDLE_NAME']
   macOSapp['CFBundleVersion'] = CFBundleVersion
   macOSapp['CFBundleShortVersionString'] = CFBundleVersion
