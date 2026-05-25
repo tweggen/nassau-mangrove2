@@ -1,7 +1,4 @@
 #include "MangrovePlugin.h"
-#if IPLUG_EDITOR
-#include "MangroveUI.h"
-#endif
 #include "IPlug_include_in_plug_src.h"
 #include <algorithm>
 

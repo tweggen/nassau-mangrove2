@@ -38,7 +38,7 @@ target_include_directories(iplug2_lib PUBLIC
     ${IPLUG2_DEPS}/IGraphics/glad/include
 )
 
-# ── VST3 plugin bundle (with GUI) ───────────────────────────────────────────
+# ── VST3 plugin bundle (DSP-only, no graphics) ───────────────────────────────
 add_library(MangroveIPlug_VST3 MODULE
     MangrovePlugin.cpp
     ${IPLUG2_IPLUG}/VST3/IPlugVST3.cpp
@@ -50,7 +50,7 @@ add_library(MangroveIPlug_VST3 MODULE
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/main/macmain.cpp
 )
 target_compile_options(MangroveIPlug_VST3 PRIVATE -Wall -Wextra)
-target_compile_definitions(MangroveIPlug_VST3 PRIVATE VST3_API=1 IPLUG_EDITOR=0 NO_IGRAPHICS=1 IGRAPHICS_NONE=1)
+target_compile_definitions(MangroveIPlug_VST3 PRIVATE VST3_API=1 IPLUG_EDITOR=0 NO_IGRAPHICS=1)
 target_include_directories(MangroveIPlug_VST3 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/Source/DSP

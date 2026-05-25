@@ -40,5 +40,4 @@ dependencies: \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsPopupMenu.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugEditorDelegate.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.h \
-  ../../external/iplug2/Dependencies/IGraphics/NanoVG/src/nanovg.h
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.h

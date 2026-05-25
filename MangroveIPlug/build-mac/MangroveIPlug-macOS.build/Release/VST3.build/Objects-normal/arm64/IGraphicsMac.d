@@ -4,21 +4,18 @@ dependencies: \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms/IGraphicsMac.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphics_select.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPlatform.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing/IGraphicsNanoVG.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphics.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugConstants.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugLogger.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdlstring.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms/IGraphicsCoreText.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsStructs.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugUtilities.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/heapbuf.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdltypes.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/mutex.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdlatomic.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugUtilities.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdlstring.h \
   ../../external/iplug2/WDL/wdlutf8.h \
   ../../external/iplug2/WDL/wdltypes.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPaths.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsConstants.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsStructs.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugConstants.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugLogger.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/mutex.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdlatomic.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugStructs.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/ptrlist.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugMidi.h \
@@ -26,13 +23,7 @@ dependencies: \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/wdlendian.h \
   ../../external/iplug2/Dependencies/IGraphics/NanoSVG/src/nanosvg.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsUtilities.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsPopupMenu.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugEditorDelegate.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.h \
-  ../../external/iplug2/Dependencies/IGraphics/NanoVG/src/nanovg.h \
-  ../../external/iplug2/Dependencies/IGraphics/MetalNanoVG/src/nanovg_mtl.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms/IGraphicsCoreText.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsConstants.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms/IGraphicsMac_view.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IControl.h \
   ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivstcontextmenu.h \
@@ -47,8 +38,10 @@ dependencies: \
   ../../external/iplug2/Dependencies/IPlug/VST3_SDK/base/source/fobject.h \
   ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/iupdatehandler.h \
   ../../external/iplug2/Dependencies/IPlug/VST3_SDK/base/source/fdebug.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls/IPopupMenuControl.h \
-  ../../external/iplug2/IGraphics/Drawing/IGraphicsNanoVG.cpp \
-  ../../external/iplug2/IGraphics/Drawing/IGraphicsNanoVG.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls/ITextEntryControl.h \
-  ../../external/iplug2/Dependencies/IGraphics/STB/stb_textedit.h
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphics.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPaths.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsPopupMenu.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugEditorDelegate.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.h \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls/IPopupMenuControl.h

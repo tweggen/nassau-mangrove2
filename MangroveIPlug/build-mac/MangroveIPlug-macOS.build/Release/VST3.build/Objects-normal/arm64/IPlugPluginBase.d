@@ -3,7 +3,6 @@ dependencies: \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.cpp \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugDelegate_select.h \
-  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/IGraphicsEditorDelegate.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugEditorDelegate.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/ptrlist.h \
   /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL/heapbuf.h \
