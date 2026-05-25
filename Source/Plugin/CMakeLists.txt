@@ -58,7 +58,8 @@ else()
 endif()
 
 # ── VST3 plugin bundle ──────────────────────────────────────────────────────
-add_library(MangroveIPlug_VST3 MODULE
+# Core sources (always compiled)
+set(PLUGIN_SOURCES
     MangrovePlugin.cpp
     ${IPLUG2_IPLUG}/IPlugAPIBase.cpp
     ${IPLUG2_IPLUG}/IPlugParameter.cpp
@@ -70,12 +71,20 @@ add_library(MangroveIPlug_VST3 MODULE
     ${IPLUG2_IPLUG}/VST3/IPlugVST3_Controller.cpp
     ${IPLUG2_IPLUG}/VST3/IPlugVST3_Processor.cpp
     ${IPLUG2_IPLUG}/VST3/IPlugVST3_ProcessorBase.cpp
-    ${IPLUG2_IGRAPHICS}/IGraphics.cpp
-    ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac.mm
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/main/pluginfactory.cpp
     ${CMAKE_SOURCE_DIR}/external/vst3sdk/public.sdk/source/main/macmain.cpp
 )
+
+# Graphics sources (only if Skia available)
+if(HAS_SKIA)
+    list(APPEND PLUGIN_SOURCES
+        ${IPLUG2_IGRAPHICS}/IGraphics.cpp
+        ${IPLUG2_IGRAPHICS}/Platforms/IGraphicsMac.mm
+    )
+endif()
+
+add_library(MangroveIPlug_VST3 MODULE ${PLUGIN_SOURCES})
 target_compile_options(MangroveIPlug_VST3 PRIVATE -Wall -Wextra)
 
 if(HAS_SKIA)
