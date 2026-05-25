@@ -7,26 +7,18 @@ using namespace iplug::igraphics;
 
 void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
-    bool fontLoaded = ui.LoadFont("Roboto-Regular", ROBOTO_FN);
-    if (!fontLoaded) {
-        DBGMSG("Failed to load Roboto-Regular font from: %s\n", ROBOTO_FN);
-        DBGMSG("Attempting to use system font as fallback\n");
-    } else {
-        DBGMSG("Successfully loaded Roboto-Regular font\n");
-    }
-
     const IColor bg(255, 40, 40, 40);
     const IColor text(255, 0, 255, 0);  // Bright lime green for debugging visibility
     const IColor toggleLblColor(255, 0, 255, 0);  // Bright lime green
     const IColor knobColor(255, 100, 150, 200);
 
-    const IText header(24, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText section(18, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText knobLbl(14, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
+    const IText header(24, text);
+    const IText section(18, text);
+    const IText knobLbl(14, text);
 
     const IVStyle toggleStyle = DEFAULT_STYLE
-        .WithValueText(IText(16, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle))
-        .WithLabelText(IText(16, toggleLblColor, "Roboto-Regular", EAlign::Center, EVAlign::Middle));
+        .WithValueText(IText(16, text))
+        .WithLabelText(IText(16, toggleLblColor));
 
     ui.AttachPanelBackground(bg);
 
