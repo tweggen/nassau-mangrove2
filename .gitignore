@@ -1,6 +1,11 @@
 build/
+build_xcode/
 *.o
 *.a
 *.so
 *.dylib
 .DS_Store
+
+# Skia build artifacts (large binaries, not checked in)
+external/iplug2/Dependencies/Build/
+!external/iplug2/Dependencies/build-skia-mac.sh
