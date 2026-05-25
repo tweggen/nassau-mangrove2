@@ -5,21 +5,21 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>MangroveIPlug</string>
+	<string>Mangrove</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MangroveIPlug v1.0.0 Copyright 2025 Acme Inc</string>
+	<string>Mangrove v5.0.0 Copyright 2026 Nassau</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.Nassau.app.MangroveIPlug.AUv3</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>MangroveIPlug</string>
+	<string>Mangrove</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>5.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>5.0.0</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.12.0</string>
 	<key>NSExtension</key>
@@ -32,30 +32,30 @@
 			<array>
 				<dict>
 					<key>description</key>
-					<string>MangroveIPlug</string>
+					<string>Mangrove</string>
 					<key>manufacturer</key>
-					<string>Acme</string>
+					<string>Nss2</string>
 					<key>name</key>
-					<string>Nassau: MangroveIPlug</string>
+					<string>Nassau: Mangrove</string>
 					<key>sandboxSafe</key>
 					<true/>
 					<key>subtype</key>
-					<string>Ipct</string>
+					<string>Mng5</string>
 					<key>tags</key>
 					<array>
-						<string>Synth</string>
+						<string>Effects</string>
 					</array>
 					<key>type</key>
-					<string>aumu</string>
+					<string>aufx</string>
 					<key>version</key>
-					<integer>65536</integer>
+					<integer>327680</integer>
 				</dict>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.AudioUnit-UI</string>
 		<key>NSExtensionPrincipalClass</key>
-		<string>IPlugAUViewController_vMangroveIPlug</string>
+		<string>IPlugAUViewController_vIPlugControls</string>
 	</dict>
 </dict>
 </plist>

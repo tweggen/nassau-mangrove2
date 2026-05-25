@@ -5,23 +5,23 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>MangroveIPlug</string>
+	<string>Mangrove</string>
 	<key>CFBundleGetInfoString</key>
-	<string>MangroveIPlug v1.0.0 Copyright 2025 Acme Inc</string>
+	<string>Mangrove v5.0.0 Copyright 2026 Nassau</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.Nassau.aax.MangroveIPlug</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>MangroveIPlug</string>
+	<string>Mangrove</string>
 	<key>CFBundlePackageType</key>
 	<string>TDMw</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>5.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>PTul</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>5.0.0</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>LSMinimumSystemVersion</key>

@@ -5,7 +5,7 @@
 using namespace iplug;
 using namespace iplug::igraphics;
 
-void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& plugin)
+void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
     ui.LoadFont("Roboto-Regular", ROBOTO_FN);
 
@@ -74,6 +74,4 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& plugin)
 
     ui.AttachControl(new IVKnobControl(IRECT(520, 200, 590, 280), kDensityRelease));
     ui.AttachControl(new ITextControl (IRECT(520, 285, 590, 300), "Release", knobLbl));
-
-    ui.Resize(PLUG_WIDTH, PLUG_HEIGHT, 1.);
 }

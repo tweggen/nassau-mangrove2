@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugOBJCPrefix.pch \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst/vstcomponent.cpp \
+  /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst/vstcomponent.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst/vstcomponentbase.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/ipluginbase.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/funknown.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/fplatform.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/ftypes.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/smartpointer.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/fstrdefs.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivstmessage.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivstattributes.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/vsttypes.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/falignpush.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/falignpop.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivsthostapplication.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/base/source/fobject.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/base/iupdatehandler.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/base/source/fdebug.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst/vstbus.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivstcomponent.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/ivstaudioprocessor.h \
+  ../../external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces/vst/vstspeaker.h

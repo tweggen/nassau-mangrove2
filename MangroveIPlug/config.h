@@ -7,7 +7,7 @@
 #define PLUG_URL_STR "https://nassau.audio"
 #define PLUG_EMAIL_STR "timo@nassau.audio"
 #define PLUG_COPYRIGHT_STR "Copyright 2026 Nassau"
-#define PLUG_CLASS_NAME MangroveIPlug
+#define PLUG_CLASS_NAME MangrovePlugin
 #define PLUG_HOST_RESIZE 0
 
 #define BUNDLE_NAME "Mangrove"
