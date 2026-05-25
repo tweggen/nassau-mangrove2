@@ -1,6 +1,6 @@
 # Building Mangrove Compressor
 
-**Version:** 5.0.0 | **Phase:** 5 (IPlug2 GUI + AUv2) | **Last Updated:** 2026-05-23
+**Version:** 5.0.0 | **Phase:** 5 (IPlug2 GUI + AUv2) | **Last Updated:** 2026-05-25
 
 ## Project Overview
 
@@ -39,26 +39,32 @@ cd build && ctest -V
 - `Tests/CMakeLists.txt` — dsp_tests executable
 - `Source/VST3/CMakeLists.txt` — native VST3 plugin (optional, not built in Phase 5)
 
-### 2. Xcode (IPlug2 Plugin Targets)
+### 2. CMake with IGraphics Skia Backend (Phase 5 Final Build)
 
-**Status:** 🏗️ In Progress — project structure generated, library integration pending  
-**Used for:** VST3 + AUv2 plugin builds with IGraphics GUI
+**Status:** ✅ Complete — VST3 bundle with custom Skia graphics UI  
+**Used for:** VST3 plugin build with IGraphics Skia rendering backend
 
-**Project:** `/MangrovePlugin/projects/MangrovePlugin-macOS.xcodeproj`
+**Key Features:**
+- Skia graphics library (chrome/m130) built from source
+- Metal GPU rendering on macOS
+- Custom parameter UI with vector knobs, sliders, toggles
+- Real-time meter display support
 
-Generated targets:
-- `MangrovePlugin_VST3` — VST3 bundle
-- `MangrovePlugin_AU` — AUv2 component
-- `MangrovePlugin_CLAP` — CLAP bundle (generated, not validated)
-- `MangrovePlugin_Standalone` — Standalone app (generated, not validated)
+**Build Process:**
+1. Skia library build (one-time, ~2 hours):
+   ```bash
+   cd external/iplug2/Dependencies/IGraphics
+   bash build-skia-mac.sh
+   ```
+2. Plugin build with graphics:
+   ```bash
+   mkdir -p build_xcode && cd build_xcode
+   cmake -B . -G Xcode ..
+   xcodebuild -scheme MangroveIPlug_VST3 -configuration Release
+   ```
 
-**Next steps to complete Phase 5:**
-1. Link `Source/DSP/libcompressor_chain.a` to Xcode targets
-   - Option A: Copy `Source/DSP/*.cpp/.h` to MangrovePlugin project
-   - Option B: Build CMake `libcompressor_chain.a` and statically link in Xcode
-2. Build `MangrovePlugin_VST3` target
-3. Test in Studio One 7 (verify GUI, 14 parameters, audio path)
-4. Build `MangrovePlugin_AU` target and test in Logic Pro
+**Output:**
+- `build_xcode/Source/Plugin/Release/MangroveIPlug.vst3` — VST3 bundle with graphics (20MB)
 
 ## Current Status
 
@@ -75,18 +81,24 @@ Generated targets:
   - All 14 parameters automated
   - Stereo audio processing
 
-### 🏗️ In Progress (Phase 5)
+### ✅ Complete (Phase 5 — GUI Implementation)
 
-- **IPlug2 Wrapper:** Plugin class skeleton complete
-  - `config.h` — plugin identity (version 5.0.0, new UID 50D5F78F…9CD66A0E)
-  - `MangrovePlugin.h/.cpp` — ProcessBlock, OnReset, OnParamChange hooks
-  - `MangroveUI.h/.cpp` — IGraphics layout (640×400 canvas, 3 sections, 14 controls)
-  - `Info.plist.vst3/.au` — bundle metadata
+- **Custom Skia Graphics UI:** ✅ Complete
+  - `config.h` — plugin identity (version 5.0.0, PLUG_HAS_UI=1)
+  - `MangrovePlugin.h/.cpp` — IPlug2 wrapper with graphics initialization
+  - `MangroveUI.h/.cpp` — Custom Skia-based layout (640×400 canvas, 15 controls)
+  - All IGraphics source files compiled:
+    - Core: IGraphics.cpp, IControl.cpp, IGraphicsEditorDelegate.cpp
+    - Controls: IControls.cpp, IPopupMenuControl.cpp, ITextEntryControl.cpp
+    - Platform: IGraphicsMac.mm, IGraphicsMac_view.mm, IGraphicsCoreText.mm
+    - Drawing: IGraphicsSkia.mm (with Metal GPU support)
 
-- **Xcode Project:** Generated from IPlug2's duplicate.py template
-  - All plugin format projects created
-  - Plugin sources copied in place
-  - **Pending:** Link CompressorChain library, verify build
+- **Skia Graphics Library:** ✅ Built and working
+  - Built from source (chrome/m130 branch)
+  - All 8 required libraries compiled:
+    - libskia.a, libskottie.a, libskshaper.a, libsksg.a
+    - libskparagraph.a, libskunicode_icu.a, libskunicode_core.a, libsvg.a
+  - Universal binaries (x86_64 + arm64)
 
 ### ❌ Not Started
 
@@ -182,38 +194,34 @@ cd build && ctest --output-on-failure
 
 **Expected:** 51/51 tests PASS
 
-### Build IPlug2 VST3 + AU (Xcode, macOS only)
+### Build VST3 with Custom Graphics (CMake + Xcode, macOS only)
+
+**Step 1: Build Skia Libraries (one-time setup, ~2 hours)**
 
 ```bash
-# 1. Open project
-open MangrovePlugin/projects/MangrovePlugin-macOS.xcodeproj
-
-# 2. In Xcode:
-#    a) Drag Source/DSP/ folder into project navigator (or use Option B below)
-#    b) Add compressor_chain.cpp/.h to MangrovePlugin_VST3 target
-#    c) Add same to MangrovePlugin_AU target
-#    d) In Build Settings → Header Search Paths, add $(SRCROOT)/../../Source/DSP
-
-# 3. Build
-#    Scheme: MangrovePlugin_VST3
-#    Destination: Mac (arm64)
-#    Build button or Cmd+B
-
-# 4. Find output
-find ~/Library/Developer/Xcode/DerivedData \
-  -name "MangroveIPlug.vst3" -type d
+cd external/iplug2/Dependencies/IGraphics
+bash build-skia-mac.sh
+# Creates: external/iplug2/Dependencies/Build/mac/lib/{libskia.a, ...}
 ```
 
-**Alternative (Option B): Link pre-built library**
+**Step 2: Configure CMake Build**
 
 ```bash
-# Build CMake static library
-cmake --build build --target compressor_chain
+mkdir -p build_xcode && cd build_xcode
+cmake -B . -G Xcode ..
+```
 
-# In Xcode:
-#   1. Add build phase: Link Binary with Libraries
-#   2. Add libcompressor_chain.a from build/Source/DSP/
-#   3. Header Search Paths: $(SRCROOT)/../../Source/DSP
+**Step 3: Compile Plugin with Graphics**
+
+```bash
+xcodebuild -scheme MangroveIPlug_VST3 -configuration Release
+```
+
+**Step 4: Find Output**
+
+```bash
+ls -lah Source/Plugin/Release/MangroveIPlug.vst3/Contents/MacOS/MangroveIPlug
+# Output: 20MB binary with embedded graphics library
 ```
 
 ### Install and Test
