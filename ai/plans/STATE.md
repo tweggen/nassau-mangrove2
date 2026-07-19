@@ -27,8 +27,8 @@ The Mangrove compressor plugin refactoring is progressing ahead of schedule. All
 
 **Deliverables:**
 - `Source/DSP/compressor_chain.h` — Complete API (14 parameters)
-- `Source/DSP/compressor_chain.cpp` — Full implementation (368 lines)
-- `Tests/dsp_tests.cpp` — 40 passing comprehensive tests
+- `Source/DSP/compressor_chain.cpp` — Full implementation (401 lines)
+- `Tests/dsp_tests.cpp` — 51 passing comprehensive tests
 
 **Key Features:**
 - Input stage (gain, saturation, HPF placeholder)
@@ -38,7 +38,7 @@ The Mangrove compressor plugin refactoring is progressing ahead of schedule. All
 - Lock-free parameter updates (std::atomic)
 - 0 samples latency
 
-**Test Results:** 40/40 passing, 0 compiler warnings
+**Test Results:** 51/51 passing, 0 compiler warnings
 
 **Notes:** HPF marked `TODO (Phase 2)` — deferred to Phase 2
 
@@ -186,10 +186,9 @@ The Mangrove compressor plugin refactoring is progressing ahead of schedule. All
 ```
 Source/
 ├── DSP/
-│   ├── compressor_chain.h      (207 lines — API)
-│   ├── compressor_chain.cpp    (368 lines — implementation)
-│   ├── iir_filter.h            (IIR filter API)
-│   └── iir_filter.cpp          (IIR filter implementation)
+│   ├── compressor_chain.h      (244 lines — API; IIR filter is the nested
+│   │                            IIRFilterState class here, not a separate file)
+│   └── compressor_chain.cpp    (401 lines — implementation)
 ├── VST3/
 │   ├── MangrovePlugin.h        (IPlug2 VST 3 wrapper)
 │   ├── MangrovePlugin.cpp
@@ -202,7 +201,7 @@ Source/
     └── config.h
 
 Tests/
-├── dsp_tests.cpp               (40 comprehensive tests)
+├── dsp_tests.cpp               (51 comprehensive tests)
 └── CMakeLists.txt
 
 Build/
