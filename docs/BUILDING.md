@@ -49,7 +49,7 @@ cd build && ctest -V
 Generated targets:
 - `MangrovePlugin_VST3` — VST3 bundle
 - `MangrovePlugin_AU` — AUv2 component
-- `MangrovePlugin_CLAP` — CLAP bundle (generated, not validated)
+- `MangrovePlugin_CLAP` — CLAP bundle (macOS; the Windows CLAP build is done via the VS solution, see `BUILDING_WIN11.md`)
 - `MangrovePlugin_Standalone` — Standalone app (generated, not validated)
 
 **Next steps to complete Phase 5:**
@@ -90,8 +90,11 @@ Generated targets:
 
 ### ❌ Not Started
 
-- **Windows/Linux:** Platform-specific code paths, standalone app validation
-- **CLAP target:** Generated but untested
+- **Windows/Linux:** Linux code paths, standalone app validation
+- **CLAP on macOS/Linux:** Windows CLAP builds and runs (see `BUILDING_WIN11.md`); macOS
+  would go through CMake, which is not yet wired up for this project
+- **CLAP in a real DAW:** the Windows build is verified by a minimal host harness
+  (descriptor, 15 params, stereo I/O, audio passes) but has not been run in a DAW
 - **Preset system:** UI/parameter serialization
 - **Documentation:** User manual, parameter reference
 

@@ -6,7 +6,9 @@ using namespace iplug;
 using namespace iplug::igraphics;
 
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
-    : Plugin(info, MakeConfig(kNumParams, 1))
+    // Must be qualified: under CLAP the base inherits clap::helpers::Plugin, whose
+    // injected-class-name would otherwise shadow iplug::Plugin here.
+    : iplug::Plugin(info, MakeConfig(kNumParams, 1))
 {
     GetParam(kInputGain)->InitDouble("Input Gain", 0., -24., 24., 0.01, "dB");
     GetParam(kInputLoCut)->InitDouble("Input Lo Cut", 80., 20., 300., 0.1, "Hz");
