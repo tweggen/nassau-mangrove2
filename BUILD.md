@@ -1,20 +1,70 @@
 # Mangrove Plugin Build Guide
 
+## Which build should I use?
+
+This repo contains three plugin trees. For a command-line build on macOS, use the first one:
+
+- **Root CMake project (recommended, this guide).** Driven by the top-level `CMakeLists.txt`,
+  built from the repo root into `build/`. This is the blessed command-line path.
+- **`MangroveIPlug/` and `MangrovePlugin/`** — standalone IPlug2 project scaffolds with their
+  own build files (`.sln`, `.xcworkspace`, `build-mac/`). These are for the IDE / Reaper
+  IPlug2 workflow. **You can ignore them for a CLI build.**
+
+Everything below refers to the root CMake project, run from the repository root.
+
 ## Quick Start (DSP-Only, Recommended)
 
+### Prerequisites
+- macOS with Xcode command-line tools: `xcode-select --install`
+- CMake ≥ 3.15 (`cmake --version`)
+- The `external/iplug2` and `external/vst3sdk` submodules present
+  (`git submodule update --init --recursive` if `external/` is empty)
+- No Skia setup needed for this path.
+
+### Build
 ```bash
+# from the repository root
 mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 ```
 
-**Result:** Plugin with host-generated UI, full DSP processing.  
-**Time:** ~2 minutes  
+**Result:** Plugin with host-generated UI, full DSP processing.
+**Time:** ~2 minutes
 **Complexity:** Low
 
-## Building with Skia Graphics (Custom UI)
+This is the **DSP-only** variant: the host/DAW draws the parameter UI. CMake auto-detects
+that Skia is absent and disables the custom UI for you (the plugin target compiles with
+`NO_IGRAPHICS=1` in `Source/Plugin/CMakeLists.txt`).
 
-Custom UI requires Skia library. This is a complex, one-time setup.
+## File Output
+
+The Quick Start uses the default **Unix Makefiles** generator, so the build type is chosen
+at configure time (`-DCMAKE_BUILD_TYPE`) and there is **no `Release/` subfolder**. Two
+plugin bundles are produced under `build/`:
+
+```
+build/Source/Plugin/MangroveIPlug.vst3   # IPlug2-wrapped plugin (host UI)
+build/Source/VST3/Mangrove.vst3          # raw VST3-SDK plugin
+```
+
+**Install to macOS:**
+```bash
+cp -r build/Source/Plugin/MangroveIPlug.vst3 ~/Library/Audio/Plug-Ins/VST3/
+```
+
+> Optional: if you configure with the Xcode generator instead (`cmake .. -G Xcode`), the
+> output moves under a per-config folder, e.g.
+> `build/Source/Plugin/Release/MangroveIPlug.vst3`.
+
+## Building with Skia Graphics (Custom UI) — Advanced / Optional
+
+> **Not needed for the default build.** Skip this entire section unless you specifically want
+> the custom-rendered `MangroveUI` instead of the host-generated UI.
+
+Custom UI requires the Skia library. This is a complex, one-time setup. When Skia libraries
+are present, CMake auto-detects them and enables graphics
+(`IGRAPHICS_SKIA=1` / `IGRAPHICS_METAL=1`); otherwise it falls back to the DSP-only UI above.
 
 ### Prerequisites
 
@@ -53,29 +103,30 @@ external/iplug2/Dependencies/Build/mac/lib/
 ### Step 2: Build Plugin with Graphics
 
 ```bash
+# from the repository root
 mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 ```
 
-CMake will automatically detect Skia libraries and enable graphics.
+CMake will automatically detect the Skia libraries and enable graphics.
 
 ### Troubleshooting Skia Build
 
 If the Skia build fails:
 
-1. **Missing `ninja`**  
+1. **Missing `ninja`**
    ```bash
    brew install ninja
    ```
 
-2. **Missing `gn`**  
+2. **Missing `gn`**
    This should be downloaded by depot_tools. Ensure depot_tools is in PATH:
    ```bash
    export PATH="$(pwd)/Build/tmp/depot_tools:$PATH"
    ```
 
-3. **Python issues**  
+3. **Python issues**
    Ensure Python 3 is available:
    ```bash
    python3 --version
@@ -90,7 +141,7 @@ If the Skia build fails:
 - ✅ No complex dependencies
 - ❌ No custom visualization
 
-**Build:** 2 minutes
+**Build:** ~2 minutes
 
 ### With Custom UI (Developers)
 - ✅ Custom-rendered MangroveUI layout
@@ -100,21 +151,6 @@ If the Skia build fails:
 - ❌ Not recommended for distribution (use DSP-only)
 
 **Build:** 60+ minutes (first time only)
-
-## File Output
-
-Plugin locations after successful build:
-
-**CMake (Recommended):**
-```
-build_xcode/Source/Plugin/Release/MangroveIPlug.vst3
-```
-
-**Install to macOS:**
-```bash
-cp -r build_xcode/Source/Plugin/Release/MangroveIPlug.vst3 \
-  ~/Library/Audio/Plug-Ins/VST3/
-```
 
 ## Parameters (15 total)
 
