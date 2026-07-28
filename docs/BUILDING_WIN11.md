@@ -379,9 +379,105 @@ Once VST3 builds and validates:
 
 1. **Build AUv3 (macOS only):** Not applicable on Windows; skip
 2. **Build AAX (if you have AAX SDK):** Use `MangrovePlugin/projects/MangrovePlugin-aax.vcxproj`
-3. **Build CLAP:** Use `MangrovePlugin/projects/MangrovePlugin-clap.vcxproj`
+3. **Build CLAP:** See "Building CLAP" below — this target works today
 4. **Create Installer:** Windows installer would distribute `MangroveIPlug.vst3` to standard location
 5. **Code Sign:** Add Windows code-signing certificate to prevent UAC warnings
+
+---
+
+## Building CLAP
+
+CLAP is built alongside VST3 from the same solution and the same plugin sources. It is a
+plain `.clap` DLL — unlike VST3 there is no bundle folder to create.
+
+### One-time prerequisite: download the CLAP SDKs
+
+The iPlug2 submodule ships the CLAP *wrapper* but not the CLAP *SDK headers* —
+`external/iplug2/Dependencies/IPlug/CLAP_SDK/` and `CLAP_HELPERS/` contain only a
+`readme.txt` on a fresh clone. Fetch them with iPlug2's own script (needs Git Bash):
+
+```bash
+cd external/iplug2/Dependencies/IPlug
+./download-clap-sdks.sh
+```
+
+Both repos must come from the **same** revision line. `clap-helpers` publishes no release
+tags and its `main` tracks draft extensions in clap's `main` (e.g. `clap_host_param_hovered`),
+so pinning the SDK to a release tag — `./download-clap-sdks.sh 1.2.9` — fails to compile
+with errors in `host-proxy.hh`. Take the default (`main` for both), which is the combination
+iPlug2's own CI builds against.
+
+Both directories are covered by iPlug2's `.gitignore`, so this does not dirty the submodule.
+Verify afterwards:
+
+```
+external/iplug2/Dependencies/IPlug/CLAP_SDK/include/clap/clap.h
+external/iplug2/Dependencies/IPlug/CLAP_HELPERS/include/clap/helpers/plugin.hh
+```
+
+### One-time prerequisite: create the CLAP install folder
+
+`scripts/postbuild-win.bat` installs the built plugin only *if* the target folder already
+exists, and Windows has no CLAP folder by default. Create it once, or the build will
+silently succeed without installing:
+
+```powershell
+New-Item -ItemType Directory -Force "$env:LOCALAPPDATA\Programs\Common\CLAP"
+```
+
+### Build
+
+Build **through the solution**, not the `.vcxproj` directly — the property sheets resolve
+via `$(SolutionDir)`, so a direct project build fails with `MSB4019: The imported project
+...\projects\config\MangrovePlugin-win.props was not found`.
+
+```powershell
+msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-clap" `
+  /p:Configuration=Release /p:Platform=x64 /m
+```
+
+Or in Visual Studio: open `MangrovePlugin.sln`, set **MangrovePlugin-clap** as the startup
+project, Release | x64, Build.
+
+Output:
+
+```
+MangrovePlugin/build-win/clap/x64/Release/MangrovePlugin.clap
+%LOCALAPPDATA%\Programs\Common\CLAP\MangrovePlugin.clap   (installed by postbuild)
+```
+
+### Verify
+
+The DLL must export `clap_entry`:
+
+```powershell
+dumpbin /EXPORTS MangrovePlugin\build-win\clap\x64\Release\MangrovePlugin.clap
+```
+
+The descriptor the host sees is assembled in `IPlug_include_in_plug_src.h` from
+`MangrovePlugin/config.h`:
+
+| Field | Value | Source |
+|---|---|---|
+| id | `com.Nassau.Mangrove` | `BUNDLE_DOMAIN.BUNDLE_MFR.BUNDLE_NAME` |
+| name / vendor | `Mangrove` / `Nassau` | `PLUG_NAME` / `PLUG_MFR` |
+| version | `5.0.0` | `PLUG_VERSION_STR` |
+| features | `audio-effect`, `compressor` | `CLAP_FEATURES` |
+| description | Two-stage level and density compressor | `CLAP_DESCRIPTION` |
+
+The **id is the plugin's permanent identity** in host project files — changing it later
+breaks saved sessions.
+
+For deeper validation use [clap-validator](https://github.com/free-audio/clap-validator)
+(`clap-validator validate MangrovePlugin.clap`), or load the plugin in Reaper/Bitwig.
+
+### Note for anyone touching the plugin class
+
+Constructor member-initialisers must name the base as **`iplug::Plugin`**, fully qualified.
+Under CLAP, `IPlugCLAP` inherits `clap::helpers::Plugin`, whose injected-class-name shadows
+`iplug::Plugin` inside the derived class — an unqualified `Plugin(info, ...)` compiles fine
+for VST3 but fails for CLAP with *"Plugin is neither base nor member"*. The iPlug2 examples
+qualify it for this reason.
 
 ---
 

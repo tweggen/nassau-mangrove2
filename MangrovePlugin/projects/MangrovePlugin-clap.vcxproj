@@ -294,6 +294,8 @@
     <ClInclude Include="..\..\external\iplug2\IPlug\IPlug_include_in_plug_src.h" />
     <ClInclude Include="..\..\external\iplug2\IPlug\ISender.h" />
     <ClInclude Include="..\MangrovePlugin.h" />
+    <ClInclude Include="..\..\Source\DSP\compressor_chain.h" />
+    <ClInclude Include="..\..\Source\Plugin\MangroveUI.h" />
     <ClInclude Include="..\resources\resource.h" />
   <ClInclude Include="..\..\external\iplug2\IPlug\CLAP\IPlugCLAP.h" /></ItemGroup>
   <ItemGroup>
@@ -327,6 +329,8 @@
     <ClCompile Include="..\..\external\iplug2\IPlug\IPlugProcessor.cpp" />
     <ClCompile Include="..\..\external\iplug2\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\MangrovePlugin.cpp" />
+    <ClCompile Include="..\..\Source\DSP\compressor_chain.cpp" />
+    <ClCompile Include="..\..\Source\Plugin\MangroveUI.cpp" />
   <ClCompile Include="..\..\external\iplug2\IPlug\CLAP\IPlugCLAP.cpp" />
     <ClCompile Include="..\..\external\iplug2\WDL\win32_utf8.c" />
   </ItemGroup>

@@ -8,10 +8,21 @@ endif()
 include(${IPLUG2_DIR}/iPlug2.cmake)
 find_package(iPlug2 REQUIRED)
 
+# The plugin sources (MangroveUI, DSP core) live outside this directory — carry their
+# include dirs on an interface library passed to iplug_add_plugin via LINK.
+add_library(mangrove_srcinc INTERFACE)
+target_include_directories(mangrove_srcinc INTERFACE
+  ${CMAKE_CURRENT_SOURCE_DIR}/../Source/Plugin
+  ${CMAKE_CURRENT_SOURCE_DIR}/../Source/DSP)
+
 iplug_add_plugin(${PROJECT_NAME}
+  FORMATS CLAP
+  LINK mangrove_srcinc
   SOURCES
     MangrovePlugin.cpp
     MangrovePlugin.h
+    ../Source/Plugin/MangroveUI.cpp
+    ../Source/DSP/compressor_chain.cpp
     IconsFontaudio.h
     IconsForkAwesome.h
     resources/resource.h

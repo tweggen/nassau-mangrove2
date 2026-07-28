@@ -164,11 +164,43 @@ cmake --build .
 ctest --verbose  # Should show 51/51 passing
 ```
 
+### Build CLAP
+
+CLAP is an additional format built from the same plugin sources as the other formats.
+One-time setup (both platforms): `cd external/iplug2/Dependencies/IPlug && ./download-clap-sdks.sh`
+(take the default `main` for both repos — a pinned clap tag mismatches clap-helpers). The CLAP
+SDK/helpers ship as placeholder `readme.txt`; without this, iPlug2's `CLAP.cmake` silently stubs
+CLAP out.
+
+**Windows** — build via the VS **solution** (not the `.vcxproj` — property sheets need
+`$(SolutionDir)`), after creating `%LOCALAPPDATA%\Programs\Common\CLAP`:
+
+```powershell
+msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-clap" /p:Configuration=Release /p:Platform=x64 /m
+```
+
+**macOS** — build via CMake through the iPlug2 project `MangrovePlugin/CMakeLists.txt` (NOT the
+`.sln`, NOT `Source/Plugin/CMakeLists.txt` which has no CLAP target). `IPLUG2_DIR` must be
+overridden — the file's default `../..` is wrong at repo root:
+
+```bash
+cmake -S MangrovePlugin -B build_clap_mac -DIPLUG2_DIR="$PWD/external/iplug2"
+cmake --build build_clap_mac --target MangrovePlugin-clap
+```
+
+Output bundle: `build_clap_mac/out/MangrovePlugin.clap`; iPlug2's Deploy step auto-copies it to
+`~/Library/Audio/Plug-Ins/CLAP/`. IGraphics resolves to NanoVG/Metal (no Skia needed). Full
+details in `docs/BUILDING_WIN11.md` § Building CLAP (Windows) and `docs/BUILDING.md` § Building
+CLAP (macOS).
+
 ### Verify Builds
 - ✅ **Windows 11 VST 3** — Compiles cleanly, runs in DAWs
+- ✅ **Windows 11 CLAP** — Compiles cleanly, verified with a minimal host harness (not yet DAW-tested)
 - ✅ **macOS VST 3** — Compiles cleanly, runs in DAWs
 - ✅ **macOS AU v3** — Also available via IPlug2
-- ⏳ **Linux VST 3** — Not yet tested
+- ✅ **macOS CLAP** — Compiles cleanly (arm64), verified via dlopen load-check (`clap_entry`
+  exported, factory reports `com.Nassau.Mangrove`); not yet clap-validator- or DAW-tested
+- ⏳ **Linux CLAP / VST 3** — Not yet tested
 
 ---
 
@@ -200,6 +232,15 @@ build path.
 - **Meter lag:** Meters update via `MeterData` struct, call `getMeterData()` at UI refresh (~50 Hz)
 - **Parameter binding:** Use `setParameter()` → `setInputGain()` mapping
 - **Thread safety:** All parameter updates are atomic, no locking needed
+- **CLAP build fails with "Plugin is neither base nor member":** the constructor's member
+  initialiser must be fully qualified as `iplug::Plugin(...)`. Under CLAP the base inherits
+  `clap::helpers::Plugin`, whose injected-class-name shadows `iplug::Plugin`. Unqualified
+  works for VST3 and breaks only for CLAP.
+- **Duplicate config trap:** `Source/Plugin/MangrovePlugin.h` + `config.h` are stale copies of
+  the ones in `MangrovePlugin/`. Because MSVC resolves quoted includes from the includer's
+  own directory first, `Source/Plugin/MangroveUI.cpp` compiles against the *Source/Plugin*
+  pair, so edits to `MangrovePlugin/config.h` do not reach it. Harmless today on Windows
+  (the differing macros only gate AU-specific checks), but edit both or consolidate them.
 
 ---
 

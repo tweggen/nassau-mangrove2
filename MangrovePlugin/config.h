@@ -34,11 +34,20 @@
 #define PLUG_HEIGHT     400
 #define PLUG_FPS        60
 
-#define PLUG_SHARED_RESOURCES_SUBPATH "Mangrove"
+// iPlug2 checks for the unprefixed name (IPlug_include_in_plug_hdr.h)
+#define SHARED_RESOURCES_SUBPATH "Mangrove"
 #define PLUG_SHARED_RESOURCES 0
 #define PLUG_HOST_RESIZE 0
 
+#define PLUG_URL_STR       "https://github.com/tweggen/nassau-mangrove2"
+#define PLUG_EMAIL_STR     "timo.weggen@gmail.com"
+#define PLUG_COPYRIGHT_STR "© Nassau 2026"
+
 #define VST3_SUBCATEGORY "Fx"
+
+// CLAP descriptor — plugin id is BUNDLE_DOMAIN.BUNDLE_MFR.BUNDLE_NAME = "com.Nassau.Mangrove"
+#define CLAP_DESCRIPTION "Two-stage level and density compressor"
+#define CLAP_FEATURES    CLAP_PLUGIN_FEATURE_AUDIO_EFFECT, CLAP_PLUGIN_FEATURE_COMPRESSOR
 
 #define ROBOTO_FN "Roboto-Regular.ttf"
 
