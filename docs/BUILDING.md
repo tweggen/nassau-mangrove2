@@ -49,8 +49,10 @@ cd build && ctest -V
 Generated targets:
 - `MangrovePlugin_VST3` — VST3 bundle
 - `MangrovePlugin_AU` — AUv2 component
-- `MangrovePlugin_CLAP` — CLAP bundle (macOS; the Windows CLAP build is done via the VS solution, see `BUILDING_WIN11.md`)
 - `MangrovePlugin_Standalone` — Standalone app (generated, not validated)
+
+> **Note:** the Xcode project has no CLAP target. macOS CLAP is built via CMake — see
+> § Building CLAP (macOS) below.
 
 **Next steps to complete Phase 5:**
 1. Link `Source/DSP/libcompressor_chain.a` to Xcode targets
@@ -91,10 +93,12 @@ Generated targets:
 ### ❌ Not Started
 
 - **Windows/Linux:** Linux code paths, standalone app validation
-- **CLAP on macOS/Linux:** Windows CLAP builds and runs (see `BUILDING_WIN11.md`); macOS
-  would go through CMake, which is not yet wired up for this project
-- **CLAP in a real DAW:** the Windows build is verified by a minimal host harness
-  (descriptor, 15 params, stereo I/O, audio passes) but has not been run in a DAW
+- **CLAP on Linux:** not yet wired up (would also go via CMake). macOS and Windows CLAP now
+  build — see § Building CLAP (macOS) below and `BUILDING_WIN11.md` for Windows.
+- **CLAP in a real DAW:** the macOS build is verified by a dlopen load-check (`clap_entry`
+  exported, factory reports `com.Nassau.Mangrove`) and the Windows build by a minimal host
+  harness (descriptor, 15 params, stereo I/O, audio passes) — neither has run in a DAW, nor
+  through clap-validator
 - **Preset system:** UI/parameter serialization
 - **Documentation:** User manual, parameter reference
 
@@ -218,6 +222,43 @@ cmake --build build --target compressor_chain
 #   2. Add libcompressor_chain.a from build/Source/DSP/
 #   3. Header Search Paths: $(SRCROOT)/../../Source/DSP
 ```
+
+### Building CLAP (macOS)
+
+macOS CLAP is built via CMake through the iPlug2 project `MangrovePlugin/CMakeLists.txt` — the
+Xcode project has no CLAP target. (Windows CLAP uses the VS solution instead; see
+`BUILDING_WIN11.md`.)
+
+```bash
+# One-time: download the CLAP SDK + helpers (default 'main' for both repos)
+cd external/iplug2/Dependencies/IPlug && ./download-clap-sdks.sh && cd -
+
+# Configure + build the CLAP target. IPLUG2_DIR MUST be overridden — the CMakeLists
+# default (../..) is wrong when the project sits at the repo root.
+cmake -S MangrovePlugin -B build_clap_mac -DIPLUG2_DIR="$PWD/external/iplug2"
+cmake --build build_clap_mac --target MangrovePlugin-clap
+
+# Output bundle (also auto-deployed to ~/Library/Audio/Plug-Ins/CLAP/):
+#   build_clap_mac/out/MangrovePlugin.clap
+```
+
+Notes:
+- `MangrovePlugin/CMakeLists.txt` uses `FORMATS CLAP` and pulls in the out-of-dir sources
+  `../Source/Plugin/MangroveUI.cpp` and `../Source/DSP/compressor_chain.cpp` (their include dirs
+  are carried by the `mangrove_srcinc` interface library).
+- IGraphics resolves to NanoVG/Metal, so no Skia dependency is needed for this build.
+
+**Load-check (no external tools):** confirm the entry point is exported and the plugin factory
+loads:
+
+```bash
+BUNDLE=build_clap_mac/out/MangrovePlugin.clap
+nm -gU "$BUNDLE/Contents/MacOS/MangrovePlugin" | grep clap_entry   # expect: _clap_entry
+```
+
+A minimal dlopen harness (resolve `clap_entry` → `init()` → factory `get_plugin_count()` → print
+descriptor) confirms the factory reports id `com.Nassau.Mangrove`, name `Mangrove`, features
+`audio-effect compressor`. Not yet clap-validator- or DAW-tested.
 
 ### Install and Test
 

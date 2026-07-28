@@ -16,8 +16,9 @@ The Mangrove compressor plugin refactoring is progressing ahead of schedule. All
 - **Critical Path Progress:** 5/8 phases complete
 - **Major Blockers:** None
 - **Build Status:** VST 3 compiles and runs on Windows 11 & macOS; **CLAP builds on
-  Windows 11** (July 26, 2026) from the same VS solution and plugin sources — see
-  `docs/BUILDING_WIN11.md` § Building CLAP
+  Windows 11** (July 26, 2026) from the VS solution and **on macOS** (July 28, 2026) via CMake
+  (`MangrovePlugin/CMakeLists.txt`, arm64, verified with a dlopen load-check) — see
+  `docs/BUILDING_WIN11.md` § Building CLAP and `docs/BUILDING.md` § Building CLAP (macOS)
 
 ---
 

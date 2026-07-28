@@ -154,27 +154,43 @@ cmake --build .
 ctest --verbose  # Should show 40/40 passing
 ```
 
-### Build CLAP (Windows)
+### Build CLAP
 
-CLAP is an additional format built from the same solution and the same plugin sources.
-One-time setup: `cd external/iplug2/Dependencies/IPlug && ./download-clap-sdks.sh` (take the
-default `main` for both repos — a pinned clap tag mismatches clap-helpers), then create
-`%LOCALAPPDATA%\Programs\Common\CLAP`.
+CLAP is an additional format built from the same plugin sources as the other formats.
+One-time setup (both platforms): `cd external/iplug2/Dependencies/IPlug && ./download-clap-sdks.sh`
+(take the default `main` for both repos — a pinned clap tag mismatches clap-helpers). The CLAP
+SDK/helpers ship as placeholder `readme.txt`; without this, iPlug2's `CLAP.cmake` silently stubs
+CLAP out.
+
+**Windows** — build via the VS **solution** (not the `.vcxproj` — property sheets need
+`$(SolutionDir)`), after creating `%LOCALAPPDATA%\Programs\Common\CLAP`:
 
 ```powershell
 msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-clap" /p:Configuration=Release /p:Platform=x64 /m
 ```
 
-Build via the **solution**, not the `.vcxproj` — the property sheets need `$(SolutionDir)`.
-Full details in `docs/BUILDING_WIN11.md` § Building CLAP.
+**macOS** — build via CMake through the iPlug2 project `MangrovePlugin/CMakeLists.txt` (NOT the
+`.sln`, NOT `Source/Plugin/CMakeLists.txt` which has no CLAP target). `IPLUG2_DIR` must be
+overridden — the file's default `../..` is wrong at repo root:
+
+```bash
+cmake -S MangrovePlugin -B build_clap_mac -DIPLUG2_DIR="$PWD/external/iplug2"
+cmake --build build_clap_mac --target MangrovePlugin-clap
+```
+
+Output bundle: `build_clap_mac/out/MangrovePlugin.clap`; iPlug2's Deploy step auto-copies it to
+`~/Library/Audio/Plug-Ins/CLAP/`. IGraphics resolves to NanoVG/Metal (no Skia needed). Full
+details in `docs/BUILDING_WIN11.md` § Building CLAP (Windows) and `docs/BUILDING.md` § Building
+CLAP (macOS).
 
 ### Verify Builds
 - ✅ **Windows 11 VST 3** — Compiles cleanly, runs in DAWs
 - ✅ **Windows 11 CLAP** — Compiles cleanly, verified with a minimal host harness (not yet DAW-tested)
 - ✅ **macOS VST 3** — Compiles cleanly, runs in DAWs
 - ✅ **macOS AU v3** — Also available via IPlug2
-- ⏳ **macOS/Linux CLAP** — Would go via CMake, not yet wired up
-- ⏳ **Linux VST 3** — Not yet tested
+- ✅ **macOS CLAP** — Compiles cleanly (arm64), verified via dlopen load-check (`clap_entry`
+  exported, factory reports `com.Nassau.Mangrove`); not yet clap-validator- or DAW-tested
+- ⏳ **Linux CLAP / VST 3** — Not yet tested
 
 ---
 
