@@ -23,7 +23,7 @@ Refactoring the Mangrove compression plugin from JUCE-based code into native plu
 2. Review: `ai/plans/proposed/IMPLEMENTATION_PLAN.md` (overall strategy — 10 min)
 3. Reference completed work: `ai/plans/done/PHASE_*.md` (Phases 1–4) and `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md` (Phase 5)
 4. Check next work: `ai/plans/todo/PHASE_6_SERIALIZATION.md`
-5. Build: `mkdir -p build_phase5 && cd build_phase5 && cmake .. && cmake --build .`
+5. Build: `mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build .` (see `BUILD.md` for details)
 
 ---
 
@@ -145,14 +145,15 @@ Output Stereo
 
 ## Building & Testing
 
-### Build VST 3 (Phase 5)
+### Build VST 3 (root CMake, recommended)
 ```bash
-cd build_phase5
-cmake ..
-cmake --build . --config Release
+mkdir -p build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
 
-# Test plugin
-./Builds/MangroveIPlug_VST3  # Binary location (platform-dependent)
+# Output bundles (default Unix Makefiles generator — no Release/ subdir):
+#   build/Source/Plugin/MangroveIPlug.vst3   (IPlug2 plugin)
+#   build/Source/VST3/Mangrove.vst3          (raw VST3-SDK plugin)
 ```
 
 ### Test DSP Core
@@ -353,15 +354,15 @@ build path.
 ### Build Fails
 1. Check CMake version: `cmake --version` (need 3.15+)
 2. Check C++ standard: `-DCMAKE_CXX_STANDARD=17`
-3. Clean build: `rm -rf build_phase5 && mkdir build_phase5 && cd build_phase5 && cmake .. && cmake --build .`
+3. Clean build: `rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build .`
 
 ### Tests Fail
-1. Verify compressor_chain.cpp is compiled: `ls -la build_phase5/CMakeFiles/compressor_chain.dir/`
+1. Verify compressor_chain.cpp is compiled: `ls -la build/CMakeFiles/compressor_chain.dir/`
 2. Check linking: `cmake --build . --verbose | grep -i error`
 
 ### Plugin Not Recognized by DAW
 1. Ensure VST 3 SDK is found: Check CMake output for VST paths
-2. Verify binary location: `find build_phase5 -name "*.vst3"`
+2. Verify binary location: `find build -name "*.vst3"`
 3. Check DAW scan: May need to point DAW to build output directory
 
 ### Audio Issues
