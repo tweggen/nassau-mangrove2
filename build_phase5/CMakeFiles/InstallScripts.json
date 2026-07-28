@@ -1,0 +1,21 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/Source/DSP/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/source/vst/interappaudio/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/source/vst/auwrapper/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-hosting/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-hosting/audiohost/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-hosting/editorhost/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-hosting/inspectorapp/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-hosting/validator/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-utilities/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/Source/VST3/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/Source/Plugin/cmake_install.cmake",
+		"/Users/tweggen/coding/github/nassau-mangrove2/build_phase5/Tests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

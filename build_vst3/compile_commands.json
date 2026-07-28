@@ -1,0 +1,800 @@
+[
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/baseiids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/baseiids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/baseiids.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/baseiids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fbuffer.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fbuffer.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fbuffer.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fbuffer.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fdebug.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fdebug.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fdebug.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fdebug.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fdynlib.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fdynlib.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fdynlib.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fdynlib.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fobject.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fobject.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fobject.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fobject.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fstreamer.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fstreamer.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fstreamer.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fstreamer.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/fstring.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fstring.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/fstring.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/fstring.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/timer.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/timer.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/timer.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/timer.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/source/updatehandler.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/updatehandler.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/source/updatehandler.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/source/updatehandler.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/thread/source/fcondition.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/thread/source/fcondition.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/thread/source/fcondition.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/thread/source/fcondition.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/base.dir/base/thread/source/flock.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/thread/source/flock.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base/thread/source/flock.cpp",
+  "output": "external/vst3sdk/CMakeFiles/base.dir/base/thread/source/flock.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++ -DSMTG_USE_STDATOMIC_H=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -o CMakeFiles/pluginterfaces.dir/pluginterfaces/base/conststringtable.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/conststringtable.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/conststringtable.cpp",
+  "output": "external/vst3sdk/CMakeFiles/pluginterfaces.dir/pluginterfaces/base/conststringtable.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++ -DSMTG_USE_STDATOMIC_H=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -o CMakeFiles/pluginterfaces.dir/pluginterfaces/base/coreiids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/coreiids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/coreiids.cpp",
+  "output": "external/vst3sdk/CMakeFiles/pluginterfaces.dir/pluginterfaces/base/coreiids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++ -DSMTG_USE_STDATOMIC_H=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -o CMakeFiles/pluginterfaces.dir/pluginterfaces/base/funknown.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/funknown.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/funknown.cpp",
+  "output": "external/vst3sdk/CMakeFiles/pluginterfaces.dir/pluginterfaces/base/funknown.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++ -DSMTG_USE_STDATOMIC_H=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -o CMakeFiles/pluginterfaces.dir/pluginterfaces/base/ustring.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/ustring.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces/base/ustring.cpp",
+  "output": "external/vst3sdk/CMakeFiles/pluginterfaces.dir/pluginterfaces/base/ustring.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/commoniids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/commoniids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/commoniids.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/commoniids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/commonstringconvert.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/commonstringconvert.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/commonstringconvert.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/commonstringconvert.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/openurl.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/openurl.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/openurl.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/openurl.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_linux.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_linux.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_linux.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_linux.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_win32.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_win32.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_win32.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_win32.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_linux.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_linux.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_linux.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_linux.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_win32.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_win32.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_win32.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_win32.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/readfile.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/readfile.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/readfile.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/readfile.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/vst/vstpresetfile.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstpresetfile.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstpresetfile.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/vst/vstpresetfile.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -x objective-c++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_mac.mm.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_mac.mm",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/threadchecker_mac.mm",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/threadchecker_mac.mm.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -x objective-c++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_mac.mm.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_mac.mm",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/systemclipboard_mac.mm",
+  "output": "external/vst3sdk/CMakeFiles/sdk_common.dir/public.sdk/source/common/systemclipboard_mac.mm.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/common/pluginview.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/pluginview.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/pluginview.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/common/pluginview.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/main/pluginfactory.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/pluginfactory.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/pluginfactory.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/main/pluginfactory.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/main/moduleinit.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/moduleinit.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/moduleinit.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/main/moduleinit.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/utility/dataexchange.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/dataexchange.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/dataexchange.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/utility/dataexchange.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/utility/stringconvert.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/stringconvert.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/stringconvert.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/utility/stringconvert.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/utility/systemtime.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/systemtime.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/systemtime.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/utility/systemtime.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/utility/testing.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/testing.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/testing.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/utility/testing.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/utility/vst2persistence.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/vst2persistence.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/vst2persistence.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/utility/vst2persistence.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstaudioeffect.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstaudioeffect.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstaudioeffect.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstaudioeffect.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstbus.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstbus.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstbus.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstbus.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstcomponent.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstcomponent.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstcomponent.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstcomponent.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstcomponentbase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstcomponentbase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstcomponentbase.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstcomponentbase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vsteditcontroller.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vsteditcontroller.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vsteditcontroller.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vsteditcontroller.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstinitiids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstinitiids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstinitiids.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstinitiids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstnoteexpressiontypes.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstnoteexpressiontypes.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstnoteexpressiontypes.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstnoteexpressiontypes.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstparameters.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstparameters.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstparameters.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstparameters.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk.dir/public.sdk/source/vst/vstrepresentation.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstrepresentation.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstrepresentation.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk.dir/public.sdk/source/vst/vstrepresentation.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/connectionproxy.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/connectionproxy.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/connectionproxy.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/connectionproxy.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/eventlist.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/eventlist.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/eventlist.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/eventlist.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/hostclasses.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/hostclasses.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/hostclasses.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/hostclasses.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/module.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/module.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/parameterchanges.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/parameterchanges.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/parameterchanges.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/parameterchanges.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/pluginterfacesupport.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/pluginterfacesupport.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/pluginterfacesupport.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/pluginterfacesupport.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/processdata.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/processdata.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/processdata.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/hosting/processdata.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/utility/stringconvert.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/stringconvert.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/stringconvert.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/utility/stringconvert.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/vstinitiids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstinitiids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstinitiids.cpp",
+  "output": "external/vst3sdk/CMakeFiles/sdk_hosting.dir/public.sdk/source/vst/vstinitiids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/common/memorystream.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/memorystream.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/common/memorystream.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/common/memorystream.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/main/moduleinit.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/moduleinit.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/main/moduleinit.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/main/moduleinit.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/moduleinfo/moduleinfoparser.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/moduleinfo/moduleinfoparser.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/connectionproxytest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/connectionproxytest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/connectionproxytest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/connectionproxytest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/eventlisttest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/eventlisttest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/eventlisttest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/eventlisttest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/hostclassestest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/hostclassestest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/hostclassestest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/hostclassestest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/parameterchangestest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/parameterchangestest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/parameterchangestest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/parameterchangestest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/pluginterfacesupporttest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/pluginterfacesupporttest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/pluginterfacesupporttest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/pluginterfacesupporttest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/processdatatest.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/processdatatest.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/test/processdatatest.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/test/processdatatest.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/plugprovider.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/plugprovider.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/plugprovider.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/plugprovider.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/busactivation.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/busactivation.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/busactivation.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/busactivation.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/busconsistency.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/busconsistency.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/busconsistency.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/busconsistency.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/businvalidindex.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/businvalidindex.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/businvalidindex.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/businvalidindex.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/checkaudiobusarrangement.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/checkaudiobusarrangement.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/checkaudiobusarrangement.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/checkaudiobusarrangement.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/scanbusses.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/scanbusses.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/scanbusses.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/scanbusses.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/sidechainarrangement.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/sidechainarrangement.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/bus/sidechainarrangement.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/bus/sidechainarrangement.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/editorclasses.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/editorclasses.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/editorclasses.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/editorclasses.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/midilearn.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/midilearn.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/midilearn.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/midilearn.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/midimapping.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/midimapping.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/midimapping.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/midimapping.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/plugcompat.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/plugcompat.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/plugcompat.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/plugcompat.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/scanparameters.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/scanparameters.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/scanparameters.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/scanparameters.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/suspendresume.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/suspendresume.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/suspendresume.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/suspendresume.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/terminit.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/terminit.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/general/terminit.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/general/terminit.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/noteexpression/keyswitch.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/noteexpression/keyswitch.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/noteexpression/keyswitch.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/noteexpression/keyswitch.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/noteexpression/noteexpression.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/noteexpression/noteexpression.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/noteexpression/noteexpression.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/noteexpression/noteexpression.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/automation.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/automation.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/automation.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/automation.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/process.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/process.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/process.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/process.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processcontextrequirements.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processcontextrequirements.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processcontextrequirements.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processcontextrequirements.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processformat.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processformat.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processformat.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processformat.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processinputoverwriting.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processinputoverwriting.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processinputoverwriting.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processinputoverwriting.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processtail.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processtail.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processtail.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processtail.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processthreaded.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processthreaded.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/processthreaded.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/processthreaded.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/silenceflags.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/silenceflags.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/silenceflags.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/silenceflags.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/silenceprocessing.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/silenceprocessing.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/silenceprocessing.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/silenceprocessing.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/speakerarrangement.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/speakerarrangement.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/speakerarrangement.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/speakerarrangement.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/variableblocksize.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/variableblocksize.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/processing/variableblocksize.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/processing/variableblocksize.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/bypasspersistence.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/bypasspersistence.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/bypasspersistence.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/bypasspersistence.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/invalidstatetransition.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/invalidstatetransition.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/invalidstatetransition.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/invalidstatetransition.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/repeatidenticalstatetransition.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/repeatidenticalstatetransition.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/repeatidenticalstatetransition.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/repeatidenticalstatetransition.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/validstatetransition.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/validstatetransition.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/state/validstatetransition.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/state/validstatetransition.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/testbase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/testbase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/testbase.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/testbase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/checkunitstructure.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/checkunitstructure.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/checkunitstructure.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/checkunitstructure.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/scanprograms.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/scanprograms.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/scanprograms.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/scanprograms.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/scanunits.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/scanunits.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/unit/scanunits.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/unit/scanunits.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/vsttestsuite.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/vsttestsuite.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/testsuite/vsttestsuite.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/testsuite/vsttestsuite.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/__/__/__/source/vst/utility/testing.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/testing.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/utility/testing.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/utility/testing.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/source/main.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/main.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/main.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/source/main.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/source/usediids.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/usediids.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/usediids.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/source/usediids.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/validator.dir/source/validator.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/validator.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-hosting/validator/source/validator.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/source/validator.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-hosting/validator",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks -x objective-c++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -fobjc-arc -o CMakeFiles/validator.dir/__/__/__/source/vst/hosting/module_mac.mm.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module_mac.mm",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module_mac.mm",
+  "output": "external/vst3sdk/public.sdk/samples/vst-hosting/validator/CMakeFiles/validator.dir/__/__/__/source/vst/hosting/module_mac.mm.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/moduleinfotool.dir/source/main.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/source/main.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/source/main.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/CMakeFiles/moduleinfotool.dir/source/main.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/moduleinfo/moduleinfocreator.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfocreator.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfocreator.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/moduleinfo/moduleinfocreator.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks  -stdlib=libc++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility=hidden -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -o CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/moduleinfo/moduleinfoparser.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp",
+  "output": "external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/moduleinfo/moduleinfoparser.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks -x objective-c++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk -fPIE -fvisibility-inlines-hidden -DSMTG_RENAME_ASSERT=1 -DRELEASE=1 -fobjc-arc -o CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/hosting/module_mac.mm.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module_mac.mm",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/hosting/module_mac.mm",
+  "output": "external/vst3sdk/public.sdk/samples/vst-utilities/moduleinfotool/CMakeFiles/moduleinfotool.dir/__/__/__/source/vst/hosting/module_mac.mm.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugAPIBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugAPIBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugAPIBase.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugAPIBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugParameter.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugParameter.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugPluginBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugPluginBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugProcessor.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugProcessor.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugProcessor.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugProcessor.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugTimer.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugTimer.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugTimer.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/IPlugTimer.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -DRELEASE=1 -o CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp",
+  "output": "Source/VST3/CMakeFiles/iplug2_vst3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DMangroveVST3_EXPORTS -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -DRELEASE=1 -o CMakeFiles/MangroveVST3.dir/MangrovePlugin.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/Source/VST3/MangrovePlugin.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/Source/VST3/MangrovePlugin.cpp",
+  "output": "Source/VST3/CMakeFiles/MangroveVST3.dir/MangrovePlugin.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/VST3",
+  "command": "/usr/bin/c++ -DIGRAPHICS_NANOVG=0 -DIGRAPHICS_NONE=1 -DIPLUG_DSP=1 -DIPLUG_EDITOR=0 -DMangroveVST3_EXPORTS -DNO_IGRAPHICS=1 -DPLUG_HAS_UI=0 -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/vst -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IPlug/VST3_SDK/public.sdk/source/common -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -DRELEASE=1 -o CMakeFiles/MangroveVST3.dir/__/__/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp",
+  "output": "Source/VST3/CMakeFiles/MangroveVST3.dir/__/__/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugAPIBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugAPIBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugAPIBase.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugAPIBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugParameter.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugParameter.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugParameter.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPaths.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPaths.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPaths.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPaths.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPluginBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugPluginBase.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugPluginBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugProcessor.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugProcessor.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugProcessor.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugProcessor.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -w -o CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugTimer.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugTimer.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/IPlugTimer.cpp",
+  "output": "Source/Plugin/CMakeFiles/iplug2_lib.dir/__/__/external/iplug2/IPlug/IPlugTimer.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/MangrovePlugin.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin/MangrovePlugin.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin/MangrovePlugin.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/MangrovePlugin.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Controller.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_Processor.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/iplug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DIPLUG_EDITOR=1 -DMangroveIPlug_VST3_EXPORTS -DVST3_API=1 -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/VST3 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/pluginterfaces -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk -I/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/base -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -DRELEASE=1 -o CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_VST3.dir/__/__/external/vst3sdk/public.sdk/source/vst/vstsinglecomponenteffect.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DAU_API=1 -DIPLUG_EDITOR=0 -DMangroveIPlug_AU_EXPORTS -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -w -o CMakeFiles/MangroveIPlug_AU.dir/MangrovePlugin.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin/MangrovePlugin.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin/MangrovePlugin.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_AU.dir/MangrovePlugin.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DAU_API=1 -DIPLUG_EDITOR=0 -DMangroveIPlug_AU_EXPORTS -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -w -o CMakeFiles/MangroveIPlug_AU.dir/__/__/external/iplug2/IPlug/AUv2/IPlugAU.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2/IPlugAU.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2/IPlugAU.cpp",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_AU.dir/__/__/external/iplug2/IPlug/AUv2/IPlugAU.cpp.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Source/Plugin",
+  "command": "/usr/bin/c++ -DAU_API=1 -DIPLUG_EDITOR=0 -DMangroveIPlug_AU_EXPORTS -I/Users/tweggen/coding/github/nassau-mangrove2/Source/Plugin -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2 -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/Extras -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Controls -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Platforms -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IGraphics/Drawing -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/WDL -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/NanoSVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/MetalNanoVG/src -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/STB -I/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/Dependencies/IGraphics/glad/include -x objective-c++ -O3 -DNDEBUG -std=gnu++17 -arch arm64 -fPIC -Wall -Wextra -w -o CMakeFiles/MangroveIPlug_AU.dir/__/__/external/iplug2/IPlug/AUv2/IPlugAU_view_factory.mm.o -c /Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2/IPlugAU_view_factory.mm",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/external/iplug2/IPlug/AUv2/IPlugAU_view_factory.mm",
+  "output": "Source/Plugin/CMakeFiles/MangroveIPlug_AU.dir/__/__/external/iplug2/IPlug/AUv2/IPlugAU_view_factory.mm.o"
+},
+{
+  "directory": "/Users/tweggen/coding/github/nassau-mangrove2/build_vst3/Tests",
+  "command": "/usr/bin/c++  -I/Users/tweggen/coding/github/nassau-mangrove2/Tests/../Source/DSP -I/Users/tweggen/coding/github/nassau-mangrove2/Source/DSP -O3 -DNDEBUG -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/dsp_tests.dir/dsp_tests.cpp.o -c /Users/tweggen/coding/github/nassau-mangrove2/Tests/dsp_tests.cpp",
+  "file": "/Users/tweggen/coding/github/nassau-mangrove2/Tests/dsp_tests.cpp",
+  "output": "Tests/CMakeFiles/dsp_tests.dir/dsp_tests.cpp.o"
+}
+]

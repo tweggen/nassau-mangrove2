@@ -5,22 +5,28 @@
 using namespace iplug;
 using namespace iplug::igraphics;
 
-void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& plugin)
+void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
-    ui.LoadFont("Roboto-Regular", ROBOTO_FN);
+    // Load system font by name with proper overload (not file path)
+    // This prevents Skia font initialization crashes when measuring text
+    static bool fontLoaded = false;
+    if (!fontLoaded) {
+        ui.LoadFont("default", "Helvetica", ETextStyle::Normal);
+        fontLoaded = true;
+    }
 
     const IColor bg(255, 40, 40, 40);
-    const IColor text(255, 255, 255, 255);
-    const IColor toggleLblColor(255, 0, 0, 0);
+    const IColor text(255, 0, 255, 0);  // Bright lime green for debugging visibility
+    const IColor toggleLblColor(255, 0, 255, 0);  // Bright lime green
     const IColor knobColor(255, 100, 150, 200);
 
-    const IText header(18, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText section(14, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
-    const IText knobLbl(11, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle);
+    const IText header(24, text, "default");
+    const IText section(18, text, "default");
+    const IText knobLbl(14, text, "default");
 
     const IVStyle toggleStyle = DEFAULT_STYLE
-        .WithValueText(IText(11, text, "Roboto-Regular", EAlign::Center, EVAlign::Middle))
-        .WithLabelText(IText(12, toggleLblColor, "Roboto-Regular", EAlign::Center, EVAlign::Middle));
+        .WithValueText(IText(16, text, "default"))
+        .WithLabelText(IText(16, toggleLblColor, "default"));
 
     ui.AttachPanelBackground(bg);
 
@@ -74,6 +80,4 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& plugin)
 
     ui.AttachControl(new IVKnobControl(IRECT(520, 200, 590, 280), kDensityRelease));
     ui.AttachControl(new ITextControl (IRECT(520, 285, 590, 300), "Release", knobLbl));
-
-    ui.Resize(PLUG_WIDTH, PLUG_HEIGHT, 1.);
 }

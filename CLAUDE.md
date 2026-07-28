@@ -2,8 +2,8 @@
 
 **Project:** Mangrove Compressor Plugin — JUCE to Native Formats  
 **Owner:** Timo Weggen (timo.weggen@gmail.com)  
-**Status:** 🔄 Phase 5 (GUI Implementation) — In Progress  
-**Last Updated:** May 24, 2026
+**Status:** ✅ Phase 5 (GUI Implementation) — Complete  
+**Last Updated:** July 19, 2026
 
 ---
 
@@ -13,16 +13,17 @@
 Refactoring the Mangrove compression plugin from JUCE-based code into native plugin formats (VST 3, AudioUnit, LADSPA). The goal is to remove JUCE dependencies and provide multi-platform support.
 
 ### Current state?
-- **Phases 1–4:** Complete (DSP core, IIR filters, sample rate handling, VST 3 wrapper)
-- **Phase 5:** In progress (GUI implementation)
-- **Timeline:** 4 weeks elapsed, ~6 weeks remaining (on schedule)
+- **Phases 1–5:** Complete (DSP core, IIR filters, sample rate handling, VST 3 wrapper, GUI)
+- **Phase 6:** Next up (serialization — preset save/load)
+- **Progress:** 5/10 phases complete
+- **Latest completed work:** Phase 5 GUI (custom Skia/IGraphics UI), commit `583f1a2`
 
 ### How do I get oriented?
 1. Read: `ai/plans/STATE.md` (current snapshot — 5 min) ⭐ Start here
 2. Review: `ai/plans/proposed/IMPLEMENTATION_PLAN.md` (overall strategy — 10 min)
-3. Check: `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md` (current work — 10 min)
-4. Reference completed work: `ai/plans/done/PHASE_*.md` (completed phases)
-5. Build: `mkdir -p build_phase5 && cd build_phase5 && cmake .. && cmake --build .`
+3. Reference completed work: `ai/plans/done/PHASE_*.md` (Phases 1–4) and `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md` (Phase 5)
+4. Check next work: `ai/plans/todo/PHASE_6_SERIALIZATION.md`
+5. Build: `mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build .` (see `BUILD.md` for details)
 
 ---
 
@@ -32,41 +33,49 @@ Refactoring the Mangrove compression plugin from JUCE-based code into native plu
 mangrove-refactored/
 ├── Source/
 │   ├── DSP/                       ✅ Complete (Phases 1–3)
-│   │   ├── compressor_chain.h     (207 lines — API)
-│   │   ├── compressor_chain.cpp   (368 lines — impl)
-│   │   ├── iir_filter.h           (custom Butterworth)
-│   │   └── iir_filter.cpp
+│   │   ├── compressor_chain.h     (244 lines — API; IIR filter is the
+│   │   │                           nested IIRFilterState class here,
+│   │   │                           not a separate file)
+│   │   └── compressor_chain.cpp   (401 lines — impl)
 │   ├── VST3/                      ✅ Complete (Phase 4)
 │   │   ├── MangrovePlugin.h
-│   │   └── MangrovePlugin.cpp
-│   └── Plugin/                    🔄 In Progress (Phase 5)
+│   │   ├── MangrovePlugin.cpp
+│   │   └── config.h
+│   └── Plugin/                    ✅ Complete (Phase 5, IPlug2 build path)
 │       ├── MangroveUI.h
-│       ├── MangroveUI.cpp         (GUI implementation)
+│       ├── MangroveUI.cpp         (Skia/IGraphics UI)
 │       ├── MangrovePlugin.h
-│       └── MangrovePlugin.cpp
+│       ├── MangrovePlugin.cpp
+│       └── config.h
 ├── Tests/
-│   ├── dsp_tests.cpp              (40 passing tests)
+│   ├── dsp_tests.cpp              (51 passing tests)
 │   └── CMakeLists.txt
 ├── CMakeLists.txt                 (root build config)
 ├── CLAUDE.md                      ← You are here
 ├── ai/plans/
+│   ├── README.md
 │   ├── STATE.md                   (current execution state)
-│   └── proposed/
-│       ├── IMPLEMENTATION_PLAN.md  (main strategy doc)
-│       ├── plan_summary.md         (quick reference)
-│       ├── PHASE_1_DSP_EXTRACTION.md
-│       ├── PHASE_2_IIR_REPLACEMENT.md
-│       ├── PHASE_3_SAMPLE_RATE_FIX.md
-│       ├── PHASE_4_VST3_WRAPPER.md
-│       ├── PHASE_5_GUI_IMPLEMENTATION.md ← Current work
+│   ├── done/                      (completed phases)
+│   │   ├── PHASE_1_DSP_EXTRACTION.md
+│   │   ├── PHASE_2_IIR_REPLACEMENT.md
+│   │   ├── PHASE_3_SAMPLE_RATE_FIX.md
+│   │   └── PHASE_4_VST3_WRAPPER.md
+│   ├── proposed/
+│   │   ├── IMPLEMENTATION_PLAN.md  (main strategy doc)
+│   │   ├── PLAN_SUMMARY.md         (quick reference)
+│   │   ├── REFACTORING_ANALYSIS.md
+│   │   ├── PHASE_5_GUI_IMPLEMENTATION.md
+│   │   └── OPTIONAL_PLATFORMS.md
+│   └── todo/                       (next work)
 │       ├── PHASE_6_SERIALIZATION.md
 │       ├── PHASE_7_AUDIOUNIT.md
 │       ├── PHASE_8_LADSPA.md
 │       ├── PHASE_9_TESTING.md
-│       ├── PHASE_10_PACKAGING.md
-│       └── OPTIONAL_PLATFORMS.md
+│       └── PHASE_10_PACKAGING.md
 ├── build/                         (debug build)
-└── build_phase5/                  (latest Phase 5 build)
+├── build_phase5/                  (latest Phase 5 build)
+├── build_vst3/                    (VST 3 build tree)
+└── build_xcode/                   (Xcode project build)
 ```
 
 ---
@@ -136,14 +145,15 @@ Output Stereo
 
 ## Building & Testing
 
-### Build VST 3 (Phase 5)
+### Build VST 3 (root CMake, recommended)
 ```bash
-cd build_phase5
-cmake ..
-cmake --build . --config Release
+mkdir -p build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
 
-# Test plugin
-./Builds/MangroveIPlug_VST3  # Binary location (platform-dependent)
+# Output bundles (default Unix Makefiles generator — no Release/ subdir):
+#   build/Source/Plugin/MangroveIPlug.vst3   (IPlug2 plugin)
+#   build/Source/VST3/Mangrove.vst3          (raw VST3-SDK plugin)
 ```
 
 ### Test DSP Core
@@ -151,7 +161,7 @@ cmake --build . --config Release
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 cmake --build .
-ctest --verbose  # Should show 40/40 passing
+ctest --verbose  # Should show 51/51 passing
 ```
 
 ### Build CLAP
@@ -194,27 +204,29 @@ CLAP (macOS).
 
 ---
 
-## Current Work: Phase 5 (GUI Implementation)
+## Phase 5 (GUI Implementation) — Complete
 
 **Objective:** Implement parameter UI using IGraphics framework
 
-**Status:** ~60% complete (as of May 24)
+**Status:** ✅ Complete (May 25, 2026). Custom Skia/IGraphics UI with 15 vector
+controls (Input / Level / Density sections), Metal GPU rendering, IPlug2 `Source/Plugin/`
+build path.
 
 ### Key Files
-- `Source/Plugin/MangroveUI.h` — GUI class definition
-- `Source/Plugin/MangroveUI.cpp` — GUI implementation (in progress)
-- `Source/Plugin/config.h` — IGraphics configuration
+- `Source/Plugin/MangroveUI.h` — GUI class declaration
+- `Source/Plugin/MangroveUI.cpp` — Skia/IGraphics UI implementation
+- `Source/Plugin/config.h` — IGraphics / plugin configuration (`PLUG_HAS_UI=1`)
 
 ### Recent Changes
-- `e0f94c8` (May 21): Initial IPlug2 GUI wrapper setup
-- `9645a2f` (May 24): Added "Fast" toggle for 0-sample attack reaction
+- `e0f94c8` (May 23): Phase 5 — IPlug2 GUI wrapper for VST3 + AUv2
+- `9645a2f` (May 23): Add Level "Fast" toggle for 0-sample attack reaction
+- `583f1a2` (May 25): Phase 5 complete — GUI with Skia graphics
 
-### Next Steps
-1. **Complete parameter binding** (sliders ↔ CompressorChain)
-2. **Real-time meter display** (input RMS, compression reduction)
-3. **UI responsiveness testing** (CPU load verification)
-4. **Cross-platform testing** (Windows/macOS)
-5. **DAW integration** (Reaper, Studio One)
+### Phase 5 follow-ups (carry into Phase 6 / testing)
+- Verify custom UI loads in Studio One after clearing the plugin cache
+- Confirm parameter binding and responsiveness under CPU load
+- Verify real-time meter display updates (ISender pattern)
+- Cross-DAW testing (Reaper, Logic Pro)
 
 ### Common Issues & Solutions
 - **Meter lag:** Meters update via `MeterData` struct, call `getMeterData()` at UI refresh (~50 Hz)
@@ -283,7 +295,7 @@ CLAP (macOS).
 
 ### Unit Tests (Phase 1)
 - File: `Tests/dsp_tests.cpp`
-- Status: 40/40 passing ✅
+- Status: 51/51 passing ✅
 - Coverage: Initialization, compression curves, edge cases, meters
 
 ### Regression Tests (Phase 9)
@@ -331,12 +343,11 @@ CLAP (macOS).
 
 ## Phase Breakdown (Remaining Work)
 
-### Phase 5: GUI Implementation (Current, ETA May 30)
-- **Tasks:** Parameter binding, meter display, responsiveness
-- **Blocker:** None identified
-- **Estimate:** 2–3 weeks (1 week actual so far)
+### Phase 5: GUI Implementation — ✅ Complete (May 25, 2026)
+- **Delivered:** Custom Skia/IGraphics UI, 15 controls, Metal rendering
+- **Follow-ups:** DAW/meter verification (tracked above)
 
-### Phase 6: Serialization (Start ~May 31)
+### Phase 6: Serialization (Next)
 - **Tasks:** Binary + JSON preset save/load
 - **Blocker:** None identified
 - **Estimate:** 1–2 weeks
@@ -362,14 +373,15 @@ CLAP (macOS).
 ### Documentation
 - Current state: `ai/plans/STATE.md` ⭐ Start here
 - Main plan: `ai/plans/proposed/IMPLEMENTATION_PLAN.md`
-- Current phase: `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md`
-- Completed phases: `ai/plans/done/PHASE_*.md` (reference)
-- Planned phases: `ai/plans/todo/PHASE_*.md` (next work)
+- Quick reference: `ai/plans/proposed/PLAN_SUMMARY.md`
+- Last-completed phase: `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md`
+- Completed phases (1–4): `ai/plans/done/PHASE_*.md` (reference)
+- Next work (Phase 6+): `ai/plans/todo/PHASE_*.md`
 
 ### Code References
-- DSP API: `Source/DSP/compressor_chain.h` (207 lines, well-documented)
-- Implementation: `Source/DSP/compressor_chain.cpp` (368 lines)
-- Tests: `Tests/dsp_tests.cpp` (40 test cases)
+- DSP API: `Source/DSP/compressor_chain.h` (244 lines, well-documented)
+- Implementation: `Source/DSP/compressor_chain.cpp` (401 lines)
+- Tests: `Tests/dsp_tests.cpp` (51 test cases)
 
 ### External Resources
 - IPlug2: https://github.com/iPlug2/iPlug2
@@ -383,15 +395,15 @@ CLAP (macOS).
 ### Build Fails
 1. Check CMake version: `cmake --version` (need 3.15+)
 2. Check C++ standard: `-DCMAKE_CXX_STANDARD=17`
-3. Clean build: `rm -rf build_phase5 && mkdir build_phase5 && cd build_phase5 && cmake .. && cmake --build .`
+3. Clean build: `rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build .`
 
 ### Tests Fail
-1. Verify compressor_chain.cpp is compiled: `ls -la build_phase5/CMakeFiles/compressor_chain.dir/`
+1. Verify compressor_chain.cpp is compiled: `ls -la build/CMakeFiles/compressor_chain.dir/`
 2. Check linking: `cmake --build . --verbose | grep -i error`
 
 ### Plugin Not Recognized by DAW
 1. Ensure VST 3 SDK is found: Check CMake output for VST paths
-2. Verify binary location: `find build_phase5 -name "*.vst3"`
+2. Verify binary location: `find build -name "*.vst3"`
 3. Check DAW scan: May need to point DAW to build output directory
 
 ### Audio Issues
@@ -411,7 +423,7 @@ CLAP (macOS).
 ### For Next Developer
 1. This file (CLAUDE.md) is your entry point
 2. Read `ai/plans/STATE.md` for current execution status
-3. Read `ai/plans/proposed/PHASE_5_GUI_IMPLEMENTATION.md` for detailed tasks
+3. Read `ai/plans/todo/PHASE_6_SERIALIZATION.md` for the next phase's tasks
 4. Start from most recent commit and work forward
 
 ---
@@ -420,6 +432,8 @@ CLAP (macOS).
 
 | Date | Changes |
 |------|---------|
+| July 19, 2026 | Synced CLAUDE.md with actual repo state (Phase 5 complete; corrected file/line/test counts, plan-dir layout, commit dates) |
+| May 25, 2026 | Phase 5 complete (GUI implementation with Skia graphics) |
 | May 24, 2026 | CLAUDE.md created with full project context |
 | May 21, 2026 | Phase 4 complete, Phase 5 begun |
 | May 18, 2026 | Phase 3 complete (sample rate handling) |
@@ -428,6 +442,6 @@ CLAP (macOS).
 
 ---
 
-**Status:** 🟢 Green (on track, no blockers)  
-**Next Action:** Continue Phase 5 GUI implementation, aiming for May 30 completion  
+**Status:** 🟢 Green (Phases 1–5 complete, no blockers)  
+**Next Action:** Begin Phase 6 (serialization — preset save/load); verify Phase 5 GUI in DAWs  
 **Maintained by:** Timo Weggen (timo.weggen@gmail.com)

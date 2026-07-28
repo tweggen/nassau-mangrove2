@@ -29,7 +29,7 @@
 #define PLUG_N_PARAMS   15
 #define PLUG_N_PRESETS  1
 
-#define PLUG_HAS_UI     0
+#define PLUG_HAS_UI     1
 #define PLUG_WIDTH      640
 #define PLUG_HEIGHT     400
 #define PLUG_FPS        60
@@ -40,7 +40,7 @@
 
 #define VST3_SUBCATEGORY "Fx"
 
-#define ROBOTO_FN "Roboto-Regular.ttf"
+// Font initialization removed - using Skia default fonts
 
 // AUv2 AudioComponents registration
 #define PLUG_TYPE       0           // 0 = aufx (effect)
