@@ -114,4 +114,3 @@ void MangrovePlugin::OnIdle()
 {
     // Push meter data to UI controls if needed
 }
-

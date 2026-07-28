@@ -40,7 +40,7 @@
 
 #define VST3_SUBCATEGORY "Fx"
 
-#define ROBOTO_FN "Roboto-Regular.ttf"
+// Font initialization removed - using Skia default fonts
 
 // AUv2 AudioComponents registration
 #define PLUG_TYPE       0           // 0 = aufx (effect)
