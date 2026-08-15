@@ -1,10 +1,19 @@
 build/
 build_xcode/
+build_phase5/
+build_vst3/
+build_clap_mac/
 *.o
 *.a
 *.so
 *.dylib
 .DS_Store
+
+# Windows / Visual Studio build output
+MangrovePlugin/build-win/
+MangroveIPlug/build-win/
+*.log
+.vs/
 
 # Skia build artifacts (large binaries, not checked in)
 external/iplug2/Dependencies/Build/

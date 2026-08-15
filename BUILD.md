@@ -1,16 +1,34 @@
-# Mangrove Plugin Build Guide
+# Mangrove Plugin Build Guide (macOS)
+
+> ## 🪟 Building on Windows? Use [`docs/BUILDING_WIN11.md`](docs/BUILDING_WIN11.md) instead.
+>
+> **This guide does not work on Windows.** The root CMake project described here is
+> macOS-only and cannot produce a Windows plugin:
+>
+> - it applies `-Wall -Wextra` to every target, which MSVC rejects
+>   (`error D8021: invalid numeric argument '/Wextra'`);
+> - it does not define `NOMINMAX`, so IPlug2 headers fail with `error C2589`;
+> - its graphics and entry-point sources are Objective-C++ (`IGraphicsMac.mm`,
+>   `IGraphicsMac_view.mm`, `IGraphicsCoreText.mm`, `macmain.cpp`);
+> - it looks for Skia only under `Dependencies/Build/mac/lib`, so on Windows it silently
+>   configures with `IPLUG_EDITOR=0 NO_IGRAPHICS=1` — **no custom UI** — and then tells you
+>   to run `build-skia-mac.sh`, which is a dead end there.
+>
+> On Windows the plugin is built from `MangrovePlugin\MangrovePlugin.sln`, needs no Skia,
+> and gets its UI from the NanoVG/OpenGL 2 backend.
 
 ## Which build should I use?
 
 This repo contains three plugin trees. For a command-line build on macOS, use the first one:
 
 - **Root CMake project (recommended, this guide).** Driven by the top-level `CMakeLists.txt`,
-  built from the repo root into `build/`. This is the blessed command-line path.
+  built from the repo root into `build/`. This is the blessed command-line path **on macOS**.
 - **`MangroveIPlug/` and `MangrovePlugin/`** — standalone IPlug2 project scaffolds with their
   own build files (`.sln`, `.xcworkspace`, `build-mac/`). These are for the IDE / Reaper
-  IPlug2 workflow. **You can ignore them for a CLI build.**
+  IPlug2 workflow, and `MangrovePlugin/` is also the Windows build. **You can ignore them for
+  a macOS CLI build.**
 
-Everything below refers to the root CMake project, run from the repository root.
+Everything below refers to the root CMake project, run from the repository root on macOS.
 
 ## Quick Start (DSP-Only, Recommended)
 
