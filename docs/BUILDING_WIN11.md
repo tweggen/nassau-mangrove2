@@ -1,8 +1,25 @@
 # Building Mangrove VST3 Plugin on Windows 11
 
 **Target:** VST3 plugin with IGraphics UI for Windows 11 x64  
-**Prerequisites:** Visual Studio 2022, Windows 10 SDK, Git with submodules  
+**Prerequisites:** Visual Studio 2022 or newer, Windows 10/11 SDK, Git with submodules  
 **Estimated time:** 30–45 minutes (including first-time dependency download)
+
+> **In a hurry?** The whole build is one command from the repository root:
+>
+> ```powershell
+> msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-vst3" `
+>   /p:Configuration=Release /p:Platform=x64 /m
+> ```
+>
+> This produces the plugin **with** the custom UI and installs it to
+> `%LOCALAPPDATA%\Programs\Common\VST3\`. No Skia setup is required on Windows — IGraphics
+> uses the NanoVG/OpenGL 2 backend here. Close your DAW first, or the install step fails
+> with `Sharing violation`.
+
+> ⚠️ **Do not use `BUILD.md` on Windows.** That guide drives the root CMake project, which is
+> macOS-only: it passes GCC/Clang flags to MSVC, omits `NOMINMAX`, and its graphics sources
+> are Objective-C++. It cannot build the Windows plugin, and where it does configure it
+> disables the UI entirely. This file is the Windows path.
 
 ---
 
@@ -81,183 +98,170 @@ git submodule update --init --recursive
 
 ---
 
-## Phase 2: Open Visual Studio Project
+## Phase 2: Open the Solution
 
-Launch Visual Studio 2022 and open the Windows VST3 project:
+> ⚠️ **Open the `.sln`, never the `.vcxproj`.** The project files import their property
+> sheets via `$(SolutionDir)` (`MangrovePlugin-vst3.vcxproj` lines 82–102), which only
+> resolves when the build goes through the solution. Opening or building the `.vcxproj`
+> directly fails with:
+>
+> ```
+> error MSB4019: The imported project "...\projects\config\MangrovePlugin-win.props"
+> was not found.
+> ```
 
 ```powershell
 # Open directly from PowerShell
-start ".\MangrovePlugin\projects\MangrovePlugin-vst3.vcxproj"
+start ".\MangrovePlugin\MangrovePlugin.sln"
 
 # Or open Visual Studio and File → Open → Project/Solution, then navigate to:
-# MangrovePlugin\projects\MangrovePlugin-vst3.vcxproj
+# MangrovePlugin\MangrovePlugin.sln
 ```
+
+The solution contains five targets; the one you want is **MangrovePlugin-vst3**
+(`-app`, `-vst2`, `-aax` and `-clap` are the other formats).
 
 **In Visual Studio:**
 - Solution Explorer appears on the right
-- Right-click the project name `MangrovePlugin` → Properties
+- Right-click **MangrovePlugin-vst3** → **Set as Startup Project**
 
 ---
 
-## Phase 3: Add CompressorChain DSP Library
+## Phase 3: Verify Project Wiring (no changes needed)
 
-### Step 3A: Add Source Files to Project
+> **Nothing to do here — this phase is a sanity check only.** Earlier revisions of this
+> guide asked you to add the DSP sources and include paths by hand. They are already
+> committed to the project files, and re-adding them creates duplicate entries. Only read
+> on if the build fails.
 
-1. In Solution Explorer, right-click `MangrovePlugin` → **Add** → **Existing Item**
-2. Navigate to: `Source\DSP\`
-3. Select both files:
-   - `compressor_chain.cpp`
-   - `compressor_chain.h`
-4. Click **Add**
+The DSP library, the UI, and their include paths ship in the checked-in project files:
 
-Verify in Solution Explorer:
-```
-MangrovePlugin (project)
-├── Source Files
-│   ├── MangrovePlugin.cpp
-│   ├── compressor_chain.cpp          ← newly added
-│   └── (other source files)
-├── Header Files
-│   ├── MangrovePlugin.h
-│   ├── compressor_chain.h            ← newly added
-│   └── config.h
-└── Resource Files
-```
+| What | Where it is declared |
+|---|---|
+| `compressor_chain.cpp` / `.h` | `MangrovePlugin-vst3.vcxproj` lines 394 / 330 |
+| `MangroveUI.cpp` / `.h` | `MangrovePlugin-vst3.vcxproj` lines 395 / 331 |
+| `Source\DSP` + `Source\Plugin` include paths | `MangrovePlugin\config\MangrovePlugin-win.props` line 22 |
+| Graphics backend (`IGRAPHICS_NANOVG;IGRAPHICS_GL2`) | `MangrovePlugin\config\MangrovePlugin-win.props` line 6 |
 
-### Step 3B: Update Include Paths
-
-1. Right-click `MangrovePlugin` → **Properties**
-2. Ensure **Configuration:** `All Configurations` (top-left dropdown)
-3. Navigate to: **C/C++** → **General** → **Additional Include Directories**
-4. Add (one per line, or semicolon-separated on Windows):
-   ```
-   $(SolutionDir)\..\..\Source\DSP
-   $(SolutionDir)\..\..\external\vst3sdk
-   $(SolutionDir)\..\..\external\vst3sdk\pluginterfaces
-   $(SolutionDir)\..\..\external\vst3sdk\public.sdk
-   $(SolutionDir)\..\..\external\vst3sdk\base
-   ```
-5. Click **Apply** → **OK**
-
-### Step 3C: Verify Library Linking
-
-1. In **Properties**, go to **Linker** → **General**
-2. Check **Additional Library Directories** — should already include:
-   ```
-   $(SolutionDir)\..\..\external\vst3sdk\build\lib\Release
-   ```
-   (or similar, depending on VST3 SDK build; IPlug2 template should handle this)
-
-3. Go to **Linker** → **Input** → **Additional Dependencies**
-4. Verify `sdk.lib` and `base.lib` are present (from VST3 SDK)
+Note that the VST3 SDK used on Windows is the copy vendored inside IPlug2
+(`external\iplug2\Dependencies\IPlug\VST3_SDK`), compiled from source as part of the
+project — **not** `external\vst3sdk`, and there is no `sdk.lib`/`base.lib` to build or link.
 
 ---
 
-## Phase 4: Configure Build Settings
+## Phase 4: Select Configuration
 
-### Step 4A: Platform and Configuration
+The compiler settings (C++17, warning level, runtime library) all come from
+`MangrovePlugin-win.props`. The only thing you choose is the configuration:
 
-1. At the top of Visual Studio, find the dropdown menus:
-   - **Solution Configuration:** Select `Release` (not Debug, for plugin performance)
-   - **Solution Platform:** Select `x64` (64-bit Windows; `Win32` for 32-bit if needed)
-
-### Step 4B: C++ Language Standard
-
-1. **Properties** → **C/C++** → **Language**
-2. **C++ Language Standard:** Set to `ISO C++17 (/std:c++17)` or later
-3. Click **Apply** → **OK**
-
-### Step 4C: Compiler Warnings (Optional)
-
-To suppress IPlug2 third-party warnings:
-1. **Properties** → **C/C++** → **General**
-2. **Warning Level:** `W3` (medium) or `W4` (strict) — your choice
-3. Apply
+- **Solution Configuration:** `Release` (not Debug, for plugin performance)
+- **Solution Platform:** `x64`
 
 ---
 
 ## Phase 5: Build VST3 Plugin
 
-### Step 5A: Clean Build (First Time)
+### Step 5A: Command line (recommended)
 
-1. **Build** menu → **Clean Solution** (Ctrl+Alt+F7)
-   - Wait for it to complete (progress bar at bottom)
+From the repository root:
 
-### Step 5B: Build Project
+```powershell
+msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-vst3" `
+  /p:Configuration=Release /p:Platform=x64 /m
+```
+
+If `msbuild` is not on your PATH, either run this from a **Developer PowerShell for VS**, or
+locate it with `vswhere`:
+
+```powershell
+$vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+        -latest -requires Microsoft.Component.MSBuild -property installationPath
+$msbuild = Join-Path $vs "MSBuild\Current\Bin\MSBuild.exe"
+& $msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-vst3" `
+  /p:Configuration=Release /p:Platform=x64 /m
+```
+
+### Step 5B: Or from Visual Studio
 
 1. **Build** menu → **Build Solution** (Ctrl+Shift+B)
-   - Monitor the **Output** panel at the bottom for build progress
-   - Expected build time: 1–3 minutes (longer on first build due to dependencies)
+   - Monitor the **Output** panel for progress
+   - Expected build time: 1–3 minutes (longer on the first build)
 
 ### Step 5C: Verify Build Success
 
-**Expected Output (end of build log):**
+A successful run ends with the postbuild step reporting the bundle copy:
+
 ```
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+MangrovePlugin-vst3.vcxproj -> ...\build-win\vst3\x64\Release\MangrovePlugin.vst3
+copying 64bit binary to VST3 BUNDLE ...
+copying VST3 bundle to 64bit VST3 Plugins folder ...
+        1 File(s) copied
 ```
 
-**If build fails:**
+Two messages during a *successful* build are harmless and expected:
 
-| Error | Solution |
-|-------|----------|
-| `compressor_chain.h not found` | Verify Step 3B include paths; rebuild (Clean + Build) |
-| `undefined reference to CompressorChain::init` | Ensure `compressor_chain.cpp` is in project (Step 3A) |
-| `sdk.lib not found` | Build external VST3 SDK: `cmake --build build_vst3sdk --config Release` in repo root |
-| `fatal error C1083: Cannot open include file: 'vst3sdk/...` | Update external/vst3sdk paths in Step 3B |
-| `error LNK1104: cannot open file 'LIBCMT.lib'` | **Properties** → **C/C++** → **Code Generation** → **Runtime Library** → `/MD` (Multi-threaded DLL) |
+- `icudtl.dat not found ..., skipping` — ICU data is only needed by the Skia backend;
+  Windows uses NanoVG/GL2.
+- Four `IPlug_include_in_plug_hdr.h` warnings about `SHARED_RESOURCES_SUBPATH`,
+  `PLUG_URL_STR`, `PLUG_EMAIL_STR`, `PLUG_COPYRIGHT_STR` being undefined.
+
+**If the build fails:** see Phase 9.
 
 ---
 
 ## Phase 6: Locate Output Binary
 
-After successful build, find the VST3 bundle:
+The build produces a loose DLL and, via the postbuild script, a VST3 bundle:
 
 ```powershell
 # In PowerShell, from repo root:
-Get-ChildItem -Recurse -Filter "MangroveIPlug.vst3" -Type Directory
-
-# Expected path (approximate):
-# C:\Dev\nassau-mangrove2\MangrovePlugin\Build\Release\MangroveIPlug.vst3\
+Get-ChildItem -Recurse -Filter "MangrovePlugin.vst3" MangrovePlugin\build-win
 ```
 
-**Bundle structure should be:**
 ```
-MangroveIPlug.vst3\
-├── Contents\
-│   ├── Resources\
-│   │   └── (Info.plist, icon, fonts)
-│   └── x86_64-win\
-│       └── MangroveIPlug.vst3 (executable)
-└── (VST3 standard bundle layout)
+MangrovePlugin\build-win\
+├── vst3\x64\Release\MangrovePlugin.vst3      ← linker output (plain DLL)
+└── MangrovePlugin.vst3\                      ← assembled bundle
+    └── Contents\
+        ├── x86_64-win\
+        │   └── MangrovePlugin.vst3           (the DLL, ~1.0 MB)
+        └── Resources\
 ```
+
+> The binary is named **`MangrovePlugin.vst3`** and lives under **`build-win\`**. Older
+> revisions of this guide referred to `MangroveIPlug.vst3` under `Build\Release\` — that
+> path has never existed in this repo. `MangroveIPlug` is the name used by the separate
+> root-CMake macOS target (see `BUILD.md`), not by the Windows build.
 
 ---
 
 ## Phase 7: Install Plugin
 
-Copy the entire VST3 bundle to the Windows VST3 plugin directory:
+**Normally there is nothing to do — the build installs the plugin for you.**
+`scripts\postbuild-win.bat` copies the finished bundle to the per-user VST3 folder:
+
+```
+%LOCALAPPDATA%\Programs\Common\VST3\MangrovePlugin.vst3\
+```
+
+Confirm it landed:
 
 ```powershell
-$vst3_dir = "C:\Program Files\Common Files\VST3"
-
-# Verify directory exists
-if (-Not (Test-Path $vst3_dir)) {
-    Write-Host "VST3 directory does not exist. Creating..."
-    New-Item -ItemType Directory -Force -Path $vst3_dir
-}
-
-# Copy plugin bundle
-$source = ".\MangrovePlugin\Build\Release\MangroveIPlug.vst3"
-$dest = "$vst3_dir\MangroveIPlug.vst3"
-
-if (Test-Path $source) {
-    Copy-Item -Recurse -Force $source $dest
-    Write-Host "✓ Plugin installed to: $dest"
-} else {
-    Write-Host "✗ Source not found: $source"
-    Write-Host "   Check Phase 5 build output and Phase 6 path"
-}
+Get-ChildItem -Recurse "$env:LOCALAPPDATA\Programs\Common\VST3\MangrovePlugin.vst3" -File |
+  Select-Object FullName, Length, LastWriteTime
 ```
+
+To install machine-wide instead (all users, needs an elevated shell):
+
+```powershell
+$dest = "C:\Program Files\Common Files\VST3"
+New-Item -ItemType Directory -Force -Path $dest | Out-Null
+Copy-Item -Recurse -Force ".\MangrovePlugin\build-win\MangrovePlugin.vst3" $dest
+```
+
+> **Close your DAW before rebuilding.** If a host still has the installed plugin loaded, the
+> postbuild copy fails with `Sharing violation` and `error MSB3073 ... exited with code 4`,
+> *after* the compile and link have already succeeded. See Phase 9.
 
 ---
 
@@ -276,9 +280,9 @@ Options → Preferences → Audio → VST
 
 **Ableton Live:**
 ```
-Preferences → File/Folder → Add Library Folder
-  → Select: C:\Program Files\Common Files\VST3\
-  → Restart Ableton
+Preferences → Plug-Ins → VST3 Plug-In Custom Folder
+  → Select: %LOCALAPPDATA%\Programs\Common\VST3\
+  → Rescan
 ```
 
 **Studio One:**
@@ -303,10 +307,10 @@ Studio One → Options → Locations → Plug-in folders
 
 2. **Parameter interaction:**
    - Click knobs in the UI; verify they move smoothly
-   - Check DAW's parameter list (automation track); should show all 14 parameters:
-     - Input: Gain, Lo Cut, Saturate
-     - Level: Threshold, Ratio, Attack, Release, Lo Cut, Tube Gain, Feedback
-     - Density: Threshold, Ratio, Attack, Release
+   - Check DAW's parameter list (automation track); should show all 15 parameters:
+     - Input (3): Gain, Lo Cut, Saturate
+     - Level (8): Threshold, Ratio, Attack, Release, Lo Cut, Tube Gain, Feedback, Fast
+     - Density (4): Threshold, Ratio, Attack, Release
 
 3. **DSP verification:**
    - Adjust **Input Gain** knob; watch output level change
@@ -316,7 +320,7 @@ Studio One → Options → Locations → Plug-in folders
 ### Step 8D: Success Criteria
 
 ✅ **Plugin loads without crash**  
-✅ **UI displays all 14 controls**  
+✅ **UI displays all 15 controls**  
 ✅ **Parameters are automatable**  
 ✅ **Audio passes through in real-time**  
 ✅ **No MSVC runtime errors in DAW console**
@@ -330,38 +334,76 @@ Studio One → Options → Locations → Plug-in folders
 **Cause:** DSP initialization or ProcessBlock error  
 **Fix:**
 1. Check **Output** panel in Visual Studio for build warnings
-2. Rebuild with `/MD` (multi-threaded DLL) runtime library
-3. If IPlug2 wrapper issue, check `Source/Plugin/MangrovePlugin.cpp` `OnReset()` method
+2. If IPlug2 wrapper issue, check `MangrovePlugin/MangrovePlugin.cpp` `OnReset()` method
 
 ### UI doesn't appear (plugin loads silently)
 
 **Cause:** IGraphics/OpenGL initialization  
 **Fix:**
-1. Verify OpenGL headers in `external/iplug2/Dependencies/IGraphics/glad/include/`
-2. Check `MangrovePlugin/config/MangrovePlugin-win.props` for `IGRAPHICS_GL=1`
+1. Confirm the UI was actually compiled in — the built DLL should contain the string
+   `IGraphicsWin` and the section labels `INPUT` / `LEVEL` / `DENSITY`:
+   ```powershell
+   $dll = "MangrovePlugin\build-win\MangrovePlugin.vst3\Contents\x86_64-win\MangrovePlugin.vst3"
+   $txt = [Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes($dll))
+   "IGraphicsWin","INPUT","LEVEL","DENSITY" | % { "$_ = $($txt.Contains($_))" }
+   ```
+   If these are missing you built a DSP-only variant — check you used the solution (Phase 5)
+   and not the root CMake project.
+2. Check `MangrovePlugin/config/MangrovePlugin-win.props` line 6 for
+   `IGRAPHICS_NANOVG;IGRAPHICS_GL2`, and `MangrovePlugin/config.h` for `PLUG_HAS_UI 1`
 3. Update GPU drivers (Intel/NVIDIA/AMD)
+
+### `error MSB4019: The imported project ...\projects\config\MangrovePlugin-win.props was not found`
+
+**Cause:** You built the `.vcxproj` directly. Its property-sheet imports use
+`$(SolutionDir)`, which then wrongly resolves to `projects\`.
+**Fix:** Build through `MangrovePlugin\MangrovePlugin.sln` — see Phase 2.
+
+### `Sharing violation` / `error MSB3073 ... exited with code 4`
+
+**Cause:** Not a compile error. The compile and link succeeded; the *postbuild install*
+could not overwrite the installed bundle because a DAW (or an open Explorer window) still
+holds `MangrovePlugin.vst3` open.
+**Fix:** Close the DAW, then rebuild. The loose DLL from the failed run is still valid at
+`MangrovePlugin\build-win\vst3\x64\Release\MangrovePlugin.vst3`.
+
+### `error C1083: Cannot open include file: "MangroveUI.h"`
+
+**Cause:** A stale `MangrovePlugin-win.props` missing the `Source\Plugin` include path.
+**Fix:** Confirm line 22 of `MangrovePlugin\config\MangrovePlugin-win.props` ends with
+`$(ProjectDir)..\..\Source\Plugin`. This was fixed in-tree; you should not hit it.
+
+### `error D8021: invalid numeric argument '/Wextra'` or `error C2589: '(' : illegal token on right side of '::'`
+
+**Cause:** You are building the **root CMake project** (`BUILD.md`), which is macOS-only.
+It passes GCC/Clang flags to MSVC and omits `NOMINMAX`, and its graphics sources are
+Objective-C++ (`IGraphicsMac.mm`, `macmain.cpp`).
+**Fix:** Use the solution instead (Phase 5). The root CMake project cannot build the
+Windows plugin, and even where it configures it disables the UI entirely.
 
 ### "Missing DLL" error on plugin load
 
 **Cause:** Runtime dependencies not found  
 **Fix:**
-1. Run Visual Studio **Build** → **Build Solution** again (full rebuild)
-2. Check project **Linker** → **General** → **Use Library Dependency Inputs:** `Yes`
-3. Verify `external/vst3sdk/build/lib/Release/*.lib` exist; if not:
-   ```powershell
-   cd external/vst3sdk
-   cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -G "Visual Studio 17 2022" -A x64
-   cmake --build build --config Release
-   cd ../..
-   ```
+1. Rebuild the solution from scratch (**Build** → **Clean Solution**, then **Build Solution**)
+2. Confirm the bundle contains `Contents\x86_64-win\MangrovePlugin.vst3` (~1.0 MB)
+3. The VST3 SDK is compiled from IPlug2's vendored copy as part of the project; there are
+   no separate `.lib` files to build under `external\vst3sdk`
 
 ### Parameters don't show in automation list
 
 **Cause:** Parameter initialization mismatch  
 **Fix:**
-1. Check `Source/Plugin/config.h`: `#define PLUG_N_PARAMS 14`
-2. Check `Source/Plugin/MangrovePlugin.cpp`: Constructor initializes exactly 14 params
+1. Check `MangrovePlugin/config.h`: `#define PLUG_N_PARAMS 15`
+2. Check `MangrovePlugin/MangrovePlugin.cpp`: constructor initializes exactly 15 params,
+   matching `kNumParams` in `MangrovePlugin/MangrovePlugin.h`
 3. Rebuild and rescan in DAW
+
+> **Watch out for the duplicate-config trap.** `Source/Plugin/MangrovePlugin.h` and
+> `Source/Plugin/config.h` are near-copies of the pair in `MangrovePlugin/`. Because MSVC
+> resolves quoted includes relative to the including file first, `Source/Plugin/MangroveUI.cpp`
+> compiles against the **`Source/Plugin`** copies — so editing only `MangrovePlugin/config.h`
+> may not reach it. Edit both, or consolidate them.
 
 ### Audio clips or distorts
 
@@ -378,9 +420,9 @@ Studio One → Options → Locations → Plug-in folders
 Once VST3 builds and validates:
 
 1. **Build AUv3 (macOS only):** Not applicable on Windows; skip
-2. **Build AAX (if you have AAX SDK):** Use `MangrovePlugin/projects/MangrovePlugin-aax.vcxproj`
+2. **Build AAX (if you have AAX SDK):** Build the `MangrovePlugin-aax` target from the solution
 3. **Build CLAP:** See "Building CLAP" below — this target works today
-4. **Create Installer:** Windows installer would distribute `MangroveIPlug.vst3` to standard location
+4. **Create Installer:** Windows installer would distribute `MangrovePlugin.vst3` to standard location
 5. **Code Sign:** Add Windows code-signing certificate to prevent UAC warnings
 
 ---
@@ -487,13 +529,12 @@ Print this and tick off each step:
 
 - [ ] **Phase 0:** Environment validated (VS, Git, CMake optional)
 - [ ] **Phase 1:** Repository cloned with submodules initialized
-- [ ] **Phase 2:** Visual Studio project opened
-- [ ] **Phase 3A:** `compressor_chain.cpp/.h` added to project
-- [ ] **Phase 3B:** Include paths updated (Source/DSP, external/vst3sdk)
-- [ ] **Phase 4:** Build configuration set to Release x64, C++17
+- [ ] **Phase 2:** `MangrovePlugin.sln` opened (not the `.vcxproj`)
+- [ ] **Phase 3:** Project wiring verified — no manual edits needed
+- [ ] **Phase 4:** Configuration set to Release | x64
 - [ ] **Phase 5:** Build succeeded (0 failed)
-- [ ] **Phase 6:** Output binary found at expected path
-- [ ] **Phase 7:** Plugin copied to `C:\Program Files\Common Files\VST3\`
+- [ ] **Phase 6:** Bundle found at `MangrovePlugin\build-win\MangrovePlugin.vst3\`
+- [ ] **Phase 7:** Plugin present in `%LOCALAPPDATA%\Programs\Common\VST3\`
 - [ ] **Phase 8A:** DAW rescan completed without errors
 - [ ] **Phase 8B:** Plugin appears in DAW browser
 - [ ] **Phase 8C:** Audio passes through, parameters respond to input
@@ -507,34 +548,40 @@ Print this and tick off each step:
 Repository Root (C:\Dev\nassau-mangrove2\)
 ├── Source/
 │   ├── DSP/
-│   │   ├── compressor_chain.cpp      ← Add to project (Phase 3A)
+│   │   ├── compressor_chain.cpp      ← compiled into the Windows plugin
 │   │   └── compressor_chain.h
-│   ├── Plugin/                       ← IPlug2 wrapper (reference)
-│   │   ├── MangrovePlugin.cpp
-│   │   ├── config.h
-│   │   └── MangroveUI.cpp
-│   └── VST3/                         ← Phase 4 native VST3 (fallback)
+│   ├── Plugin/                       ← UI + the CMake (macOS) target
+│   │   ├── MangroveUI.cpp            ← compiled into the Windows plugin
+│   │   ├── MangroveUI.h
+│   │   ├── MangrovePlugin.cpp        ← NOT used by the Windows build
+│   │   ├── config.h                  ← stale copy; see duplicate-config trap (Phase 9)
+│   │   └── CMakeLists.txt            ← macOS-only target
+│   └── VST3/                         ← raw VST3-SDK plugin (separate, no IPlug2)
 │
-├── MangrovePlugin/
+├── MangrovePlugin/                   ← the Windows build lives here
+│   ├── MangrovePlugin.sln                 ← BUILD THIS (Phase 2)
 │   ├── projects/
-│   │   ├── MangrovePlugin-vst3.vcxproj    ← OPEN THIS FILE (Phase 2)
+│   │   ├── MangrovePlugin-vst3.vcxproj    ← do not build directly (MSB4019)
 │   │   ├── MangrovePlugin-clap.vcxproj
 │   │   └── MangrovePlugin-aax.vcxproj
-│   ├── Build/
-│   │   └── Release/
-│   │       └── MangroveIPlug.vst3/        ← Output binary (Phase 6)
+│   ├── build-win/                         ← output tree (Phase 6)
+│   │   ├── vst3\x64\Release\MangrovePlugin.vst3   (loose DLL)
+│   │   └── MangrovePlugin.vst3/                   (assembled bundle)
 │   ├── config/
-│   │   └── MangrovePlugin-win.props       ← Windows config
-│   ├── MangrovePlugin.cpp
-│   ├── config.h
-│   └── README.md
+│   │   └── MangrovePlugin-win.props       ← include paths + graphics backend
+│   ├── scripts/
+│   │   └── postbuild-win.bat              ← builds bundle, installs to %LOCALAPPDATA%
+│   ├── MangrovePlugin.cpp                 ← the plugin class used on Windows
+│   ├── MangrovePlugin.h
+│   └── config.h                           ← PLUG_N_PARAMS, PLUG_HAS_UI, sizes
 │
 ├── external/
-│   ├── vst3sdk/                      ← Steinberg VST3 SDK (submodule)
-│   └── iplug2/                       ← IPlug2 framework (submodule)
+│   ├── vst3sdk/                      ← Steinberg VST3 SDK (used by Source/VST3 + CMake)
+│   └── iplug2/                       ← IPlug2 framework; vendors its own VST3_SDK copy
 │
+├── BUILD.md                          ← root CMake guide — macOS only
 └── docs/
-    ├── BUILDING.md                   ← General build guide
+    ├── BUILDING.md                   ← general/macOS build guide
     └── BUILDING_WIN11.md             ← THIS FILE
 ```
 
@@ -549,6 +596,7 @@ Repository Root (C:\Dev\nassau-mangrove2\)
 
 ---
 
-**Last Updated:** 2026-05-23  
-**Tested on:** Windows 11 x64, Visual Studio 2022 (v17.x)  
+**Last Updated:** 2026-08-15  
+**Tested on:** Windows 11 x64 — Visual Studio 18 (MSVC 14.51) and Visual Studio 2022 (v17.x);
+VST3 Release|x64 built with the custom IGraphics UI  
 **Contact:** Timo Weggen (timo.weggen@gmail.com)

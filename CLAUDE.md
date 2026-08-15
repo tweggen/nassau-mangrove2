@@ -145,7 +145,7 @@ Output Stereo
 
 ## Building & Testing
 
-### Build VST 3 (root CMake, recommended)
+### Build VST 3 — macOS (root CMake)
 ```bash
 mkdir -p build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
@@ -155,6 +155,23 @@ cmake --build .
 #   build/Source/Plugin/MangroveIPlug.vst3   (IPlug2 plugin)
 #   build/Source/VST3/Mangrove.vst3          (raw VST3-SDK plugin)
 ```
+
+**The root CMake project is macOS-only.** It applies `-Wall -Wextra` to every target, omits
+`NOMINMAX`, and compiles Objective-C++ graphics sources, so it cannot build on Windows — and
+where it configures, it falls back to `NO_IGRAPHICS=1` (no custom UI) because it searches for
+Skia only under `Dependencies/Build/mac/lib`.
+
+### Build VST 3 — Windows 11 (MSBuild solution)
+```powershell
+msbuild MangrovePlugin\MangrovePlugin.sln /t:"MangrovePlugin-vst3" `
+  /p:Configuration=Release /p:Platform=x64 /m
+```
+
+Builds **with** the custom UI (IGraphics on NanoVG/GL2 — no Skia needed) and installs to
+`%LOCALAPPDATA%\Programs\Common\VST3\`. Build through the `.sln`, never the `.vcxproj`: the
+property sheets resolve via `$(SolutionDir)` and a direct project build fails with `MSB4019`.
+Close the DAW first, or the postbuild install fails with `Sharing violation` / `MSB3073`.
+Full guide: `docs/BUILDING_WIN11.md`.
 
 ### Test DSP Core
 ```bash
