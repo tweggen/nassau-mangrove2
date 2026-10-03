@@ -48,6 +48,12 @@
 #define PLUG_MFR_STR     "Nss2"    // 4-char manufacturer
 #define PLUG_BUNDLE_ID   "com.nassau.mangrove.iplug"
 
+// Required by iPlug2's CLAP descriptor (IPlug_include_in_plug_src.h). Absent
+// until now because this repo built VST3 and AU only; neither path reads them.
+#define PLUG_URL_STR       "https://github.com/tweggen/nassau-mangrove2"
+#define PLUG_EMAIL_STR     "support@nassau.audio"
+#define PLUG_COPYRIGHT_STR "Copyright 2026 Nassau"
+
 // AUv2 Entry points (required for AudioUnit plugin)
 #define AUV2_ENTRY MangrovePluginAU
 #define AUV2_ENTRY_STR "MangrovePluginAU"

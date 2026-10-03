@@ -34,7 +34,11 @@ Config MangrovePlugin::MakePluginConfig()
 }
 
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
-    : Plugin(info, MakePluginConfig())
+    // Qualify iplug::Plugin: in the CLAP build the CLAP-helpers headers also
+    // define a `Plugin` template, so the unqualified name would be ambiguous.
+    // Same one-line fix nassau-eq and nassau-zermatt already carry; this repo
+    // only avoided it by never having built a CLAP target before.
+    : iplug::Plugin(info, MakePluginConfig())
 {
     GetParam(kInputGain)->InitDouble("Input Gain", 0., -24., 24., 0.01, "dB");
     GetParam(kInputLoCut)->InitDouble("Input Lo Cut", 80., 20., 300., 0.1, "Hz");

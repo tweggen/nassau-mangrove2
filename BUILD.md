@@ -1,192 +1,78 @@
-# Mangrove Plugin Build Guide (macOS)
+# Mangrove Plugin Build Guide
 
-> ## 🪟 Building on Windows? Use [`docs/BUILDING_WIN11.md`](docs/BUILDING_WIN11.md) instead.
->
-> **This guide does not work on Windows.** The root CMake project described here is
-> macOS-only and cannot produce a Windows plugin:
->
-> - it applies `-Wall -Wextra` to every target, which MSVC rejects
->   (`error D8021: invalid numeric argument '/Wextra'`);
-> - it does not define `NOMINMAX`, so IPlug2 headers fail with `error C2589`;
-> - its graphics and entry-point sources are Objective-C++ (`IGraphicsMac.mm`,
->   `IGraphicsMac_view.mm`, `IGraphicsCoreText.mm`, `macmain.cpp`);
-> - it looks for Skia only under `Dependencies/Build/mac/lib`, so on Windows it silently
->   configures with `IPLUG_EDITOR=0 NO_IGRAPHICS=1` — **no custom UI** — and then tells you
->   to run `build-skia-mac.sh`, which is a dead end there.
->
-> On Windows the plugin is built from `MangrovePlugin\MangrovePlugin.sln`, needs no Skia,
-> and gets its UI from the NanoVG/OpenGL 2 backend.
+Mangrove builds through the shared **[nassau-plugin-sdk](../nassau-plugin-sdk)**,
+like every other Nassau plugin. One `nassau_add_plugin()` call emits **VST3, AU
+and CLAP** from one set of sources.
 
-## Which build should I use?
+## Quick start
 
-This repo contains three plugin trees. For a command-line build on macOS, use the first one:
-
-- **Root CMake project (recommended, this guide).** Driven by the top-level `CMakeLists.txt`,
-  built from the repo root into `build/`. This is the blessed command-line path **on macOS**.
-- **`MangroveIPlug/` and `MangrovePlugin/`** — standalone IPlug2 project scaffolds with their
-  own build files (`.sln`, `.xcworkspace`, `build-mac/`). These are for the IDE / Reaper
-  IPlug2 workflow, and `MangrovePlugin/` is also the Windows build. **You can ignore them for
-  a macOS CLI build.**
-
-Everything below refers to the root CMake project, run from the repository root on macOS.
-
-## Quick Start (DSP-Only, Recommended)
-
-### Prerequisites
-- macOS with Xcode command-line tools: `xcode-select --install`
-- CMake ≥ 3.15 (`cmake --version`)
-- The `external/iplug2` and `external/vst3sdk` submodules present
-  (`git submodule update --init --recursive` if `external/` is empty)
-- No Skia setup needed for this path.
-
-### Build
-```bash
-# from the repository root
-mkdir -p build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build .
+```sh
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+ctest --test-dir build --output-on-failure
 ```
 
-**Result:** Plugin with host-generated UI, full DSP processing.
-**Time:** ~2 minutes
-**Complexity:** Low
-
-This is the **DSP-only** variant: the host/DAW draws the parameter UI. CMake auto-detects
-that Skia is absent and disables the custom UI for you (the plugin target compiles with
-`NO_IGRAPHICS=1` in `Source/Plugin/CMakeLists.txt`).
-
-## File Output
-
-The Quick Start uses the default **Unix Makefiles** generator, so the build type is chosen
-at configure time (`-DCMAKE_BUILD_TYPE`) and there is **no `Release/` subfolder**. Two
-plugin bundles are produced under `build/`:
+Bundles land in `build/out/`:
 
 ```
-build/Source/Plugin/MangroveIPlug.vst3   # IPlug2-wrapped plugin (host UI)
-build/Source/VST3/Mangrove.vst3          # raw VST3-SDK plugin
+build/out/MangroveIPlug.vst3        VST3
+build/out/MangroveIPlug.component   AU v2   (macOS only)
+build/out/MangroveIPlug.clap        CLAP
 ```
 
-**Install to macOS:**
-```bash
-cp -r build/Source/Plugin/MangroveIPlug.vst3 ~/Library/Audio/Plug-Ins/VST3/
+## Where the SDK comes from
+
+`cmake/NassauSDK.cmake` — a verbatim copy of the SDK's canonical locator
+(`cmake/bootstrap/NassauSDK.cmake` there; re-copy it rather than editing this
+one) — resolves the SDK in a fixed order:
+
+1. an explicit `-DNASSAU_SDK_DIR=...` (what the `nassau-suite` superbuild passes);
+2. a sibling checkout `../nassau-plugin-sdk`;
+3. `FetchContent` from the SDK's git remote (slow last resort; disable with
+   `-DNASSAU_SDK_ALLOW_FETCH=OFF`).
+
+Finding no SDK is **not** an error: `NASSAU_PLUGIN_TARGETS_POSSIBLE` goes false
+and the DSP core and tests still build. That is what a DSP-only CI job uses:
+
+```sh
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DNASSAU_SDK_DIR=/nonexistent
 ```
 
-> Optional: if you configure with the Xcode generator instead (`cmake .. -G Xcode`), the
-> output moves under a per-config folder, e.g.
-> `build/Source/Plugin/Release/MangroveIPlug.vst3`.
+The SDK supplies the vendored iPlug2 + VST3 SDK, the prebuilt Skia libraries for
+the UI build, `nassau_add_plugin()`, and the shared project prologue (toolchain
+flags, OBJC/OBJCXX enablement, the MSVC `/MT` runtime selection).
 
-## Building with Skia Graphics (Custom UI) — Advanced / Optional
+**Provisioning**, once per SDK checkout:
 
-> **Not needed for the default build.** Skip this entire section unless you specifically want
-> the custom-rendered `MangroveUI` instead of the host-generated UI.
-
-Custom UI requires the Skia library. This is a complex, one-time setup. When Skia libraries
-are present, CMake auto-detects them and enables graphics
-(`IGRAPHICS_SKIA=1` / `IGRAPHICS_METAL=1`); otherwise it falls back to the DSP-only UI above.
-
-### Prerequisites
-
-- Xcode with command-line tools
-- Python 3
-- Git
-- ~5-10GB free disk space
-- 30-60 minutes
-
-### Step 1: Build Skia (One-Time Setup)
-
-```bash
-cd external/iplug2/Dependencies
-
-# Clone Skia source
-mkdir -p Build/src
-cd Build/src
-git clone https://chromium.googlesource.com/skia.git
-
-# Clone depot_tools (Chromium's build tools)
-cd ../
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-
-# Return to IGraphics folder
-cd ../IGraphics
-
-# Run the build script (30-60 minutes)
-bash build-skia-mac.sh
+```sh
+cd ../nassau-plugin-sdk
+git submodule update --init --recursive
+cmake -P cmake/ProvisionDeps.cmake     # VST3 SDK link, CLAP SDK + helpers
+./scripts/fetch-skia.sh                # prebuilt Skia for the UI (macOS/arm64)
 ```
 
-This creates pre-built Skia libraries at:
-```
-external/iplug2/Dependencies/Build/mac/lib/
-```
+Without Skia the plugin still builds, headless (no editor). Force that
+explicitly with `-DNASSAU_FORCE_HEADLESS=ON`.
 
-### Step 2: Build Plugin with Graphics
+## What this replaced
 
-```bash
-# from the repository root
-mkdir -p build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build .
-```
+Until the SDK migration this repo carried its own copies of everything the SDK
+now owns, and it is worth knowing what went where:
 
-CMake will automatically detect the Skia libraries and enable graphics.
+| was | now |
+|---|---|
+| `external/iplug2` + `external/vst3sdk` submodules, **9 GB on disk** | the SDK's, pinned at the identical commits (`7dfe7a96d`, `58f8da7`) |
+| `Source/Plugin/CMakeLists.txt`, 212 lines declaring iPlug2 sources, include paths and per-format definitions by hand | 1 `nassau_add_plugin()` call, 30 lines with its comment |
+| `Source/VST3/`, a second, older hand-rolled VST3 target with its own duplicate `MangrovePlugin.cpp` and `config.h` | removed; `Source/Plugin` is the one plugin |
+| VST3 + AU (and the AU target was disabled behind `if(FALSE)`) | VST3 + AU + **CLAP**, all three building |
 
-### Troubleshooting Skia Build
+The old `Source/Plugin/CMakeLists.txt` justified itself with *"We do NOT use
+IPlug2's own CMake because it is Xcode/VS-primary"* — true when written, and no
+longer: the SDK drives iPlug2's CMake on macOS and Windows for three other
+plugins.
 
-If the Skia build fails:
+### Historical build notes
 
-1. **Missing `ninja`**
-   ```bash
-   brew install ninja
-   ```
-
-2. **Missing `gn`**
-   This should be downloaded by depot_tools. Ensure depot_tools is in PATH:
-   ```bash
-   export PATH="$(pwd)/Build/tmp/depot_tools:$PATH"
-   ```
-
-3. **Python issues**
-   Ensure Python 3 is available:
-   ```bash
-   python3 --version
-   ```
-
-## Plugin Variants
-
-### DSP-Only (Recommended for most users)
-- ✅ Loads instantly
-- ✅ Full DSP processing
-- ✅ Host-generated parameter UI
-- ✅ No complex dependencies
-- ❌ No custom visualization
-
-**Build:** ~2 minutes
-
-### With Custom UI (Developers)
-- ✅ Custom-rendered MangroveUI layout
-- ✅ Full DSP processing
-- ❌ Requires Skia build setup (~1 hour)
-- ❌ Larger plugin binary
-- ❌ Not recommended for distribution (use DSP-only)
-
-**Build:** 60+ minutes (first time only)
-
-## Parameters (15 total)
-
-**Input Stage:**
-- Input Gain
-- Input Lo Cut
-- Input Saturate
-
-**Level Compressor:**
-- Threshold, Ratio, Attack, Release
-- Lo Cut (toggle), Tube Gain (toggle), Feedback (toggle), Fast (toggle)
-
-**Density Compressor:**
-- Threshold, Ratio, Attack, Release
-
-## Future Work
-
-- Audio metering display
-- Visual compression reduction indicators
-- Custom preset management
-- Preset browser integration
+`docs/BUILDING.md`, `docs/BUILDING_WIN11.md`, `PLUGIN_TEMPLATE_GUIDE.md` and
+`VST3_FACTORY_FIX_SUMMARY.md` describe the pre-SDK layout. They are kept for the
+history and are **superseded by this file**.

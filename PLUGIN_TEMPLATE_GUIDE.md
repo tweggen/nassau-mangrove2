@@ -1,3 +1,5 @@
+> **SUPERSEDED.** This describes the layout before Mangrove moved onto the shared nassau-plugin-sdk (its own vendored iPlug2/VST3 SDK, the hand-rolled targets, and the second `Source/VST3` plugin). Kept for the history; see [BUILD.md](BUILD.md) — or `../BUILD.md` from `docs/` — for how it builds now.
+
 # Building a Native Audio Plugin — Architecture Guide
 
 **Purpose:** This document instructs a future developer (human or Claude) on how to
