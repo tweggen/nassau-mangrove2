@@ -34,7 +34,11 @@ Config MangrovePlugin::MakePluginConfig()
 }
 
 MangrovePlugin::MangrovePlugin(const InstanceInfo& info)
-    : Plugin(info, MakePluginConfig())
+    // Qualify iplug::Plugin: in the CLAP build the CLAP-helpers headers also
+    // define a `Plugin` template, so the unqualified name would be ambiguous.
+    // Same one-line fix nassau-eq and nassau-zermatt already carry; this repo
+    // only avoided it by never having built a CLAP target before.
+    : iplug::Plugin(info, MakePluginConfig())
 {
     GetParam(kInputGain)->InitDouble("Input Gain", 0., -24., 24., 0.01, "dB");
     GetParam(kInputLoCut)->InitDouble("Input Lo Cut", 80., 20., 300., 0.1, "Hz");
@@ -99,14 +103,27 @@ void MangrovePlugin::OnParamChange(int p)
 void MangrovePlugin::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
 {
     const int n = std::min(nFrames, kMaxBlockSize);
+
+    // PLUG_CHANNEL_IO is "1-1 2-2", so the host may connect ONE or two
+    // channels and NInChansConnected()/NOutChansConnected() report which.
+    // Reading inputs[1] unconditionally — which this did until the SDK
+    // migration — is an out-of-bounds read in the mono arrangement. The same
+    // guard, for the same documented reason, is in nassau-zermatt's
+    // ProcessBlock; the difference is that Zermatt's core is mono and
+    // CompressorChain is stereo, so a mono input is DUPLICATED into both
+    // sides here rather than summed, and only connected outputs are written.
+    const int nIn  = NInChansConnected();
+    const int nOut = NOutChansConnected();
+
     for (int i = 0; i < n; ++i) {
         mInL[i] = static_cast<float>(inputs[0][i]);
-        mInR[i] = static_cast<float>(inputs[1][i]);
+        mInR[i] = static_cast<float>(nIn > 1 ? inputs[1][i] : inputs[0][i]);
     }
     mChain.process(mInL, mInR, mOutL, mOutR, n);
     for (int i = 0; i < n; ++i) {
         outputs[0][i] = static_cast<sample>(mOutL[i]);
-        outputs[1][i] = static_cast<sample>(mOutR[i]);
+        if (nOut > 1)
+            outputs[1][i] = static_cast<sample>(mOutR[i]);
     }
 }
 

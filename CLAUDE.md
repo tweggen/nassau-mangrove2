@@ -7,6 +7,37 @@
 
 ---
 
+> ## ⚠️ BUILD INSTRUCTIONS BELOW ARE SUPERSEDED
+>
+> Mangrove now builds through the shared **nassau-plugin-sdk**, like every other
+> Nassau plugin. **[BUILD.md](BUILD.md) is the current build guide** — read it
+> instead of the build sections in this file.
+>
+> What changed, so the stale instructions below are recognisable as stale:
+>
+> - **`external/iplug2` and `external/vst3sdk` are gone.** The SDK owns them, at
+>   the identical pins (`7dfe7a96d`, `58f8da7`). Anything here that says
+>   `cd external/iplug2/...` no longer applies; provisioning happens in the SDK
+>   checkout.
+> - **One build, three formats.** `cmake -S . -B build` then `cmake --build build`
+>   emits `build/out/MangroveIPlug.{vst3,component,clap}` from one
+>   `nassau_add_plugin()` call. The separate CLAP route through
+>   `MangrovePlugin/CMakeLists.txt` with `-DIPLUG2_DIR=...`, and the `.sln`
+>   route, are no longer how CLAP is built.
+> - **`Source/VST3/` is removed** — it was an older duplicate of the plugin with
+>   its own `MangrovePlugin.cpp` and `config.h`. `Source/Plugin` is the plugin.
+> - **AU actually builds now.** Its target used to sit behind `if(FALSE)`.
+>
+> **Still unresolved, and NOT touched by the SDK migration:** this repo also
+> tracks `MangrovePlugin/` (127 files), `MangroveIPlug/` (132 files) and
+> `Source_Original/` — parallel copies of the plugin, three of which carry their
+> own `MangrovePlugin.cpp` and/or `config.h` — plus two committed build trees,
+> `build_phase5/` and `build_vst3/` (618 tracked files between them). Deciding
+> what of that is product and what is history is a separate task; until it is
+> done, **`Source/Plugin` is the one that builds and ships.**
+
+---
+
 ## Quick Start
 
 ### What is this project?
