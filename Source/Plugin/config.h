@@ -18,7 +18,7 @@
 // New UID avoids collision with native VST3 plugin (50D5F78F…9CD66A0C)
 #define PLUG_UID_STR  "50D5F78FCD0A5CE54E1CA6CC9CD66A0E"
 
-#define PLUG_CHANNEL_IO        "1-1 2-2"
+#define PLUG_CHANNEL_IO        "2-2"
 #define PLUG_LATENCY           0
 #define PLUG_IS_INSTRUMENT     0
 #define PLUG_DOES_MIDI_IN      0
@@ -49,8 +49,7 @@
 #define PLUG_BUNDLE_ID   "com.nassau.mangrove.iplug"
 
 // Required by iPlug2's CLAP descriptor (IPlug_include_in_plug_src.h). Absent
-// until now because this repo built VST3 and AU only; the VST3 and AU paths
-// never read them.
+// until now because this repo built VST3 and AU only; neither path reads them.
 #define PLUG_URL_STR       "https://github.com/tweggen/nassau-mangrove2"
 #define PLUG_EMAIL_STR     "support@nassau.audio"
 #define PLUG_COPYRIGHT_STR "Copyright 2026 Nassau"
