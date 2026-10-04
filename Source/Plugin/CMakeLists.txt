@@ -24,7 +24,26 @@
 # config.h lives here; the Info.plist templates moved into resources/ with the
 # <NAME>-<FORMAT>-Info.plist names iPlug2's AUv2/VST3/CLAP modules look for.
 
+# AU IS DEDUCTED FROM THIS LIST ON PURPOSE. Mangrove's Audio Unit builds and
+# registers, but its EDITOR CRASHES THE HOST: macOS's own auval segfaults
+# reproducibly at "VERIFYING CUSTOM UI" (exit 139, 2/2 runs), where
+# nassau-eq, nassau-zermatt and nassau-analogue all reach the same stage and
+# report AU VALIDATION SUCCEEDED.
+#
+# This is not a regression from the SDK migration. Mangrove's AU target had
+# never been built at all -- it sat behind `if(FALSE)` with the note
+# "Temporarily disabled - VST3 is the priority for Phase 5" -- so the first
+# time the format existed was the first time the defect could be seen, and the
+# suite's packaging gate is what saw it.
+#
+# A plugin format whose editor crashes the host must not ship, so VST3 and CLAP
+# go out and AU waits for an investigation. Put AU back in this list the moment
+# `auval -v aufx Mng5 Nss2` exits 0.
+#
+# The two Info.plist bugs that had to be fixed before the crash was even
+# reachable are fixed in resources/MangroveIPlug-AU-Info.plist and are kept,
+# because they are prerequisites for AU ever working and both are verified.
 nassau_add_plugin(MangroveIPlug
-    FORMATS VST3 AU CLAP
+    FORMATS VST3 CLAP
     SOURCES MangrovePlugin.cpp MangroveUI.cpp
     LINK    compressor_chain)
