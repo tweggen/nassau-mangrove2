@@ -34,6 +34,12 @@ build_*/
 *.log
 .vs/
 
+# clangd's index. A language server writes it beside the source it indexes and
+# it is not a build product, so neither the build-*/ patterns above nor the
+# per-file rules catch the .idx files. 172 of them were sitting untracked and
+# unignored in this checkout when the patterns above were written.
+.cache/
+
 # Skia build artifacts (large binaries, not checked in)
 external/iplug2/Dependencies/Build/
 !external/iplug2/Dependencies/build-skia-mac.sh
