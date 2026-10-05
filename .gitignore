@@ -1,22 +1,36 @@
+# CMake and IDE build output -- the GENERAL forms, not a list of names.
+#
+# This file named build directories one at a time, and a new one was always one
+# build ahead of the list. Two consequences, both measured:
+#
+#   * build_phase5/ and build_vst3/ sat in this repo's history until QBX-132
+#     untracked them: generated files, committed because nothing covered them
+#     at the time they first appeared.
+#   * MangroveIPlug/build-mac/ was never named, though its build-win/ sibling
+#     was. 210 of its 314 files matched no rule at all, so `git add -A` would
+#     have staged 138 MB of build output.
+#
+# The per-file rules below (*.o, *.a, *.dylib) are NOT a substitute. They cover
+# a build tree only incidentally and miss generated sources, CMake internals
+# and ninja state. qbx carries these same two patterns after the same leak
+# (qbx#220); ci/gates.sh's build-ci/ and build-ci-plugin/ are covered here too.
+#
+# The trailing slash is load-bearing: it matches directories only, so a FILE
+# named build-* stays tracked -- including
+# external/iplug2/Dependencies/build-skia-mac.sh, which the last line of this
+# file un-ignores on purpose.
 build/
-# ci/gates.sh writes these two. Listed BEFORE the script existed, because a
-# pattern added after a directory is already tracked does nothing (see the
-# build_phase5/ untracking in this same PR).
-build-ci/
-build-ci-plugin/
-build_xcode/
-build_phase5/
-build_vst3/
-build_clap_mac/
+build-*/
+build_*/
 *.o
 *.a
 *.so
 *.dylib
 .DS_Store
 
-# Windows / Visual Studio build output
-MangrovePlugin/build-win/
-MangroveIPlug/build-win/
+# Windows / Visual Studio output. The build-win/ directories under
+# MangrovePlugin/ and MangroveIPlug/ are covered by build-*/ above: a pattern
+# with no leading slash matches at any depth.
 *.log
 .vs/
 
