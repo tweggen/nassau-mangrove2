@@ -1,4 +1,9 @@
 build/
+# ci/gates.sh writes these two. Listed BEFORE the script existed, because a
+# pattern added after a directory is already tracked does nothing (see the
+# build_phase5/ untracking in this same PR).
+build-ci/
+build-ci-plugin/
 build_xcode/
 build_phase5/
 build_vst3/

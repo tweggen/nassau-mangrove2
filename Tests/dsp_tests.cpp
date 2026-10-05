@@ -5,6 +5,15 @@
 #include <cassert>
 #include <iostream>
 #include <cmath>
+// std::vector is used 14 times below and was never included: libc++ (macOS,
+// where this file was written) supplies it transitively through one of the
+// headers above, and libstdc++ does not. So this file compiled on the author's
+// machine and on no Linux host -- 49 errors, all cascading from the first
+// "'vector' is not a member of 'std'". It went unnoticed because this repo had
+// no CI at all (QBX-132). qbx carries the same rule in the opposite direction
+// and gates it: a file using std::max/sort/fill must include <algorithm>
+// itself, because libc++ does NOT provide that one transitively.
+#include <vector>
 
 int main() {
   std::cout << "=== Mangrove DSP Tests ===\n\n";
