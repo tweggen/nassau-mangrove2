@@ -107,7 +107,17 @@ cmake -S "$REPO_DIR" -B "$BUILD_DIR" \
     "${EXTRA_CMAKE_ARGS[@]+${EXTRA_CMAKE_ARGS[@]}}"
 
 say "Build"
-cmake --build "$BUILD_DIR" -j
+# --config as well as CMAKE_BUILD_TYPE, because the two kinds of generator read
+# different ones and this script deliberately lets CMAKE_GENERATOR choose:
+#
+#   single-config (Ninja, Makefiles)  -- CMAKE_BUILD_TYPE decides, --config ignored
+#   multi-config  (Visual Studio)     -- CMAKE_BUILD_TYPE IGNORED, --config decides
+#
+# Without this, a Visual Studio generator silently produced a DEBUG build while
+# the banner above said "Dev build (Release)" -- and CMake said so, in a warning
+# that reads like noise: "Manually-specified variables were not used by the
+# project: CMAKE_BUILD_TYPE". Passing both is correct for either generator.
+cmake --build "$BUILD_DIR" --config "$BUILD_TYPE" -j
 
 if [ -n "$RUN_TESTS" ]; then
     say "Test"
