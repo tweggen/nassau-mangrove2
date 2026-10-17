@@ -20,7 +20,7 @@
 >   `cd external/iplug2/...` no longer applies; provisioning happens in the SDK
 >   checkout.
 > - **One build, three formats.** `cmake -S . -B build` then `cmake --build build`
->   emits `build/out/MangroveIPlug.{vst3,component,clap}` from one
+>   emits `build/out/NassauMangrove2.{vst3,clap}` from one
 >   `nassau_add_plugin()` call. The separate CLAP route through
 >   `MangrovePlugin/CMakeLists.txt` with `-DIPLUG2_DIR=...`, and the `.sln`
 >   route, are no longer how CLAP is built.

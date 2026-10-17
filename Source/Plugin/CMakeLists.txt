@@ -12,14 +12,17 @@
 # — true when it was written, and no longer: the SDK drives iPlug2's CMake on
 # macOS and Windows for three other plugins.
 #
-# The target KEEPS THE NAME MangroveIPlug on purpose, even though the "IPlug"
-# suffix only ever existed to tell this target apart from the Source/VST3 one
-# that is now gone. Renaming it would change the bundle filename and the
-# CFBundleExecutable that resources/MangroveIPlug-*-Info.plist declare, which is
-# a product-visible change and not this migration's business. The plugin's
-# DISPLAY name is unaffected either way: that comes from config.h's
-# PLUG_NAME ("Mangrove"), as does the VST3 uid, so hosts see exactly what they
-# saw before.
+# The target is NassauMangrove2, which is the bundle filename and the
+# CFBundleExecutable that resources/NassauMangrove2-*-Info.plist declare, in
+# line with NassauEQ, NassauZermatt and NassauAnalogue. It used to be
+# MangroveIPlug, a name whose "IPlug" suffix only told it apart from a
+# Source/VST3 target that no longer exists; earlier still, the .sln route
+# installed it as MangrovePlugin. ONLY THE FILENAME CHANGED: the DISPLAY name
+# comes from config.h's PLUG_NAME ("Mangrove"), and the VST3 uid, the CLAP id
+# (com.Nassau.Mangrove) and the bundle identifiers are untouched, so saved
+# sessions still find the plugin. A copy installed under an old filename is the
+# SAME plugin to a host -- remove it, or the host's scan order picks which one
+# loads.
 #
 # config.h lives here; the Info.plist templates moved into resources/ with the
 # <NAME>-<FORMAT>-Info.plist names iPlug2's AUv2/VST3/CLAP modules look for.
@@ -41,9 +44,9 @@
 # `auval -v aufx Mng5 Nss2` exits 0.
 #
 # The two Info.plist bugs that had to be fixed before the crash was even
-# reachable are fixed in resources/MangroveIPlug-AU-Info.plist and are kept,
+# reachable are fixed in resources/NassauMangrove2-AU-Info.plist and are kept,
 # because they are prerequisites for AU ever working and both are verified.
-nassau_add_plugin(MangroveIPlug
+nassau_add_plugin(NassauMangrove2
     FORMATS VST3 CLAP
     SOURCES MangrovePlugin.cpp MangroveUI.cpp
     LINK    compressor_chain)

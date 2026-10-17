@@ -35,9 +35,9 @@ ctest --test-dir build --output-on-failure
 Bundles land in `build/out/`:
 
 ```
-build/out/MangroveIPlug.vst3        VST3
-build/out/MangroveIPlug.component   AU v2   (macOS only)
-build/out/MangroveIPlug.clap        CLAP
+build/out/NassauMangrove2.vst3        VST3
+build/out/NassauMangrove2.component   AU v2   (macOS only)
+build/out/NassauMangrove2.clap        CLAP
 ```
 
 ## Where the SDK comes from
