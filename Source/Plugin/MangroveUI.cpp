@@ -1,110 +1,95 @@
+// Mangrove editor. Three panels in signal order on one row, INPUT / LEVEL /
+// DENSITY, with LEVEL's four switches under its knobs.
+//
+// Built from nassau-plugin-sdk's shared editor style (include/nassau/
+// ui_style.h, docs/UI_STYLE.md): the metrics, text, control styles and
+// helpers are the SDK's; the palette and the panels are this plugin's.
+//
+// The ENTIRE body is inside #if IPLUG_EDITOR, so a headless build
+// (NASSAU_FORCE_HEADLESS) compiles this file to nothing.
+#if IPLUG_EDITOR
+
 #include "MangroveUI.h"
 #include "MangrovePlugin.h"
-#include "IControls.h"
-#include <cassert>
+#include "nassau/ui_style.h"
 
-using namespace iplug;
 using namespace iplug::igraphics;
+namespace nui = nassau::ui;
 
 void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
-    // Register the UI font under the id "default", by FAMILY NAME, on EVERY
-    // editor open. Same two bugs nassau-zermatt fixed in 7383dd9:
-    //
-    // 1. "Helvetica" does not exist on Windows. LoadFont returned false, every
-    //    IText referenced an unregistered font id, and the NanoVG editor drew
-    //    only the toggle bodies — no text, no knobs.
-    // 2. A `static bool` guard ran the load once per process, but IGraphics (and
-    //    its font storage) is recreated on every editor open, so the second
-    //    editor came up with no font even on macOS.
-    //
-    // Loading by family name (not file path) also avoids the Skia crash when
-    // measuring text that the old comment here guarded against.
-    static const char* const kFontFamilies[] = {
-#ifdef OS_WIN
-        "Segoe UI", "Arial", "Tahoma", "Verdana"
-#else
-        "Helvetica", "Arial"
-#endif
+    nui::LoadFont(ui);
+
+    // A dark mangrove green with a muted leaf-green accent: calm, and apart
+    // from the amber siblings (zermatt, analogue), eq's blue-grey and bloom's
+    // night blue.
+    const nui::Palette pal{
+        IColor(255, 16, 26, 22),     // bg
+        IColor(255, 26, 40, 34),     // panel
+        IColor(255, 214, 228, 218),  // text
+        IColor(255, 128, 150, 138),  // textDim
+        IColor(255, 74, 158, 120),   // accent
+        IColor(255, 42, 62, 54),     // knobFace
     };
-    bool fontLoaded = false;
-    for (const char* family : kFontFamilies) {
-        if (ui.LoadFont("default", family, ETextStyle::Normal)) {
-            fontLoaded = true;
-            break;
-        }
+
+    // ---- Size: derived, and checked against config.h ---------------------------
+    // One row of panels, INPUT 3 + LEVEL 4 + DENSITY 4 knob columns; its height
+    // is LEVEL's, the knob row plus the toggle row under it.
+    constexpr float rowH = nui::kPanelTitleH + nui::kKnobRowH + nui::kGap + nui::kToggleH;
+    constexpr float kEditorW = 11.f * nui::kKnobColW + 2.f * nui::kColGap + 2.f * nui::kMargin;
+    constexpr float kEditorH = 2.f * nui::kMargin + nui::kHeaderH + nui::kRowGap + rowH;
+    static_assert(kEditorW == static_cast<float>(PLUG_WIDTH), "PLUG_WIDTH does not match the layout");
+    static_assert(kEditorH == static_cast<float>(PLUG_HEIGHT), "PLUG_HEIGHT does not match the layout");
+
+    const IVStyle knob = nui::KnobStyle(pal);
+    const IVStyle tog = nui::ToggleStyle(pal);
+
+    ui.AttachPanelBackground(pal.bg);
+
+    // Header. Mangrove has no factory presets, so not nui::Header, which always
+    // adds the preset selector: an empty one would be a control that does
+    // nothing. Same rects and text styles, without the selector.
+    ui.AttachControl(new ITextControl(
+        IRECT(nui::kMargin + 2.f, nui::kMargin, nui::kMargin + 150.f, nui::kMargin + nui::kHeaderH), PLUG_NAME,
+        nui::HeaderText(pal)));
+    ui.AttachControl(new ITextControl(
+        IRECT(kEditorW - 66.f, nui::kMargin, kEditorW - nui::kMargin, nui::kMargin + nui::kHeaderH), "Nassau",
+        nui::BrandText(pal)));
+
+    const float x0 = nui::kMargin, x1 = kEditorW - nui::kMargin;
+    const float y1 = nui::kMargin + nui::kHeaderH + nui::kRowGap;
+    const auto row = nui::PanelRow(IRECT(x0, y1, x1, y1 + rowH), {3.f, 4.f, 4.f});
+    auto knobRow = [](const IRECT& area) { return IRECT(area.L, area.T, area.R, area.T + nui::kKnobRowH); };
+
+    // INPUT: gain, the low cut and the saturator ahead of the two compressors.
+    {
+        const IRECT a = nui::Panel(ui, pal, row[0], "INPUT");
+        nui::KnobRow(ui, knobRow(a), knob,
+                     { { kInputGain, "Gain" }, { kInputLoCut, "Lo Cut" }, { kInputSaturate, "Saturate" } });
     }
-    assert(fontLoaded && "No UI font could be loaded — all text will be invisible");
-    (void) fontLoaded;
+    // LEVEL: the levelling compressor, its four switches under the knobs.
+    {
+        const IRECT a = nui::Panel(ui, pal, row[1], "LEVEL");
+        const IRECT k = knobRow(a);
+        nui::KnobRow(ui, k, knob,
+                     { { kLevelThreshold, "Threshold" }, { kLevelRatio, "Ratio" }, { kLevelAttack, "Attack" },
+                       { kLevelRelease, "Release" } });
+        const float t = k.B + nui::kGap;
+        nui::ToggleRow(ui, IRECT(a.L, t, a.R, t + nui::kToggleH), tog,
+                       { { kLevelLoCut, "Lo Cut" }, { kLevelTubeGain, "Tube" }, { kLevelFeedback, "Feedback" },
+                         { kLevelFast, "Fast" } });
+    }
+    // DENSITY: the second compressor.
+    {
+        const IRECT a = nui::Panel(ui, pal, row[2], "DENSITY");
+        nui::KnobRow(ui, knobRow(a), knob,
+                     { { kDensityThreshold, "Threshold" }, { kDensityRatio, "Ratio" },
+                       { kDensityAttack, "Attack" }, { kDensityRelease, "Release" } });
+    }
 
-    const IColor bg(255, 40, 40, 40);
-    const IColor text(255, 220, 220, 220);
-
-    const IText header(24, text, "default");
-    const IText section(18, text, "default");
-    const IText knobLbl(14, text, "default");
-
-    const IVStyle toggleStyle = DEFAULT_STYLE
-        .WithValueText(IText(16, text, "default"))
-        .WithLabelText(IText(16, text, "default"));
-
-    // DEFAULT_STYLE's text names iPlug2's DEFAULT_FONT ("Roboto-Regular"),
-    // which IGraphics does not auto-load, so knobs must be pointed at "default".
-    const IVStyle knobStyle = DEFAULT_STYLE
-        .WithLabelText(IText(14, text, "default"))
-        .WithValueText(IText(12, text, "default"));
-
-    ui.AttachPanelBackground(bg);
-
-    // Header
-    ui.AttachControl(new ITextControl(IRECT(20,  10, 300, 40), "MANGROVE", header));
-    ui.AttachControl(new ITextControl(IRECT(500, 10, 620, 40), "Nassau",   header));
-
-    // Section headers
-    ui.AttachControl(new ITextControl(IRECT( 20, 60, 180, 80), "INPUT",   section));
-    ui.AttachControl(new ITextControl(IRECT(230, 60, 390, 80), "LEVEL",   section));
-    ui.AttachControl(new ITextControl(IRECT(440, 60, 600, 80), "DENSITY", section));
-
-    // INPUT section — x=20, same two-column grid as LEVEL and DENSITY. A third
-    // row at y=310 put the Saturate label at y=395..410, past PLUG_HEIGHT.
-    ui.AttachControl(new IVKnobControl(IRECT(20,  90, 90, 170), kInputGain, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(20, 175, 90, 190), "Gain",     knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(100,  90, 170, 170), kInputSaturate, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(100, 175, 170, 190), "Saturate", knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(20, 200, 90, 280), kInputLoCut, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(20, 285, 90, 300), "LoCut",    knobLbl));
-
-    // LEVEL section — x=230
-    ui.AttachControl(new IVKnobControl(IRECT(230,  90, 300, 170), kLevelThreshold, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(230, 175, 300, 190), "Thresh",  knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(310,  90, 380, 170), kLevelRatio, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(310, 175, 380, 190), "Ratio",   knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(230, 200, 300, 280), kLevelAttack, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(230, 285, 300, 300), "Attack",  knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(310, 200, 380, 280), kLevelRelease, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(310, 285, 380, 300), "Release", knobLbl));
-
-    // Level toggles — 4 across the LEVEL column (x=230..389), labels drawn by control itself
-    ui.AttachControl(new IVToggleControl(IRECT(230, 315, 266, 380), kLevelLoCut,    "LoCut", toggleStyle));
-    ui.AttachControl(new IVToggleControl(IRECT(271, 315, 307, 380), kLevelTubeGain, "Tube",  toggleStyle));
-    ui.AttachControl(new IVToggleControl(IRECT(312, 315, 348, 380), kLevelFeedback, "FB",    toggleStyle));
-    ui.AttachControl(new IVToggleControl(IRECT(353, 315, 389, 380), kLevelFast,     "Fast",  toggleStyle));
-
-    // DENSITY section — x=440
-    ui.AttachControl(new IVKnobControl(IRECT(440,  90, 510, 170), kDensityThreshold, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(440, 175, 510, 190), "Thresh",  knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(520,  90, 590, 170), kDensityRatio, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(520, 175, 590, 190), "Ratio",   knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(440, 200, 510, 280), kDensityAttack, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(440, 285, 510, 300), "Attack",  knobLbl));
-
-    ui.AttachControl(new IVKnobControl(IRECT(520, 200, 590, 280), kDensityRelease, "", knobStyle));
-    ui.AttachControl(new ITextControl (IRECT(520, 285, 590, 300), "Release", knobLbl));
+#ifndef NDEBUG
+    nui::CheckBindings(ui, kNumParams, PLUG_NAME);
+#endif
 }
+
+#endif // IPLUG_EDITOR
