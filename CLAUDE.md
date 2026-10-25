@@ -265,6 +265,19 @@ build path.
 - `Source/Plugin/MangroveUI.cpp` — Skia/IGraphics UI implementation
 - `Source/Plugin/config.h` — IGraphics / plugin configuration (`PLUG_HAS_UI=1`)
 
+### Editor layout
+The editor follows nassau-plugin-sdk's shared editor style (`docs/UI_STYLE.md`,
+implemented in `include/nassau/ui_style.h`): the SDK supplies the metrics, text,
+control styles and layout helpers; Mangrove keeps its own palette (dark mangrove
+green, leaf-green accent) and its panels. One row of panels in signal order,
+INPUT (3 knobs) / LEVEL (4 knobs, its 4 switches below) / DENSITY (4 knobs), so
+the window is 736 x 180. The size is computed in `MangroveUI.cpp` from the
+style's metrics and `static_assert`ed against `PLUG_WIDTH` / `PLUG_HEIGHT`:
+change the panels and the build tells you to change `config.h`. Every parameter
+has exactly one control, which a Debug build checks on every editor open
+(`nassau::ui::CheckBindings`, printed to stderr). There is no preset selector,
+because Mangrove has no factory presets.
+
 ### Recent Changes
 - `e0f94c8` (May 23): Phase 5 — IPlug2 GUI wrapper for VST3 + AUv2
 - `9645a2f` (May 23): Add Level "Fast" toggle for 0-sample attack reaction
@@ -324,7 +337,8 @@ build path.
 2. Add internal state: `std::atomic<float> _newParam{default};`
 3. Update `process()` to use parameter
 4. Add test case in `Tests/dsp_tests.cpp`
-5. Add UI slider in `MangroveUI.cpp`
+5. Add its one control to a panel in `MangroveUI.cpp` (the Debug binding check
+   fails until you do), and fix `PLUG_WIDTH` / `PLUG_HEIGHT` if the static_assert says so
 
 ### Debug Audio Issues
 1. Check `getMeterData()` — are meters showing expected values?

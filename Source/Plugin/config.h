@@ -30,8 +30,11 @@
 #define PLUG_N_PRESETS  1
 
 #define PLUG_HAS_UI     1
-#define PLUG_WIDTH      640
-#define PLUG_HEIGHT     400
+// The editor size follows from the layout in MangroveUI.cpp, which
+// static_asserts both against these: one row of panels, 11 knob columns wide,
+// a knob row plus a toggle row high (nassau-plugin-sdk docs/UI_STYLE.md §5).
+#define PLUG_WIDTH      736
+#define PLUG_HEIGHT     180
 #define PLUG_FPS        60
 
 #define PLUG_SHARED_RESOURCES_SUBPATH "Mangrove"
