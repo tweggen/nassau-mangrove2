@@ -27,7 +27,11 @@ Config MangrovePlugin::MakePluginConfig()
         PLUG_WIDTH,
         PLUG_HEIGHT,
         false,
-        0, 0, 0, 0,
+        // The editor's min/max width and height. NOT 0, 0, 0, 0: iPlug2
+        // replays the remembered size through IGraphics::Resize on every
+        // reopen, which clamps to these, so zeros make every editor after
+        // the first one 0x0 (QBX-219).
+        PLUG_WIDTH, PLUG_WIDTH, PLUG_HEIGHT, PLUG_HEIGHT,
         PLUG_BUNDLE_ID,
         ""
     );
