@@ -20,15 +20,15 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 {
     nui::LoadFont(ui);
 
-    // A dark mangrove green with a muted leaf-green accent: calm, and apart
-    // from the amber siblings (zermatt, analogue), eq's blue-grey and bloom's
-    // night blue.
+    // A dark mangrove green with a leaf-green accent: calm, and apart from the
+    // amber siblings (zermatt, analogue), eq's blue-grey and bloom's night
+    // blue. The "On" text on the accent takes the dark ink (nui::InkOn).
     const nui::Palette pal{
         IColor(255, 16, 26, 22),     // bg
         IColor(255, 26, 40, 34),     // panel
         IColor(255, 214, 228, 218),  // text
         IColor(255, 128, 150, 138),  // textDim
-        IColor(255, 74, 158, 120),   // accent
+        IColor(255, 110, 196, 140),  // accent
         IColor(255, 42, 62, 54),     // knobFace
     };
 
@@ -46,15 +46,8 @@ void MangroveUI::Layout(IGraphics& ui, MangrovePlugin& /*plugin*/)
 
     ui.AttachPanelBackground(pal.bg);
 
-    // Header. Mangrove has no factory presets, so not nui::Header, which always
-    // adds the preset selector: an empty one would be a control that does
-    // nothing. Same rects and text styles, without the selector.
-    ui.AttachControl(new ITextControl(
-        IRECT(nui::kMargin + 2.f, nui::kMargin, nui::kMargin + 150.f, nui::kMargin + nui::kHeaderH), PLUG_NAME,
-        nui::HeaderText(pal)));
-    ui.AttachControl(new ITextControl(
-        IRECT(kEditorW - 66.f, nui::kMargin, kEditorW - nui::kMargin, nui::kMargin + nui::kHeaderH), "Nassau",
-        nui::BrandText(pal)));
+    // Mangrove has no factory presets, so no (empty) preset selector.
+    nui::Header(ui, pal, PLUG_NAME, kEditorW, 150.f, /*presets=*/false);
 
     const float x0 = nui::kMargin, x1 = kEditorW - nui::kMargin;
     const float y1 = nui::kMargin + nui::kHeaderH + nui::kRowGap;
